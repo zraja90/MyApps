@@ -185,6 +185,7 @@
     <Compile Include="Core\Fakes\FakeHttpSessionState.cs" />
     <Compile Include="Core\Fakes\FakeIdentity.cs" />
     <Compile Include="Core\Fakes\FakePrincipal.cs" />
+    <Compile Include="Data\EfRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\SqlWrap.cs" />

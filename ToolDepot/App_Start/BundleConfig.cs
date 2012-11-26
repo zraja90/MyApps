@@ -26,12 +26,9 @@ namespace ToolDepot
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.min.js"));
             //bundles.Add(new StyleBundle("~/Content/assets/bootstrap").Include("~/assets/css/bootstrap.min.css"));
 
-            var bootstrapCss = new StyleBundle("~/Content/bootstrapcss").Include("~/Content/bootstrap.css", "~/Content/Site.less");
+            var bootstrapCss = new StyleBundle("~/Content/bootstrapcss").Include("~/Content/bootstrap.css", "~/Content/site.less");
 
             bundles.Add(bootstrapCss);
-
-
-
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

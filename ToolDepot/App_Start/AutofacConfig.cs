@@ -4,6 +4,8 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using ToolDepot.Core.Fakes;
+using ToolDepot.Data;
+using ToolDepot.Models;
 
 namespace ToolDepot.App_Start
 {
@@ -61,8 +63,11 @@ namespace ToolDepot.App_Start
 
         private static void InitService(ContainerBuilder builder)
         {
+            //data
+            builder.Register<IDbContext>(c => new UsersContext()).InstancePerHttpRequest();
+            builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerHttpRequest();
             //services
-            var assembly = Assembly.Load("/Services");
+            var assembly = Assembly.Load("ToolDepot");
 
             builder.RegisterAssemblyTypes(assembly)
                 .Where(t => t.Name.EndsWith("Service"))

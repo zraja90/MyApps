@@ -24,7 +24,14 @@ namespace ToolDepot.Controllers
         {
             if (ModelState.IsValid)
             {
-                _underConstructionService.Add(model); 
+                if (!string.IsNullOrEmpty(model.EmailAddress))
+                {
+                    _underConstructionService.Add(model);
+                }
+                else
+                {
+                    return View();
+                }
             }
 
             return View();
