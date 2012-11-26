@@ -189,6 +189,9 @@
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\SqlWrap.cs" />
+    <Compile Include="Filters\Helpers\ImportedFilePathResolver.cs" />
+    <Compile Include="Filters\Helpers\LessMinify.cs" />
+    <Compile Include="Filters\Helpers\NotificationHelper.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -199,6 +202,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\NotifyType.cs" />
     <Compile Include="Models\UnderConstructionModel.cs" />
     <Compile Include="Models\UsersContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -276,6 +280,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Views\Web.config" />
+    <None Include="Properties\PublishProfiles\tooldepot - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\tooldepot - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -336,6 +342,7 @@
     <Content Include="Views\Home\Demo1.cshtml" />
     <Content Include="Views\Home\Demo2.cshtml" />
     <Content Include="Views\Home\Demo3.cshtml" />
+    <Content Include="Views\Shared\_Notifications.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

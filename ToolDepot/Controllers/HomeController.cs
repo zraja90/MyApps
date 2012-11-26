@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using ToolDepot.Filters.Helpers;
 using ToolDepot.Models;
 using ToolDepot.Services;
 
@@ -27,6 +28,7 @@ namespace ToolDepot.Controllers
                 if (!string.IsNullOrEmpty(model.EmailAddress))
                 {
                     _underConstructionService.Add(model);
+                    this.SuccessNotification("Thank You for Subscribing. You will receive an email with updates very soon.");
                 }
                 else
                 {

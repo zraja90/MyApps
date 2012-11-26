@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Optimization;
+using ToolDepot.Filters.Helpers;
 
 namespace ToolDepot
 {
@@ -23,11 +24,16 @@ namespace ToolDepot
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
             //bundles.Add(new StyleBundle("~/Content/assets/bootstrap").Include("~/assets/css/bootstrap.min.css"));
 
-            var bootstrapCss = new StyleBundle("~/Content/bootstrapcss").Include("~/Content/bootstrap.css", "~/Content/site.less");
+            var less = new StyleBundle("~/Content/less").Include("~/Content/site.less");
+            
+            less.Transforms.Add(new LessMinify());
 
+            bundles.Add(less);
+
+            var bootstrapCss = new StyleBundle("~/Content/bootstrapcss").Include("~/Content/bootstrap.css");
             bundles.Add(bootstrapCss);
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
@@ -43,6 +49,8 @@ namespace ToolDepot
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+
         }
     }
 }
