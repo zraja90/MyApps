@@ -1,4 +1,24 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+<div>
+    <div class="under-construction span4">
+        <img src="/Content/images/Under_Construction.jpg" class="image" />
+    </div>
+    <div class="span8 ">
+        <div class="alert alert-info">
+            For updates please enter your email address below
+        </div>
+        <div class="well">
+            @using (Html.BeginForm(new {@class="form-inline"}))
+            {
+                <fieldset>
+                    <legend class="hide"></legend>
+                    <input type="email" placeholder="Enter Your Email Address" />
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </fieldset>
+            }
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
