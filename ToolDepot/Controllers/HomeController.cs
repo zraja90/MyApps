@@ -1,10 +1,18 @@
 ﻿using System.Web.Mvc;
 using ToolDepot.Models;
+using ToolDepot.Services;
 
 namespace ToolDepot.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IUnderConstructionService _underConstructionService;
+
+        public HomeController(IUnderConstructionService underConstructionService)
+        {
+            _underConstructionService = underConstructionService;
+        }
+
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
@@ -16,7 +24,7 @@ namespace ToolDepot.Controllers
         {
             if (ModelState.IsValid)
             {
-                var email = model.EmailAddress;
+                _underConstructionService.Add(model); 
             }
 
             return View();
