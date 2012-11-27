@@ -191,6 +191,7 @@
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\magnify.png" />
     <Content Include="Content\images\ToolDepotLogo.jpg" />
     <Content Include="Content\site.less" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

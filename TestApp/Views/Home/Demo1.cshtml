@@ -4,114 +4,72 @@
     ViewBag.Title = "title";
 }
 <style>
+    .slot {
+        margin: 0 auto;
+        display: block;
+    }
+    .slot:nth-child(4n+1) {
+        margin-left: 0;
+    }
     .ad-slot {
-        border: 2px solid #ccc;
-        padding: 5px;
-        margin: 10px;
+        position: relative;
+
     }
 
-        .ad-slot .image {
-            height: 115px;
-            width: 170px;
+    .magnify {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url(/content/images/magnify.png) no-repeat 50% 50%;
+        z-index: 1;
+    }
+
+     .aLink {
+        display: inline-block;
+        border: 1px solid white;
+        box-shadow: 0 1px 0 #BCB9B1;
+    }
+
+    .ad-slot .image {
+        height: 240px;
+        width: 220px;
+    }
+
+    .title {
+        font-size: 18px;
+        line-height: 21px;
+        color: #7D7970;
+        font-style: italic;
+    }
+
+        .title .title-link {
+            display: block;
         }
 
-        .ad-slot .title {
-        }
-
-            .ad-slot .title .title-link {
-                display: block;
-            }
-
-        .ad-slot .description {
-        }
+    .description {
+    }
 </style>
-<h2>Demo 1</h2>
-
-<div class="pull-left ad-slot">
-    <img src="/Content/images/logo.jpg" class="image" />
-    <div class="title">
-        <h4 class="margin-bottom-5">
-            @Html.ActionLink("Title", "Demo2", "Home", null, new { @class = "title-link" })
-        </h4>
+<div >
+@for (int i = 1; i < 11; i++)
+{
+    <div class="span3 margin-bottom slot">
+        <div class="ad-slot">
+            <a href="#" class="aLink margin-bottom">
+                <img src="/Content/images/logo.jpg" class="image" />
+                <span class="magnify"></span>
+            </a>
+        </div>
+        <div class="title margin-bottom-10">
+            Product Name @i
+            @*@Html.ActionLink("Title", "Demo2", "Home", null, new { @class = "title-link" })*@
+        </div>
+        <p class="description">
+            Minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo con-
+        </p>
+        <button class="btn btn-primary">More</button>
     </div>
-    <p class="description">
-        <small>Short Description</small>
-    </p>
-</div>
-<div class="pull-left ad-slot">
-    <img src="/Content/images/logo.jpg" class="image" />
-    <div class="title">
-        <h4 class="margin-bottom-5">
-            @Html.ActionLink("Title", "Demo2", "Home", null, new { @class = "title-link" })
-        </h4>
-    </div>
-    <p class="description">
-        <small>Short Description</small>
-    </p>
-</div>
-<div class="pull-left ad-slot">
-    <img src="/Content/images/logo.jpg" class="image" />
-    <div class="title">
-        <h4 class="margin-bottom-5">
-            @Html.ActionLink("Title", "Demo2", "Home", null, new { @class = "title-link" })
-        </h4>
-    </div>
-    <p class="description">
-        <small>Short Description</small>
-    </p>
-</div>
-<div class="pull-left ad-slot">
-    <img src="/Content/images/logo.jpg" class="image" />
-    <div class="title">
-        <h4 class="margin-bottom-5">
-            @Html.ActionLink("Title", "Demo2", "Home", null, new { @class = "title-link" })
-        </h4>
-    </div>
-    <p class="description">
-        <small>Short Description</small>
-    </p>
-</div>
-<div class="pull-left ad-slot">
-    <img src="/Content/images/logo.jpg" class="image" />
-    <div class="title">
-        <h4 class="margin-bottom-5">
-            @Html.ActionLink("Title", "Demo2", "Home", null, new { @class = "title-link" })
-        </h4>
-    </div>
-    <p class="description">
-        <small>Short Description</small>
-    </p>
-</div>
-<div class="pull-left ad-slot">
-    <img src="/Content/images/logo.jpg" class="image" />
-    <div class="title">
-        <h4 class="margin-bottom-5">
-            @Html.ActionLink("Title", "Demo2", "Home", null, new { @class = "title-link" })
-        </h4>
-    </div>
-    <p class="description">
-        <small>Short Description</small>
-    </p>
-</div>
-<div class="pull-left ad-slot">
-    <img src="/Content/images/logo.jpg" class="image" />
-    <div class="title">
-        <h4 class="margin-bottom-5">
-            @Html.ActionLink("Title", "Demo2", "Home", null, new { @class = "title-link" })
-        </h4>
-    </div>
-    <p class="description">
-        <small>Short Description</small>
-    </p>
-</div>
-<div class="pull-left ad-slot">
-    <img src="/Content/images/logo.jpg" class="image" />
-    <div class="title">
-        <h4 class="margin-bottom-5">
-            @Html.ActionLink("Title", "Demo2", "Home", null, new { @class = "title-link" })
-        </h4>
-    </div>
-    <p class="description">
-        <small>Short Description</small>
-    </p>
+}
 </div>
