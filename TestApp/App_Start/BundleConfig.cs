@@ -1,7 +1,7 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
+using TestApp.Filters.Helpers;
 
-namespace TestApp
+namespace TestApp.App_Start
 {
     public class BundleConfig
     {
@@ -23,15 +23,17 @@ namespace TestApp
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
             //bundles.Add(new StyleBundle("~/Content/assets/bootstrap").Include("~/assets/css/bootstrap.min.css"));
 
-            var bootstrapCss = new StyleBundle("~/Content/bootstrapcss").Include("~/Content/bootstrap.css", "~/Content/Site.less");
+            var less = new StyleBundle("~/Content/less").Include("~/Content/site.less");
 
+            less.Transforms.Add(new LessMinify());
+
+            bundles.Add(less);
+
+            var bootstrapCss = new StyleBundle("~/Content/bootstrapcss").Include("~/Content/bootstrap.css");
             bundles.Add(bootstrapCss);
-
-
-
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
@@ -46,6 +48,8 @@ namespace TestApp
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+
         }
     }
 }

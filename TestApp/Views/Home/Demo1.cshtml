@@ -3,40 +3,91 @@
 @{
     ViewBag.Title = "title";
 }
+<div>
+    @for (int i = 1; i < 11; i++)
+    {
+        <div class="span3 margin-bottom ad-slot">
+            <div class="image-holder">
+                <a href="#@i" class="margin-bottom" data-toggle="modal">
+                    <img src="/Content/images/logo.jpg" class="image" />
+                </a>
+            </div>
+            <div class="title margin-bottom-10">
+                Product Name @i
+            </div>
+            <p class="description">
+                Minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo con-
+            </p>
+            <button class="btn btn-primary">More</button>
+        </div>
+    }
+    @for (int i = 1; i < 11; i++)
+    { 
+        <div class="hide modal" id="@i">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Modal header</h3>
+            </div>
+            <div class="modal-body">
+                <p>One fine body…</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    }
+
+</div>
+<script>
+    $(function () {
+        // image fade
+        $(".image-holder a").append("<span class='magnify'></span>");
+
+        $(".image-holder a").hover(function () {
+            $(this).find("img").stop().animate({ opacity: 0.5 }, "normal");
+        }, function () {
+            $(this).find("img").stop().animate({ opacity: 1 }, "normal");
+        });
+    });
+</script>
 <style>
-    .slot {
+    .ad-slot {
         margin: 0 auto;
         display: block;
     }
-    .slot:nth-child(4n+1) {
-        margin-left: 0;
-    }
-    .ad-slot {
+
+        .ad-slot:nth-child(4n+1) {
+            margin-left: 0;
+        }
+
+    .image-holder {
         position: relative;
-
     }
 
-    .magnify {
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: url(/content/images/magnify.png) no-repeat 50% 50%;
-        z-index: 1;
-    }
+        .image-holder a {
+            display: inline-block;
+            border: 1px solid white;
+            box-shadow: 0 1px 0 #BCB9B1;
+        }
 
-     .aLink {
-        display: inline-block;
-        border: 1px solid white;
-        box-shadow: 0 1px 0 #BCB9B1;
-    }
+            .image-holder a span {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: url(/content/images/magnify.png) no-repeat 50% 50%;
+                z-index: 1;
+            }
 
-    .ad-slot .image {
-        height: 240px;
-        width: 220px;
-    }
+        .image-holder .image {
+            height: 240px;
+            width: 220px;
+            position: relative;
+            z-index: 2;
+        }
 
     .title {
         font-size: 18px;
@@ -52,24 +103,3 @@
     .description {
     }
 </style>
-<div >
-@for (int i = 1; i < 11; i++)
-{
-    <div class="span3 margin-bottom slot">
-        <div class="ad-slot">
-            <a href="#" class="aLink margin-bottom">
-                <img src="/Content/images/logo.jpg" class="image" />
-                <span class="magnify"></span>
-            </a>
-        </div>
-        <div class="title margin-bottom-10">
-            Product Name @i
-            @*@Html.ActionLink("Title", "Demo2", "Home", null, new { @class = "title-link" })*@
-        </div>
-        <p class="description">
-            Minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo con-
-        </p>
-        <button class="btn btn-primary">More</button>
-    </div>
-}
-</div>
