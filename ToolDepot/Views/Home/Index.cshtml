@@ -1,9 +1,9 @@
 ﻿@model ToolDepot.Models.UnderConstructionModel
 
 @{
-    ViewBag.Title = "Home Page";
-    ViewBag.Description = "Description";
-    ViewBag.Keywords = "Keywords";
+    ViewBag.Title = "Tool Depot Inc";
+    ViewBag.Description = "Tool Rentals, Equipment Rentals, Tool Sales, Equipment Sales, Repair Services, Hardware, Machinery Tools, Power Tools, Boom Lift";
+    ViewBag.Keywords = "Tool Rentals, Equipment Rentals, Tool Sales, Equipment Sales, Repair Services, Hardware, Machinery Tools, Power Tools, Boom Lift";
 }
 <div id="homePage">
     <div class="under-construction span4">
@@ -18,7 +18,7 @@
                 <div class="form-inline">
                     <fieldset>
                         <legend class="hide"></legend>
-                        @Html.TextBoxFor(m=>m.EmailAddress,new {placeholder="Enter Your Email Address",type="email", required=""})
+                        @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "Enter Your Email Address", type = "email", required = "" })
                         @Html.ValidationMessageFor(m => m.EmailAddress)
                         <input type="submit" class="btn btn-primary" value="Submit">
                     </fieldset>
@@ -29,6 +29,6 @@
     <div class="clearfix"></div>
 </div>
 <div>
-<img class="margin brochure" src="/Content/images/Brochure.jpg" alt="Brochure" />
-<div class="caption margin brochure">Prices and offers are subject to change.</div>
-    </div>
+    <img class="margin brochure" src="/Content/images/Brochure.jpg" alt="Brochure" />
+    <div class="caption margin brochure">Prices and offers are subject to change.</div>
+</div>
