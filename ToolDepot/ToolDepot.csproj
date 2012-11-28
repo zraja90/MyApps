@@ -346,10 +346,8 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Common\Footer.cshtml" />
     <Content Include="Views\Common\Header.cshtml" />
-    <Content Include="Views\Home\Demo1.cshtml" />
-    <Content Include="Views\Home\Demo2.cshtml" />
-    <Content Include="Views\Home\Demo3.cshtml" />
     <Content Include="Views\Shared\_Notifications.cshtml" />
+    <Content Include="Views\Home\UnderConstruction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
