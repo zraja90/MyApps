@@ -16,12 +16,18 @@ namespace ToolDepot.Controllers
 
         public ActionResult Index()
         {
+            return RedirectToAction("UnderConstruction");
+        }
+
+        public ActionResult UnderConstruction()
+        {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();
         }
+
         [HttpPost]
-        public ActionResult Index(UnderConstructionModel model)
+        public ActionResult UnderConstruction(UnderConstructionModel model)
         {
             if (ModelState.IsValid)
             {
@@ -32,7 +38,7 @@ namespace ToolDepot.Controllers
                 }
                 else
                 {
-                    return View();
+                    this.ErrorNotification("The email address entered is invalid");
                 }
             }
 
