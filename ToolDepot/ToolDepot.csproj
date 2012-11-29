@@ -289,6 +289,8 @@
     <Content Include="Areas\Admin\Views\Web.config" />
     <None Include="Properties\PublishProfiles\tooldepot - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepot - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\tooldepotinc.com - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\tooldepotinc.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
