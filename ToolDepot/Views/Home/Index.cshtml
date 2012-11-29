@@ -1,34 +1,26 @@
 ﻿@model ToolDepot.Models.UnderConstructionModel
 
 @{
-    ViewBag.Title = "Tool Depot Inc";
+    ViewBag.Title = "Tool Rental, Equipment, Repair Services | Tool Depot Inc";
     ViewBag.Description = "Tool Rentals, Equipment Rentals, Tool Sales, Equipment Sales, Repair Services, Hardware, Machinery Tools, Power Tools, Boom Lift";
     ViewBag.Keywords = "Tool Rentals, Equipment Rentals, Tool Sales, Equipment Sales, Repair Services, Hardware, Machinery Tools, Power Tools, Boom Lift";
 }
-<div id="homePage">
-    <div class="under-construction span4">
-        <img alt="Under Construction" src="/Content/images/Under_Construction.jpg" class="image" />
-    </div>
-    <div class="span8 ">
-        <div class="alert alert-info">
-            <h2>Subscribe to updates</h2>
-            <p>Get all the latest updates on progress on our website and an email when we launch</p>
-            @using (Html.BeginForm())
-            {
-                <div class="form-inline">
-                    <fieldset>
-                        <legend class="hide"></legend>
-                        @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "Enter Your Email Address", type = "email", required = "" })
-                        @Html.ValidationMessageFor(m => m.EmailAddress)
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                    </fieldset>
-                </div>
-            }
+
+<div class="span12">
+    @for (int i = 1; i <= 4; i++)
+    {
+        <div class="span3">
+            <div style="position: relative">Power Tools @i <img src="/Content/images/BoschDrill.jpg" style="height: 100px; width:105px"/></div>
+            <ul class="unstyled">
+                @for (int j = 1; j <= 4; j++)
+                {
+                    <li>
+                        <a href="#">
+                            Tool @j
+                        </a>
+                    </li>
+                }
+            </ul>
         </div>
-    </div>
-    <div class="clearfix"></div>
-</div>
-<div>
-    <img class="margin brochure" src="/Content/images/Brochure.jpg" alt="Brochure" />
-    <div class="caption margin brochure">Prices and offers are subject to change.</div>
+    }
 </div>

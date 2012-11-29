@@ -16,7 +16,8 @@ namespace ToolDepot.Controllers
 
         public ActionResult Index()
         {
-            return RedirectToAction("UnderConstruction");
+            //return RedirectToAction("UnderConstruction");
+            return View();
         }
 
         public ActionResult UnderConstruction()

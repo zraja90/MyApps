@@ -1,6 +1,6 @@
 ﻿<header id="topNavHeader">
     <div class="container">
-        <div class="pull-left brand margin-right">
+        <div class="pull-left brand margin-right" style="background: #d1520d">
             <a href="@Url.Action("Index", "Home")" class="brand">
                 <img src="/content/images/ToolDepotLogo.jpg" class="logo" alt="logo" />
             </a>
@@ -9,6 +9,9 @@
             <ul>
                 <li id="home">
                     @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>
+                    @Html.ActionLink("Request A Quote","RequestQuote","Products")
                 </li>
             </ul>
         </nav>
