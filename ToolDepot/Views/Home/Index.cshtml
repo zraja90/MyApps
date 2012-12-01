@@ -6,17 +6,36 @@
     ViewBag.Keywords = "Tool Rentals, Equipment Rentals, Tool Sales, Equipment Sales, Repair Services, Hardware, Machinery Tools, Power Tools, Boom Lift";
 }
 
+<div id="myCarousel" class="carousel slide">
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="active item">
+            Tool Depot Inc. <br/>
+            Your One Stop Shop for Tools
+        </div>
+        <div class="item">
+            <img src="/Content/images/BoschDrill.jpg"/>
+        </div>
+        <div class="item">
+            <img src="/Content/images/BoschDrill.jpg"/>
+        </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
 <div class="span12">
     @for (int i = 1; i <= 4; i++)
     {
         <div class="span3">
-            <div style="position: relative">Power Tools @i <img src="/Content/images/BoschDrill.jpg" style="height: 100px; width:105px"/></div>
+            <div style="position: relative">Power Tools @i
+                <img src="/Content/images/BoschDrill.jpg" style="height: 100px; width: 105px" /></div>
             <ul class="unstyled">
                 @for (int j = 1; j <= 4; j++)
                 {
                     <li>
-                        <a href="#">
-                            Tool @j
+                        <a href="#">Tool @j
                         </a>
                     </li>
                 }
