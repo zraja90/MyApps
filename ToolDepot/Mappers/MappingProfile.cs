@@ -15,10 +15,6 @@ namespace ToolDepot.Mappers
             //Product
             Mapper.CreateMap<Product, ProductModel>();
             Mapper.CreateMap<ProductModel, Product>();
-            
-
-
-
         }
     }
 }

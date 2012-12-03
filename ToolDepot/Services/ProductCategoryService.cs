@@ -15,18 +15,18 @@ namespace ToolDepot.Services
         {
 
         }
-        public SelectList GetProductCategorySelectList(string extraItem = null)
+        public SelectList GetProductCategorySelectList(string selectedValue, string extraItem = null)
         {
-            var list = GetAll();
+            var list = GetAll().ToList();
 
             if (!string.IsNullOrEmpty(extraItem))
             {
                 var categoryField = new ProductCategory
                     {
                         CategoryId = 0,
-                        CategoryName = "Please Select"
+                        CategoryName = extraItem
                     };
-                //list.Insert(0, categoryField);
+                list.Insert(0, categoryField);
             }
 
 

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using ToolDepot.Helpers;
+using ToolDepot.Services;
 
 namespace ToolDepot.Models.Products
 {
@@ -16,5 +19,12 @@ namespace ToolDepot.Models.Products
         public bool IsFeatured { get; set; }
         public DateTime CreatedDate { get; set; }
         public string Category { get; set; }
+
+        public SelectList AllCategory { get; set; }
+
+        public void PopulateSelectList(IProductCategoryService productCategoryService)
+        {
+            productCategoryService.GetProductCategorySelectList(Category, GlobalHelper.SelectListDefaultOption);
+        }
     }
 }

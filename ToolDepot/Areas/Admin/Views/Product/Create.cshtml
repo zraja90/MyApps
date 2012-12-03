@@ -1,5 +1,4 @@
-﻿@using ToolDepot.Helpers.Extensions
-@model ToolDepot.Models.Product
+﻿@model ToolDepot.Models.Products.ProductModel
 
 @{
     ViewBag.Title = "Create";
@@ -38,7 +37,11 @@
         <div class="control-group">
             @Html.LabelFor(model => model.Category, new { @class = "control-label" })
             <div class="controls">
-              
+                @if(@Model.AllCategory!=null)
+                {
+                    @Html.DropDownListFor(model => model.Category, Model.AllCategory)
+                    @Html.ValidationMessageFor(model => model.Category)
+                }
             </div>
         </div>
         <div class="control-group">
