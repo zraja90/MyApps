@@ -1,8 +1,10 @@
-﻿using ToolDepot.Models;
+﻿using System.Web.Mvc;
+using ToolDepot.Models;
 
 namespace ToolDepot.Services
 {
-    public interface IProductService : ICrudService<ProductModel>
+    public interface IProductService : ICrudService<Product>
     {
+        
     }
 }

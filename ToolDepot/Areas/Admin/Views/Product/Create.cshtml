@@ -1,0 +1,82 @@
+﻿@using ToolDepot.Helpers.Extensions
+@model ToolDepot.Models.Product
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <div class="form-horizontal">
+        <div class="control-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Description)
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.Image, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Image)
+                @Html.ValidationMessageFor(model => model.Image)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.Category, new { @class = "control-label" })
+            <div class="controls">
+              
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.ProductFeatures, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.ProductFeatures)
+                @Html.ValidationMessageFor(model => model.ProductFeatures)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.ProductSpecs, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.ProductSpecs)
+                @Html.ValidationMessageFor(model => model.ProductSpecs)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.OwnersManual, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.OwnersManual)
+                @Html.ValidationMessageFor(model => model.OwnersManual)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.IsFeatured, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.IsFeatured)
+                @Html.ValidationMessageFor(model => model.IsFeatured)
+            </div>
+        </div>
+        <div>
+            <input type="submit" name="save" class="btn btn-primary" value="Create Product" />
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

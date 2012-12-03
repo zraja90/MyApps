@@ -1,3 +1,5 @@
+using ToolDepot.Models;
+
 namespace ToolDepot.Migrations
 {
     using System;
@@ -5,15 +7,16 @@ namespace ToolDepot.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ToolDepot.Models.UsersContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<UsersContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(ToolDepot.Models.UsersContext context)
+        protected override void Seed(UsersContext context)
         {
+            InitMigrationSeed.Seed(context);
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

@@ -1,0 +1,14 @@
+﻿@model IList<ToolDepot.Models.Products.ProductModel>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Product</h2>
+
+@foreach (var item in Model)
+{
+    @item.Name;
+}
+
+@Html.ActionLink("Create a Product", "Create","Product")

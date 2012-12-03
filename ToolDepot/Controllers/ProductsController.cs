@@ -11,7 +11,7 @@ namespace ToolDepot.Controllers
         //
         // GET: /Products/
 
-        public ActionResult RequestQuote()
+        public ActionResult RequestAQuote()
         {
             return View();
         }

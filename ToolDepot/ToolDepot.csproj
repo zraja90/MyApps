@@ -48,6 +48,9 @@
     <Reference Include="Autofac.Integration.Mvc">
       <HintPath>..\packages\Autofac.Mvc4.2.6.2.859\lib\NET40\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="dotless.Core">
       <HintPath>..\packages\dotless.1.3.1.0\lib\dotless.Core.dll</HintPath>
     </Reference>
@@ -177,11 +180,14 @@
   <ItemGroup>
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\AutofacConfig.cs" />
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -204,25 +210,37 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Extensions\HtmlExtensions.cs" />
+    <Compile Include="Helpers\GlobalHelper.cs" />
+    <Compile Include="Mappers\MappingExtensions.cs" />
+    <Compile Include="Mappers\MappingProfile.cs" />
     <Compile Include="Migrations\201211261939170_1.cs" />
     <Compile Include="Migrations\201211261939170_1.Designer.cs">
       <DependentUpon>201211261939170_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201212032146078_2.cs" />
+    <Compile Include="Migrations\201212032146078_2.Designer.cs">
+      <DependentUpon>201212032146078_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\InitMigrationSeed.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\FeaturedProductCategoriesModel.cs" />
     <Compile Include="Models\FeaturedProductModel.cs" />
     <Compile Include="Models\NotifyType.cs" />
-    <Compile Include="Models\ProductCategoryModel.cs" />
-    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Domain\Products\ProductCategory.cs" />
+    <Compile Include="Domain\Products\Product.cs" />
+    <Compile Include="Models\Products\ProductModel.cs" />
     <Compile Include="Models\UnderConstructionModel.cs" />
     <Compile Include="Models\UsersContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CrudService.cs" />
     <Compile Include="Services\ICrudService.cs" />
+    <Compile Include="Services\IProductCategoryService.cs" />
     <Compile Include="Services\IProductService.cs" />
     <Compile Include="Services\IRequestQuoteService.cs" />
     <Compile Include="Services\IUnderConstructionService.cs" />
+    <Compile Include="Services\ProductCategoryService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Models\RequestAQuoteModel.cs" />
     <Compile Include="Services\RequestQuoteService.cs" />
@@ -298,6 +316,12 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
     <None Include="Properties\PublishProfiles\tooldepot - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepot - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepotinc.com - FTP.pubxml" />
@@ -361,13 +385,12 @@
     <Content Include="Views\Common\Header.cshtml" />
     <Content Include="Views\Shared\_Notifications.cshtml" />
     <Content Include="Views\Home\UnderConstruction.cshtml" />
-    <Content Include="Views\Products\RequestQuote.cshtml" />
+    <Content Include="Views\Products\RequestAQuote.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -375,6 +398,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201211261939170_1.resx">
       <DependentUpon>201211261939170_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201212032146078_2.resx">
+      <DependentUpon>201212032146078_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
