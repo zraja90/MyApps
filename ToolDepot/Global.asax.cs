@@ -25,6 +25,7 @@ namespace ToolDepot
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             AutofacConfig.RegisterAutofac();
+            AutoMapperConfig.Configure();
         }
     }
 }
