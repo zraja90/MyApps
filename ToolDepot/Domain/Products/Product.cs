@@ -26,7 +26,7 @@ namespace ToolDepot.Models
         public string ProductFeatures { get; set; }
         public string ProductSpecs { get; set; }
         public string OwnersManual { get; set; }
-        public bool IsFeatured { get; set; }
+        public bool IsFeaturedProduct { get; set; }
         public DateTime CreatedDate { get; set; }
 
         public string Category { get; set; }

@@ -18,7 +18,7 @@ namespace ToolDepot.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategory { get; set; }
 
-        public IDbSet<TEntity> Set<TEntity>() where TEntity : class
+        IDbSet<TEntity> IDbContext.Set<TEntity>()
         {
             return base.Set<TEntity>();
         }

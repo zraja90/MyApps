@@ -23,16 +23,18 @@ namespace ToolDepot.Services
             {
                 var categoryField = new ProductCategory
                     {
-                        CategoryId = 0,
+                        Id = 0,
                         CategoryName = extraItem
                     };
                 list.Insert(0, categoryField);
             }
+            var selectedIndex = 0;
+            if (!string.IsNullOrEmpty(selectedValue))
+            {
+                selectedIndex = list.FindIndex(x => Convert.ToString(x.Id) == selectedValue);
+            }
 
-
-
-
-            var selectList = new SelectList(list, "CategoryId", "CategoryName", 0);
+            var selectList = new SelectList(list, "Id", "CategoryName", selectedIndex);
 
             return selectList;
         }

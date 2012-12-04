@@ -24,9 +24,9 @@ namespace ToolDepot.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var products = _productService.GetAll();
-            IEnumerable<ProductModel> model = products.Select(x => x.ToModel());
+            var model = products.Select(x => x.ToModel()).ToList();
 
-            return View(model.ToList());
+            return View(model);
         }
 
         //
@@ -42,11 +42,8 @@ namespace ToolDepot.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            var model = new Product
-                            {
-                                
-                            };
-            var aa = _productCategoryService.GetProductCategorySelectList(GlobalHelper.SelectListDefaultOption);
+            var model = new ProductModel();
+            model.AllCategory = _productCategoryService.GetProductCategorySelectList(model.Category,GlobalHelper.SelectListDefaultOption);
             return View(model);
         }
         
@@ -54,11 +51,17 @@ namespace ToolDepot.Areas.Admin.Controllers
         // POST: /Admin/Product/Create
 
         [HttpPost]
-        public ActionResult Create(Product model)
+        public ActionResult Create(ProductModel model)
         {
+            model.AllCategory = _productCategoryService.GetProductCategorySelectList(model.Category, GlobalHelper.SelectListDefaultOption);
             try
             {
-                // TODO: Add insert logic here
+                if(ModelState.IsValid)
+                {
+                    var entity = model.ToEntity();
+                    _productService.Add(entity);
+                }
+                
 
                 return RedirectToAction("Index");
             }

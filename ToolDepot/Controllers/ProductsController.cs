@@ -11,10 +11,16 @@ namespace ToolDepot.Controllers
         //
         // GET: /Products/
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult RequestAQuote()
         {
             return View();
         }
+
 
     }
 }

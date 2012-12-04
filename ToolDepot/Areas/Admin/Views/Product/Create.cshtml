@@ -23,7 +23,7 @@
         <div class="control-group">
             @Html.LabelFor(model => model.Description, new { @class = "control-label" })
             <div class="controls">
-                @Html.EditorFor(model => model.Description)
+                @Html.EditorFor(model => model.Description, new {required = "required"})
                 @Html.ValidationMessageFor(model => model.Description)
             </div>
         </div>
@@ -37,12 +37,9 @@
         <div class="control-group">
             @Html.LabelFor(model => model.Category, new { @class = "control-label" })
             <div class="controls">
-                @if(@Model.AllCategory!=null)
-                {
-                    @Html.DropDownListFor(model => model.Category, Model.AllCategory)
-                    @Html.ValidationMessageFor(model => model.Category)
-                }
-            </div>
+                @Html.DropDownListFor(model => model.Category, Model.AllCategory)
+                @Html.ValidationMessageFor(model => model.Category)
+                </div>
         </div>
         <div class="control-group">
             @Html.LabelFor(model => model.ProductFeatures, new { @class = "control-label" })

@@ -218,9 +218,9 @@
     <Compile Include="Migrations\201211261939170_1.Designer.cs">
       <DependentUpon>201211261939170_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201212032146078_2.cs" />
-    <Compile Include="Migrations\201212032146078_2.Designer.cs">
-      <DependentUpon>201212032146078_2.cs</DependentUpon>
+    <Compile Include="Migrations\201212040530057_2.cs" />
+    <Compile Include="Migrations\201212040530057_2.Designer.cs">
+      <DependentUpon>201212040530057_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
@@ -230,6 +230,7 @@
     <Compile Include="Models\NotifyType.cs" />
     <Compile Include="Domain\Products\ProductCategory.cs" />
     <Compile Include="Domain\Products\Product.cs" />
+    <Compile Include="Models\Products\ProductCategoryModel.cs" />
     <Compile Include="Models\Products\ProductModel.cs" />
     <Compile Include="Models\UnderConstructionModel.cs" />
     <Compile Include="Models\UsersContext.cs" />
@@ -399,8 +400,8 @@
     <EmbeddedResource Include="Migrations\201211261939170_1.resx">
       <DependentUpon>201211261939170_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201212032146078_2.resx">
-      <DependentUpon>201212032146078_2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201212040530057_2.resx">
+      <DependentUpon>201212040530057_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

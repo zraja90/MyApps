@@ -7,6 +7,9 @@ namespace ToolDepot.Models
 {
     public class FeaturedProductCategoriesModel
     {
-        IList<Product> Products { get; set; } 
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
+        public IList<Product> Products { get; set; }
+        public bool IsFeatured { get; set; }
     }
 }
