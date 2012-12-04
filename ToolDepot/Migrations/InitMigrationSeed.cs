@@ -11,6 +11,7 @@ namespace ToolDepot.Migrations
         public static void Seed(UsersContext context)
         {
             InitProduct(context);
+            InitProductCategory(context);
         }
 
         private static void InitProduct(UsersContext context)
@@ -32,7 +33,28 @@ namespace ToolDepot.Migrations
                               };
             if (!context.Set<Product>().Any())
             {
-                product.ForEach(x=>context.Set<Product>().Add(x));
+                product.ForEach(x => context.Set<Product>().Add(x));
+            }
+            context.SaveChanges();
+        }
+        private static void InitProductCategory(UsersContext context)
+        {
+            var category = new List<ProductCategory>
+                               {
+                                   new ProductCategory
+                                       {
+                                           CategoryName = "Power Tools",
+                                           CreatedDate = DateTime.UtcNow
+                                       },
+                                new ProductCategory
+                                       {
+                                           CategoryName = "Machinery Tools",
+                                           CreatedDate = DateTime.UtcNow
+                                       }
+                               };
+            if (!context.Set<ProductCategory>().Any())
+            {
+                category.ForEach(x => context.Set<ProductCategory>().Add(x));
             }
             context.SaveChanges();
         }

@@ -28,12 +28,11 @@ namespace ToolDepot.Migrations
                 "dbo.ProductCategory",
                 c => new
                     {
-                        CategoryId = c.Int(nullable: false, identity: true),
-                        Value = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         CategoryName = c.String(),
                         CreatedDate = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.CategoryId);
+                .PrimaryKey(t => t.Id);
             
         }
         

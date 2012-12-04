@@ -24,9 +24,9 @@ namespace ToolDepot.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var products = _productService.GetAll();
-            IEnumerable<ProductModel> model = products.Select(x => x.ToModel());
+            var model = products.Select(x => x.ToModel()).ToList();
 
-            return View(model.ToList());
+            return View(model);
         }
 
         //
@@ -42,11 +42,11 @@ namespace ToolDepot.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            var model = new Product
+            var model = new ProductModel
                             {
                                 
                             };
-            var aa = _productCategoryService.GetProductCategorySelectList(GlobalHelper.SelectListDefaultOption);
+            model.AllCategory = _productCategoryService.GetProductCategorySelectList("2",GlobalHelper.SelectListDefaultOption);
             return View(model);
         }
         

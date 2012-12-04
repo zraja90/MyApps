@@ -13,11 +13,10 @@ namespace ToolDepot.Models
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CategoryId { get; set; }
-        public int Value { get; set; }
+        public int Id { get; set; }
         public string CategoryName { get; set; }
         public DateTime CreatedDate { get; set; }
 
-
+        
     }
 }

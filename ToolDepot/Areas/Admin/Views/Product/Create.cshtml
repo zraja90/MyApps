@@ -37,12 +37,9 @@
         <div class="control-group">
             @Html.LabelFor(model => model.Category, new { @class = "control-label" })
             <div class="controls">
-                @if(@Model.AllCategory!=null)
-                {
-                    @Html.DropDownListFor(model => model.Category, Model.AllCategory)
-                    @Html.ValidationMessageFor(model => model.Category)
-                }
-            </div>
+                @Html.DropDownListFor(model => model.Category, Model.AllCategory)
+                @Html.ValidationMessageFor(model => model.Category)
+                </div>
         </div>
         <div class="control-group">
             @Html.LabelFor(model => model.ProductFeatures, new { @class = "control-label" })
