@@ -28,23 +28,8 @@
 </div>
 
 <div class="span12">
-    @for (int i = 1; i <= 4; i++)
-    {
-        <div class="span3">
-            <div style="position: relative">Category Name
-                <img src="/Content/images/BoschDrill.jpg" style="height: 100px; width: 105px" /></div>
-            <ul class="unstyled">
-                @for (int j = 1; j <= 4; j++)
-                {
-                    <li>
-                        <a href="#">
-                            Product Name
-                        </a>
-                    </li>
-                }
-            </ul>
-        </div>
-    }
+    @Html.Action("FeaturedProductCategory")
+    
 </div>
 <script>
     $(".carousel-inner .item:first-child").addClass("active");

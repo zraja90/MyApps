@@ -23,13 +23,43 @@ namespace ToolDepot.Migrations
                                       {
                                           Name = "Tool",
                                           Description = "Description",
-                                          Category = "Category",
+                                          Category = 1,
                                           Image = "Image",
                                           CreatedDate = DateTime.UtcNow,
                                           IsFeaturedProduct = true,
                                           OwnersManual = "Owners",
                                           ProductFeatures = "Features",
-                                          ProductSpecs = "Specs"
+                                          ProductSpecs = "Specs",
+                                          DayPrice = 100,
+                                          WeekPrice = 300
+                                      },
+                                      new Product
+                                      {
+                                          Name = "Tool 2",
+                                          Description = "Description",
+                                          Category = 2,
+                                          Image = "Image",
+                                          CreatedDate = DateTime.UtcNow,
+                                          IsFeaturedProduct = true,
+                                          OwnersManual = "Owners",
+                                          ProductFeatures = "Features",
+                                          ProductSpecs = "Specs",
+                                          DayPrice = 100,
+                                          WeekPrice = 300
+                                      },
+                                       new Product
+                                      {
+                                          Name = "Tool 2",
+                                          Description = "Description",
+                                          Category = 1,
+                                          Image = "Image",
+                                          CreatedDate = DateTime.UtcNow,
+                                          IsFeaturedProduct = true,
+                                          OwnersManual = "Owners",
+                                          ProductFeatures = "Features",
+                                          ProductSpecs = "Specs",
+                                          DayPrice = 100,
+                                          WeekPrice = 300
                                       }
                               };
             if (!context.Set<Product>().Any())

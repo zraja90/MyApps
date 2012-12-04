@@ -199,11 +199,12 @@
     <Compile Include="Core\Fakes\FakeHttpSessionState.cs" />
     <Compile Include="Core\Fakes\FakeIdentity.cs" />
     <Compile Include="Core\Fakes\FakePrincipal.cs" />
-    <Compile Include="Core\IWorkContext.cs" />
+    <Compile Include="Core\IProductContext.cs" />
     <Compile Include="Data\EfRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\SqlWrap.cs" />
+    <Compile Include="Domain\Products\FeaturedProducts.cs" />
     <Compile Include="Filters\Helpers\ImportedFilePathResolver.cs" />
     <Compile Include="Filters\Helpers\LessMinify.cs" />
     <Compile Include="Filters\Helpers\NotificationHelper.cs" />
@@ -213,15 +214,16 @@
     </Compile>
     <Compile Include="Helpers\Extensions\HtmlExtensions.cs" />
     <Compile Include="Helpers\GlobalHelper.cs" />
+    <Compile Include="Infrastructure\ProductContext.cs" />
     <Compile Include="Mappers\MappingExtensions.cs" />
     <Compile Include="Mappers\MappingProfile.cs" />
     <Compile Include="Migrations\201211261939170_1.cs" />
     <Compile Include="Migrations\201211261939170_1.Designer.cs">
       <DependentUpon>201211261939170_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201212040530057_2.cs" />
-    <Compile Include="Migrations\201212040530057_2.Designer.cs">
-      <DependentUpon>201212040530057_2.cs</DependentUpon>
+    <Compile Include="Migrations\201212042130261_2.cs" />
+    <Compile Include="Migrations\201212042130261_2.Designer.cs">
+      <DependentUpon>201212042130261_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
@@ -389,6 +391,7 @@
     <Content Include="Views\Home\UnderConstruction.cshtml" />
     <Content Include="Views\Products\RequestAQuote.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Home\FeaturedProductCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -401,8 +404,8 @@
     <EmbeddedResource Include="Migrations\201211261939170_1.resx">
       <DependentUpon>201211261939170_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201212040530057_2.resx">
-      <DependentUpon>201212040530057_2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201212042130261_2.resx">
+      <DependentUpon>201212042130261_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

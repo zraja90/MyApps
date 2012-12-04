@@ -22,8 +22,9 @@ namespace ToolDepot.Domain.Products
         public string OwnersManual { get; set; }
         public bool IsFeaturedProduct { get; set; }
         public DateTime CreatedDate { get; set; }
-
-        public string Category { get; set; }
+        public int DayPrice { get; set; }
+        public int WeekPrice { get; set; }
+        public int Category { get; set; }
 
         
     }

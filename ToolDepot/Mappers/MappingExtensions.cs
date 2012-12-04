@@ -12,7 +12,7 @@ namespace ToolDepot.Mappers
     public static class MappingExtensions
     {
         
-        #region Program
+        #region Product
         public static ProductModel ToModel(this Product entity)
         {
             return Mapper.Map<Product, ProductModel>(entity);
@@ -27,6 +27,27 @@ namespace ToolDepot.Mappers
         {
             return Mapper.Map(model, destination);
         }
+
+
+
+        public static FeaturedProductCategoriesModel ToModel(this FeaturedProducts entity)
+        {
+            return Mapper.Map<FeaturedProducts, FeaturedProductCategoriesModel>(entity);
+        }
+
+        public static FeaturedProducts ToEntity(this FeaturedProductCategoriesModel model)
+        {
+            return Mapper.Map<FeaturedProductCategoriesModel, FeaturedProducts>(model);
+        }
+
+        public static FeaturedProducts ToEntity(this FeaturedProductCategoriesModel model, FeaturedProducts destination)
+        {
+            return Mapper.Map(model, destination);
+        }
+
+
+
+
         #endregion
     }
 }

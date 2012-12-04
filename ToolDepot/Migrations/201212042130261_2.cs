@@ -20,7 +20,9 @@ namespace ToolDepot.Migrations
                         OwnersManual = c.String(),
                         IsFeaturedProduct = c.Boolean(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
-                        Category = c.String(),
+                        DayPrice = c.Int(nullable: false),
+                        WeekPrice = c.Int(nullable: false),
+                        Category = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

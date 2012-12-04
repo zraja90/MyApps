@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ToolDepot.Domain.Products;
 
-namespace ToolDepot.Models
+namespace ToolDepot.Domain.Products
 {
-    public class FeaturedProductCategoriesModel
+    public class FeaturedProducts
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public IList<Product> Products { get; set; }
+        public Product Products { get; set; }
     }
 }
