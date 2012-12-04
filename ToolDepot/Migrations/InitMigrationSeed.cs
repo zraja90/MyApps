@@ -25,7 +25,7 @@ namespace ToolDepot.Migrations
                                           Category = "Category",
                                           Image = "Image",
                                           CreatedDate = DateTime.UtcNow,
-                                          IsFeatured = true,
+                                          IsFeaturedProduct = true,
                                           OwnersManual = "Owners",
                                           ProductFeatures = "Features",
                                           ProductSpecs = "Specs"
@@ -44,11 +44,13 @@ namespace ToolDepot.Migrations
                                    new ProductCategory
                                        {
                                            CategoryName = "Power Tools",
+                                           IsFeaturedCategory = true,
                                            CreatedDate = DateTime.UtcNow
                                        },
                                 new ProductCategory
                                        {
                                            CategoryName = "Machinery Tools",
+                                           IsFeaturedCategory = false,
                                            CreatedDate = DateTime.UtcNow
                                        }
                                };

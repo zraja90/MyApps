@@ -23,7 +23,7 @@
         <div class="control-group">
             @Html.LabelFor(model => model.Description, new { @class = "control-label" })
             <div class="controls">
-                @Html.EditorFor(model => model.Description)
+                @Html.EditorFor(model => model.Description, new {required = "required"})
                 @Html.ValidationMessageFor(model => model.Description)
             </div>
         </div>

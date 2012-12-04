@@ -18,7 +18,7 @@ namespace ToolDepot.Migrations
                         ProductFeatures = c.String(),
                         ProductSpecs = c.String(),
                         OwnersManual = c.String(),
-                        IsFeatured = c.Boolean(nullable: false),
+                        IsFeaturedProduct = c.Boolean(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                         Category = c.String(),
                     })
@@ -30,6 +30,7 @@ namespace ToolDepot.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         CategoryName = c.String(),
+                        IsFeaturedCategory = c.Boolean(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);

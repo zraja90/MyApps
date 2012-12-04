@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using ToolDepot.Filters.Helpers;
 using ToolDepot.Models;
 using ToolDepot.Services;
@@ -8,15 +9,20 @@ namespace ToolDepot.Controllers
     public class HomeController : Controller
     {
         private readonly IUnderConstructionService _underConstructionService;
+        private readonly IProductService _productService;
 
-        public HomeController(IUnderConstructionService underConstructionService)
+        public HomeController(IUnderConstructionService underConstructionService,
+            IProductService productService)
         {
             _underConstructionService = underConstructionService;
+            _productService = productService;
         }
 
         public ActionResult Index()
         {
             //return RedirectToAction("UnderConstruction");
+            var featuredProducts = _productService.GetMany(x => x.IsFeaturedProduct).ToList();
+            //var model = featuredProducts.Where(x=>x.to)
             return View();
         }
 

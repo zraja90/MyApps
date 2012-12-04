@@ -42,10 +42,7 @@ namespace ToolDepot.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            var model = new ProductModel
-                            {
-                                
-                            };
+            var model = new ProductModel();
             model.AllCategory = _productCategoryService.GetProductCategorySelectList(model.Category,GlobalHelper.SelectListDefaultOption);
             return View(model);
         }
@@ -56,10 +53,15 @@ namespace ToolDepot.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(ProductModel model)
         {
+            model.AllCategory = _productCategoryService.GetProductCategorySelectList(model.Category, GlobalHelper.SelectListDefaultOption);
             try
             {
-                _productService.Add(model.ToEntity());
-                // TODO: Add insert logic here
+                if(ModelState.IsValid)
+                {
+                    var entity = model.ToEntity();
+                    _productService.Add(entity);
+                }
+                
 
                 return RedirectToAction("Index");
             }

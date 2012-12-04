@@ -11,7 +11,7 @@ namespace ToolDepot.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201212040117237_2"; }
+            get { return "201212040530057_2"; }
         }
         
         string IMigrationMetadata.Source

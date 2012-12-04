@@ -15,6 +15,7 @@ namespace ToolDepot.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string CategoryName { get; set; }
+        public bool IsFeaturedCategory { get; set; }
         public DateTime CreatedDate { get; set; }
 
         
