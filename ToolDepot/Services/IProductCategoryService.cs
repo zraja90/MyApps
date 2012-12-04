@@ -10,6 +10,6 @@ namespace ToolDepot.Services
 {
     public interface IProductCategoryService : ICrudService<ProductCategory>
     {
-        SelectList GetProductCategorySelectList(string selectedValue, string extraItem = null);
+        SelectList GetProductCategorySelectList(string selectedValue = null, string extraItem = null);
     }
 }
