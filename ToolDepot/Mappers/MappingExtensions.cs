@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
+using ToolDepot.Domain.Products;
 using ToolDepot.Models;
 using ToolDepot.Models.Products;
 

@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using ToolDepot.Helpers;
-using ToolDepot.Services;
 
-namespace ToolDepot.Models
+namespace ToolDepot.Domain.Products
 {
     [Table("Products")]
     public class Product

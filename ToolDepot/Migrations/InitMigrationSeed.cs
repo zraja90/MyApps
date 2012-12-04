@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ToolDepot.Domain.Products;
 using ToolDepot.Models;
 
 namespace ToolDepot.Migrations

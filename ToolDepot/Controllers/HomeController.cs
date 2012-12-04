@@ -22,7 +22,7 @@ namespace ToolDepot.Controllers
         {
             //return RedirectToAction("UnderConstruction");
             var featuredProducts = _productService.GetMany(x => x.IsFeaturedProduct).ToList();
-            //var model = featuredProducts.Where(x=>x.to)
+            //var model = featuredProducts.Where(x=>x.T)
             return View();
         }
 

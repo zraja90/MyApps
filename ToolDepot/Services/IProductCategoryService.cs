@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using ToolDepot.Domain.Products;
 using ToolDepot.Models;
 
 namespace ToolDepot.Services
