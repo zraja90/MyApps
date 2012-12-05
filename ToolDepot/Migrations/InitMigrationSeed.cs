@@ -12,6 +12,7 @@ namespace ToolDepot.Migrations
         public static void Seed(UsersContext context)
         {
             InitProduct(context);
+            InitProductDescription(context);
             InitProductCategory(context);
         }
 
@@ -21,43 +22,67 @@ namespace ToolDepot.Migrations
                               {
                                   new Product
                                       {
+                                          Id = 1,
                                           Name = "Tool",
-                                          Description = "Description",
                                           Category = 1,
-                                          Image = "Image",
+                                          ProductImage = "Image",
                                           CreatedDate = DateTime.UtcNow,
                                           IsFeaturedProduct = true,
-                                          OwnersManual = "Owners",
-                                          ProductFeatures = "Features",
-                                          ProductSpecs = "Specs",
                                           DayPrice = 100,
                                           WeekPrice = 300
                                       },
                                       new Product
                                       {
-                                          Name = "Tool 2",
-                                          Description = "Description",
-                                          Category = 2,
-                                          Image = "Image",
+                                           Id = 2,
+                                          Name = "Tool",
+                                          Category = 1,
+                                          ProductImage = "Image",
                                           CreatedDate = DateTime.UtcNow,
                                           IsFeaturedProduct = true,
-                                          OwnersManual = "Owners",
-                                          ProductFeatures = "Features",
-                                          ProductSpecs = "Specs",
                                           DayPrice = 100,
                                           WeekPrice = 300
                                       },
                                        new Product
                                       {
-                                          Name = "Tool 2",
-                                          Description = "Description",
+                                           Id = 3,
+                                          Name = "Tool",
                                           Category = 1,
-                                          Image = "Image",
+                                          ProductImage = "Image",
                                           CreatedDate = DateTime.UtcNow,
                                           IsFeaturedProduct = true,
-                                          OwnersManual = "Owners",
-                                          ProductFeatures = "Features",
-                                          ProductSpecs = "Specs",
+                                          DayPrice = 100,
+                                          WeekPrice = 300
+                                      },
+                                      new Product
+                                      {
+                                          Id = 4,
+                                          Name = "Tool",
+                                          Category = 2,
+                                          ProductImage = "Image",
+                                          CreatedDate = DateTime.UtcNow,
+                                          IsFeaturedProduct = true,
+                                          DayPrice = 100,
+                                          WeekPrice = 300
+                                      },
+                                      new Product
+                                      {
+                                           Id = 5,
+                                          Name = "Tool",
+                                          Category = 2,
+                                          ProductImage = "Image",
+                                          CreatedDate = DateTime.UtcNow,
+                                          IsFeaturedProduct = true,
+                                          DayPrice = 100,
+                                          WeekPrice = 300
+                                      },
+                                       new Product
+                                      {
+                                           Id = 6,
+                                          Name = "Tool",
+                                          Category = 2,
+                                          ProductImage = "Image",
+                                          CreatedDate = DateTime.UtcNow,
+                                          IsFeaturedProduct = true,
                                           DayPrice = 100,
                                           WeekPrice = 300
                                       }
@@ -68,6 +93,67 @@ namespace ToolDepot.Migrations
             }
             context.SaveChanges();
         }
+
+        private static void InitProductDescription(UsersContext context)
+        {
+            var desciption = new List<ProductDescription>
+                              {
+                                  new ProductDescription
+                                      {
+                                          ProductId = 1,
+                                          Description = "Description",
+                                          OwnersManual = "Owners",
+                                          ProductFeatures = "Features",
+                                          ProductSpecs = "Specs",
+                                      },
+                                      new ProductDescription
+                                      {
+                                          ProductId = 2,
+                                          Description = "Description",
+                                          OwnersManual = "Owners",
+                                          ProductFeatures = "Features",
+                                          ProductSpecs = "Specs",
+                                      },
+                                       new ProductDescription
+                                      {
+                                          ProductId = 3,
+                                          Description = "Description",
+                                          OwnersManual = "Owners",
+                                          ProductFeatures = "Features",
+                                          ProductSpecs = "Specs"
+                                      },
+                                      new ProductDescription
+                                      {
+                                          ProductId = 4,
+                                          Description = "Description",
+                                          OwnersManual = "Owners",
+                                          ProductFeatures = "Features",
+                                          ProductSpecs = "Specs",
+                                      },
+                                      new ProductDescription
+                                      {
+                                          ProductId = 5,
+                                          Description = "Description",
+                                          OwnersManual = "Owners",
+                                          ProductFeatures = "Features",
+                                          ProductSpecs = "Specs",
+                                      },
+                                       new ProductDescription
+                                      {
+                                          ProductId = 6,
+                                          Description = "Description",
+                                          OwnersManual = "Owners",
+                                          ProductFeatures = "Features",
+                                          ProductSpecs = "Specs"
+                                      }
+                              };
+            if (!context.Set<ProductDescription>().Any())
+            {
+                desciption.ForEach(x => context.Set<ProductDescription>().Add(x));
+            }
+            context.SaveChanges();
+        }
+
         private static void InitProductCategory(UsersContext context)
         {
             var category = new List<ProductCategory>
@@ -80,8 +166,8 @@ namespace ToolDepot.Migrations
                                        },
                                 new ProductCategory
                                        {
-                                           CategoryName = "Machinery Tools",
-                                           IsFeaturedCategory = false,
+                                           CategoryName = "Machinery",
+                                           IsFeaturedCategory = true,
                                            CreatedDate = DateTime.UtcNow
                                        }
                                };

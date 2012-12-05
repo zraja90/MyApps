@@ -1,18 +1,22 @@
-﻿@model IList<ToolDepot.Domain.Products.FeaturedProducts>
+﻿@model List<ToolDepot.Domain.Products.Product>
 
-@for (int i = 0; i < Model.Count(); i++)
+@for (int i = 0; i < 4; i++)
 {
     <div class="span3">
-        @if (ViewBag.LastCategory != Model[i].CategoryName)
+        @for (int j = 0; j < Model.Count;j++)
         {
-            <div style="position: relative">
-                @Model[i].CategoryName
-                <img src="/Content/images/BoschDrill.jpg" style="height: 100px; width: 105px" />
-            </div>
+                <div style="position: relative">
+                    @Model[i].Category
+                </div>
         }
         @{
+            if (ViewBag.LastCategory != Model[i].CategoryName)
+            {
+            
+            }
+        
             ViewBag.LastCategory = Model[i].CategoryName;
-        }
+        } 
         <ul class="unstyled">
             <li>
                 <a href="#">

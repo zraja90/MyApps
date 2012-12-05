@@ -9,6 +9,6 @@ namespace ToolDepot.Domain.Products
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public Product Products { get; set; }
+        public IList<Product> Products { get; set; }
     }
 }

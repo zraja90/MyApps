@@ -18,6 +18,7 @@ namespace ToolDepot.Models
         public DbSet<UnderConstructionModel> UnderConstruction { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCategory> ProductCategory { get; set; }
+        public DbSet<ProductDescription> ProductDescription { get; set; }
 
         IDbSet<TEntity> IDbContext.Set<TEntity>()
         {

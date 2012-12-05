@@ -12,13 +12,16 @@ namespace ToolDepot.Controllers
     {
         private readonly IUnderConstructionService _underConstructionService;
         private readonly IProductContext _productContext;
+        private readonly IProductService _productService;
 
         public HomeController(IUnderConstructionService underConstructionService,
-            IProductContext productContext)
+            IProductContext productContext,IProductService productService)
         {
             _underConstructionService = underConstructionService;
             _productContext = productContext;
+            _productService = productService;
         }
+
 
         public ActionResult Index()
         {
@@ -30,13 +33,11 @@ namespace ToolDepot.Controllers
         [ChildActionOnly]
         public ActionResult FeaturedProductCategory()
         {
-            
-            //var model = new List<FeaturedProductCategoriesModel>();
 
-            var featuredProduct = _productContext.AllFeaturedProducts;
-            
-            
-            return PartialView(featuredProduct);
+            var featuredProducts = _productContext.FeaturedProducts;
+            //4 categories
+            //List of categories which will have a list of products
+            return PartialView();
         }
 
         public ActionResult UnderConstruction()

@@ -12,60 +12,35 @@ namespace ToolDepot.Infrastructure
     {
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
-
         public ProductContext(IProductService productService, IProductCategoryService productCategoryService)
         {
             _productService = productService;
             _productCategoryService = productCategoryService;
+
         }
 
-        public IList<Product> GetAllProducts()
+        public IList<FeaturedProducts> GetFeaturedProducts()
         {
-            var products = _productService.GetAll().ToList();
-            return products;
+            var featuredCategory = _productCategoryService.GetMany(x => x.IsFeaturedCategory).ToList();
+            var featuredProduct = _productService.GetMany(x => x.IsFeaturedProduct).ToList();
+
+            IList<FeaturedProducts> featuredProductsWithCategory = new List<FeaturedProducts>();
+
+            for (int i = 0; i < featuredCategory.Count; i++)
+            {
+                var featured = new FeaturedProducts();
+                
+                featured.CategoryId = featuredCategory[i].Id;
+                featuredProductsWithCategory[i].CategoryName = featuredCategory[0].CategoryName;
+                for (int j = 0; j < featuredProduct.Count; j++)
+                {
+                    featuredProductsWithCategory[i].Products[j] = featuredProduct[j];
+                }
+                featuredProductsWithCategory.Add(featured);
+            }
+            return featuredProductsWithCategory;
         }
 
-        public IList<ProductCategory> GetAllProductCategories()
-        {
-            var categories = _productCategoryService.GetAll().ToList();
-            return categories;
-        }
-
-        public IList<FeaturedProducts> GetFeaturedProductsWithCategories()
-        {
-            var products = GetAllProducts();
-            var productCategories = GetAllProductCategories();
-
-            //IList<FeaturedProducts> featuredProducts = new List<FeaturedProducts>();
-
-            var featuredProducts = (from p in products
-                               join pc in productCategories on p.Category equals pc.Id
-                               orderby pc.Id
-                               select new FeaturedProducts
-                                          {
-                                              CategoryId = pc.Id,
-                                              CategoryName = pc.CategoryName,
-                                              Products = p
-                                          }).ToList();
-
-            //return featuredProducts;
-            return featuredProducts;
-        }
-
-        public IList<ProductCategory> AllProductCategory
-        {
-            get { return GetAllProductCategories(); }
-        }
-
-        public IList<Product> AllProducts
-        {
-            get { return GetAllProducts(); }
-        }
-        public IList<FeaturedProducts> AllFeaturedProducts
-        {
-            get { return GetFeaturedProductsWithCategories(); }
-        }
-
-
+        public IList<FeaturedProducts> FeaturedProducts { get { return GetFeaturedProducts(); } }
     }
 }
