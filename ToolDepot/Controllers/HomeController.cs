@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using ToolDepot.Core;
+using ToolDepot.Domain.Products;
 using ToolDepot.Filters.Helpers;
 using ToolDepot.Models;
 using ToolDepot.Services;
@@ -33,11 +34,10 @@ namespace ToolDepot.Controllers
         [ChildActionOnly]
         public ActionResult FeaturedProductCategory()
         {
-
+            
             var featuredProducts = _productContext.FeaturedProducts;
-            //4 categories
-            //List of categories which will have a list of products
-            return PartialView();
+            
+            return PartialView(featuredProducts);
         }
 
         public ActionResult UnderConstruction()

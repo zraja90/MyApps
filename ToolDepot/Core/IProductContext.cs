@@ -8,6 +8,6 @@ namespace ToolDepot.Core
 {
     public interface IProductContext
     {
-        IList<FeaturedProducts> FeaturedProducts { get; } 
+        List<FeaturedProducts> FeaturedProducts { get; } 
     }
 }

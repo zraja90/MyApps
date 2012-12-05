@@ -1,29 +1,32 @@
-﻿@model List<ToolDepot.Domain.Products.Product>
+﻿@using ToolDepot.Domain.Products
+@model IList<ToolDepot.Domain.Products.FeaturedProducts>
 
-@for (int i = 0; i < 4; i++)
+@foreach (FeaturedProducts featuredProduct in Model)
 {
     <div class="span3">
-        @for (int j = 0; j < Model.Count;j++)
+        @if(featuredProduct.CategoryId != ViewBag.LastCategoryId)
         {
-                <div style="position: relative">
-                    @Model[i].Category
-                </div>
-        }
-        @{
-            if (ViewBag.LastCategory != Model[i].CategoryName)
-            {
+            <div style="position: relative">
+                @featuredProduct.CategoryName
+            </div>
             
-            }
-        
-            ViewBag.LastCategory = Model[i].CategoryName;
-        } 
+            
+                ViewBag.LastCategoryId = featuredProduct.CategoryId;
+            
+        }
         <ul class="unstyled">
-            <li>
-                <a href="#">
-                    @Model[i].Products.Name
-                </a>
-            </li>
+            @foreach(Product product in featuredProduct.Products)
+        {
+            
+                <li>
+                    <a href="#">
+                        @product.Name
+                    </a>
+                </li>
+        
+        }
         </ul>
     </div>
+        
 }
 <div class="clearfix"></div>

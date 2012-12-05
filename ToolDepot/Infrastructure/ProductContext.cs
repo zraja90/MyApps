@@ -19,28 +19,36 @@ namespace ToolDepot.Infrastructure
 
         }
 
-        public IList<FeaturedProducts> GetFeaturedProducts()
+        public List<FeaturedProducts> GetFeaturedProducts()
         {
             var featuredCategory = _productCategoryService.GetMany(x => x.IsFeaturedCategory).ToList();
             var featuredProduct = _productService.GetMany(x => x.IsFeaturedProduct).ToList();
 
-            IList<FeaturedProducts> featuredProductsWithCategory = new List<FeaturedProducts>();
+            var featuredProductsWithCategory = new List<FeaturedProducts>();
 
             for (int i = 0; i < featuredCategory.Count; i++)
             {
-                var featured = new FeaturedProducts();
-                
-                featured.CategoryId = featuredCategory[i].Id;
-                featuredProductsWithCategory[i].CategoryName = featuredCategory[0].CategoryName;
-                for (int j = 0; j < featuredProduct.Count; j++)
+                var featured = new FeaturedProducts
+                                   {
+                                       CategoryId = featuredCategory[i].Id,
+                                       CategoryName = featuredCategory[i].CategoryName,
+                                       Products = new List<Product>()
+                                   };
+
+                foreach (var t in featuredProduct)
                 {
-                    featuredProductsWithCategory[i].Products[j] = featuredProduct[j];
+                    if(t.Category == featuredCategory[i].Id)
+                    {
+                        var product = t;
+                        featured.Products.Add(product);
+                    }
                 }
+                featuredProduct.RemoveAll(x => x.Category == featuredCategory[i].Id);
                 featuredProductsWithCategory.Add(featured);
             }
-            return featuredProductsWithCategory;
+            return (List<FeaturedProducts>) featuredProductsWithCategory;
         }
 
-        public IList<FeaturedProducts> FeaturedProducts { get { return GetFeaturedProducts(); } }
+        public List<FeaturedProducts> FeaturedProducts { get { return GetFeaturedProducts(); } }
     }
 }
