@@ -13,6 +13,7 @@ namespace ToolDepot.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
+                        BrandName = c.String(),
                         ProductImage = c.String(),
                         Category = c.Int(nullable: false),
                         IsFeaturedProduct = c.Boolean(nullable: false),

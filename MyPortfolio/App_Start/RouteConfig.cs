@@ -14,16 +14,11 @@ namespace MyPortfolio
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 
-            routes.MapRoute("HomePage",
-                            "",
-                            new { controller = "Home", action = "Index" },
-                            new[] { "MyPortfolio.Controllers" });
-
-            routes.MapRoute(
-               name: "Default",
-               url: "{controller}/{action}/{id}",
-               defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-               namespaces: new[] { "MyPortfolio.Controllers" }
+            routes.MapRoute("HomePage", "", new { controller = "Home", action = "Index" },new[] { "MyPortfolio.Controllers" });
+            routes.MapRoute(name: "SpecificRoute", url: "{action}/{id}",
+                            defaults: new {controller = "Home", action = "Index", id = UrlParameter.Optional},
+                            namespaces: new[] {"MyPortfolio.Controllers"});
+            routes.MapRoute(name: "Default",url: "{controller}/{action}/{id}",defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },namespaces: new[] { "MyPortfolio.Controllers" }
            );
         }
     }

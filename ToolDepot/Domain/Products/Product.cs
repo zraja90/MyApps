@@ -15,6 +15,7 @@ namespace ToolDepot.Domain.Products
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
+        public string BrandName { get; set; }
         public string ProductImage { get; set; }
         public int Category { get; set; }
         public bool IsFeaturedProduct { get; set; }
