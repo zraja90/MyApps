@@ -29,6 +29,7 @@ namespace ToolDepot.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         CategoryName = c.String(),
                         IsFeaturedCategory = c.Boolean(nullable: false),
+                        CategoryAvatar = c.String(),
                         CreatedDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);

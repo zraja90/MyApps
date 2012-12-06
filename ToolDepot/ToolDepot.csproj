@@ -222,9 +222,9 @@
     <Compile Include="Migrations\201211261939170_1.Designer.cs">
       <DependentUpon>201211261939170_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201212050406187_2.cs" />
-    <Compile Include="Migrations\201212050406187_2.Designer.cs">
-      <DependentUpon>201212050406187_2.cs</DependentUpon>
+    <Compile Include="Migrations\201212060402077_2.cs" />
+    <Compile Include="Migrations\201212060402077_2.Designer.cs">
+      <DependentUpon>201212060402077_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
@@ -405,8 +405,8 @@
     <EmbeddedResource Include="Migrations\201211261939170_1.resx">
       <DependentUpon>201211261939170_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201212050406187_2.resx">
-      <DependentUpon>201212050406187_2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201212060402077_2.resx">
+      <DependentUpon>201212060402077_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

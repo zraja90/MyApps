@@ -16,6 +16,7 @@ namespace ToolDepot.Domain.Products
         public int Id { get; set; }
         public string CategoryName { get; set; }
         public bool IsFeaturedCategory { get; set; }
+        public string CategoryAvatar { get; set; }
         public DateTime CreatedDate { get; set; }
 
         
