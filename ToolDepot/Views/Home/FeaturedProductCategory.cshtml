@@ -1,32 +1,26 @@
 ﻿@using ToolDepot.Domain.Products
-@model IList<ToolDepot.Domain.Products.FeaturedProducts>
+@model IList<FeaturedProducts>
 
 @foreach (FeaturedProducts featuredProduct in Model)
 {
     <div class="span3">
-        @if(featuredProduct.CategoryId != ViewBag.LastCategoryId)
+        @if (featuredProduct.CategoryId != ViewBag.LastCategoryId)
         {
             <div style="position: relative">
                 @featuredProduct.CategoryName
             </div>
-            
-            
-                ViewBag.LastCategoryId = featuredProduct.CategoryId;
-            
+            ViewBag.LastCategoryId = featuredProduct.CategoryId;
         }
         <ul class="unstyled">
-            @foreach(Product product in featuredProduct.Products)
-        {
-            
+            @foreach (Product product in featuredProduct.Products)
+            {
                 <li>
                     <a href="#">
                         @product.Name
                     </a>
                 </li>
-        
-        }
+            }
         </ul>
     </div>
-        
 }
 <div class="clearfix"></div>
