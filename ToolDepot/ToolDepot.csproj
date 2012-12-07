@@ -437,9 +437,11 @@
     <Content Include="Views\Shared\_Notifications.cshtml" />
     <Content Include="Views\Home\UnderConstruction.cshtml" />
     <Content Include="Views\Products\RequestAQuote.cshtml" />
-    <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Home\FeaturedProductCategory.cshtml" />
     <Content Include="Views\Home\ProductCategories.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\AllCategories.cshtml" />
+    <Content Include="Views\Products\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

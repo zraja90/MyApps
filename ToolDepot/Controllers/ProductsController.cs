@@ -33,6 +33,19 @@ namespace ToolDepot.Controllers
             return View(product);
         }
 
+        public ActionResult AllCategories()
+        {
+            var categories = _productCategoryService.GetAll();
+            return View(categories);
+        }
+
+        public ActionResult Category(int id = 0)
+        {
+            var products = _productService.GetMany(x => x.Id == id);
+
+            return View(products);
+        }
+
         public ActionResult RequestAQuote()
         {
             return View();
