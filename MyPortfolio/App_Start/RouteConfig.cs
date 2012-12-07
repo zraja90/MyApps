@@ -15,11 +15,10 @@ namespace MyPortfolio
 
 
             routes.MapRoute("HomePage", "", new { controller = "Home", action = "Index" },new[] { "MyPortfolio.Controllers" });
-            routes.MapRoute(name: "SpecificRoute", url: "{action}/{id}",
-                            defaults: new {controller = "Home", action = "Index", id = UrlParameter.Optional},
+            routes.MapRoute(name: "ResumeRoute", url: "{action}/{id}",
+                            defaults: new {controller = "Home", action = "Resume", id = UrlParameter.Optional},
                             namespaces: new[] {"MyPortfolio.Controllers"});
-            routes.MapRoute(name: "Default",url: "{controller}/{action}/{id}",defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },namespaces: new[] { "MyPortfolio.Controllers" }
-           );
+            routes.MapRoute(name: "Default",url: "{controller}/{action}/{id}",defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },namespaces: new[] { "MyPortfolio.Controllers" });
         }
     }
 }

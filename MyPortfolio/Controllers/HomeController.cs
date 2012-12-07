@@ -8,6 +8,11 @@ namespace MyPortfolio.Controllers
         {
             return View();
         }
+        public ActionResult Resume()
+        {
+            return View();
+        }
+
         public ActionResult Demo1()
         {
             ViewBag.Message = "Your app description page.";
