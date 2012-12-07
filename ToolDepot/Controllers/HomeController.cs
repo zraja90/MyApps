@@ -14,21 +14,36 @@ namespace ToolDepot.Controllers
         private readonly IUnderConstructionService _underConstructionService;
         private readonly IProductContext _productContext;
         private readonly IProductService _productService;
+        private readonly IProductCategoryService _productCategoryService;
 
         public HomeController(IUnderConstructionService underConstructionService,
-            IProductContext productContext,IProductService productService)
+            IProductContext productContext,IProductService productService, IProductCategoryService productCategoryService)
         {
             _underConstructionService = underConstructionService;
             _productContext = productContext;
             _productService = productService;
+            _productCategoryService = productCategoryService;
         }
+
 
 
         public ActionResult Index()
         {
             //var product = _productContext.AllProducts;
+
+            var products = _productService.GetAll();
             
-            return View();
+            return View(products);
+        }
+
+        [ChildActionOnly]
+        public ActionResult ProductCategories()
+        {
+            var productCategories = _productCategoryService.GetAll().OrderBy(x=>x.CategoryName).ToList();
+
+            
+
+            return PartialView(productCategories);
         }
 
         [ChildActionOnly]

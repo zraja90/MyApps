@@ -13,17 +13,17 @@ namespace ToolDepot.Mappers
     {
         
         #region Product
-        public static ProductModel ToModel(this Product entity)
+        public static ProductWithCategoryModel ToModel(this Product entity)
         {
-            return Mapper.Map<Product, ProductModel>(entity);
+            return Mapper.Map<Product, ProductWithCategoryModel>(entity);
         }
 
-        public static Product ToEntity(this ProductModel model)
+        public static Product ToEntity(this ProductWithCategoryModel model)
         {
-            return Mapper.Map<ProductModel, Product>(model);
+            return Mapper.Map<ProductWithCategoryModel, Product>(model);
         }
 
-        public static Product ToEntity(this ProductModel model, Product destination)
+        public static Product ToEntity(this ProductWithCategoryModel model, Product destination)
         {
             return Mapper.Map(model, destination);
         }

@@ -1,0 +1,14 @@
+﻿@model List<ToolDepot.Domain.Products.ProductCategory>
+<div class="span3 bs-docs-sidebar">
+    <ul class="nav nav-list bs-docs-sidenav">
+        @foreach (var category in Model)
+        {
+            <li>
+                <a href="/">
+                    <i class="icon-chevron-right"></i>
+                    @category.CategoryName
+                </a>
+            </li>
+        }
+    </ul>
+</div>

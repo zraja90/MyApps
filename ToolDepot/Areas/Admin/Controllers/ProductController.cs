@@ -42,8 +42,8 @@ namespace ToolDepot.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            var model = new ProductModel();
-            model.AllCategory = _productCategoryService.GetProductCategorySelectList(model.Category,GlobalHelper.SelectListDefaultOption);
+            var model = new ProductWithCategoryModel();
+          //  model.AllCategory = //_productCategoryService.GetProductCategorySelectList(model.Category,GlobalHelper.SelectListDefaultOption);
             return View(model);
         }
         
@@ -51,9 +51,9 @@ namespace ToolDepot.Areas.Admin.Controllers
         // POST: /Admin/Product/Create
 
         [HttpPost]
-        public ActionResult Create(ProductModel model)
+        public ActionResult Create(ProductWithCategoryModel model)
         {
-            model.AllCategory = _productCategoryService.GetProductCategorySelectList(model.Category, GlobalHelper.SelectListDefaultOption);
+            //model.AllCategory = _productCategoryService.GetProductCategorySelectList(model.Category, GlobalHelper.SelectListDefaultOption);
             try
             {
                 if(ModelState.IsValid)

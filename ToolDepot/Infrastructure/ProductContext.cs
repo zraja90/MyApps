@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using ToolDepot.Core;
 using ToolDepot.Domain.Products;
+using ToolDepot.Models.Products;
 using ToolDepot.Services;
 
 namespace ToolDepot.Infrastructure
@@ -49,6 +50,26 @@ namespace ToolDepot.Infrastructure
             return (List<FeaturedProducts>) featuredProductsWithCategory;
         }
 
+        public ProductWithCategoryModel GetProductWithDescription(int id)
+        {
+           
+            var product = _productService.GetById(id);
+            var category = _productCategoryService.GetById(product.Category);
+            
+            var productWithCategory = new ProductWithCategoryModel
+                                          {
+                                              Product = product,
+                                              ProductCategory = category
+                                          };
+
+            return productWithCategory;
+        }
+
+
+        public int Id { get; set; }
         public List<FeaturedProducts> FeaturedProducts { get { return GetFeaturedProducts(); } }
+        public ProductWithCategoryModel GetProductInfoById {
+            get { return GetProductWithDescription(Id); }
+        }
     }
 }

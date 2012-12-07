@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -22,6 +23,7 @@ namespace ToolDepot.Domain.Products
         public int DayPrice { get; set; }
         public int WeekPrice { get; set; }
         public DateTime CreatedDate { get; set; }
+        
     }
 
     

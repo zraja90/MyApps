@@ -14,8 +14,8 @@ namespace ToolDepot.Mappers
         protected override void Configure()
         {
             //Product
-            Mapper.CreateMap<Product, ProductModel>();
-            Mapper.CreateMap<ProductModel, Product>();
+            Mapper.CreateMap<Product, ProductWithCategoryModel>();
+            Mapper.CreateMap<ProductWithCategoryModel, Product>();
 
             Mapper.CreateMap<FeaturedProducts, FeaturedProductCategoriesModel>();
             Mapper.CreateMap<FeaturedProductCategoriesModel, FeaturedProducts>();
