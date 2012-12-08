@@ -3,12 +3,18 @@
 @{
     ViewBag.Title = "Category";
 }
+@foreach (var item in Model)
+{
+    <div class="span4 align-center">
+        <img src="@item.ProductImage" style="height: 145px;width: 145px;"/>
+        <div class=""></div>
+        <div class="margin-top-10 margin-bottom-10">
+            @item.BrandName - @item.Name
+        </div>
+        <a href="#" class="btn btn-primary">See More</a>
+    </div>
+}
 
-<h2>Category</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table>
     <tr>
         <th>
