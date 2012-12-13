@@ -1,4 +1,4 @@
-﻿@model ToolDepot.Models.UnderConstructionModel
+﻿@model ToolDepot.Core.Domain.UnderConstructionModel
 
 @{
     ViewBag.Title = "Tool Depot | Tool & Equipment Rental | Repair Services";
@@ -33,6 +33,16 @@
     
 </style>
 <div class="ProductList">
+    foreach()
+    {
+    <div class="pull-left product">
+        <img src="Model.ProductImage" class="product-image" />
+        <div style="" class="title">
+            Model.ProductName
+        </div>
+        <p>Model.ProductDescription</p>
+    </div>
+    }
     <div style="" class="pull-left product">
         <img src="/Content/images/Brochure/BoomLift.jpg" class="product-image" />
         <div style="" class="title">Boom Lift</div>

@@ -237,7 +237,7 @@
     <Compile Include="Core\Domain\Products\ProductCategory.cs" />
     <Compile Include="Core\Domain\Products\Product.cs" />
     <Compile Include="Models\Products\ProductWithCategoryModel.cs" />
-    <Compile Include="Models\UnderConstructionModel.cs" />
+    <Compile Include="Core\Domain\UnderConstructionModel.cs" />
     <Compile Include="Models\UsersContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CrudService.cs" />
@@ -315,6 +315,7 @@
     <Content Include="Content\images\Brochure\11lbsDemolitionHammer.jpg" />
     <Content Include="Content\images\Brochure\14inPortableCutoffSaw.jpg" />
     <Content Include="Content\images\Brochure\14inPowerCutter.jpg" />
+    <Content Include="Content\images\Brochure\1_2AngleDrill.png" />
     <Content Include="Content\images\Brochure\5inTuckPointingBlade.jpg" />
     <Content Include="Content\images\Brochure\70AvtBreakHammer.jpg" />
     <Content Include="Content\images\Brochure\9inAngleGrinder.jpg" />
@@ -329,14 +330,13 @@
     <Content Include="Content\images\Brochure\FireRetardantDebrisNetting.jpg" />
     <Content Include="Content\images\Brochure\Generator.jpg" />
     <Content Include="Content\images\Brochure\HDContractorTrashBag.jpg" />
-    <Content Include="Content\images\Brochure\HondaGenerator-.png" />
+    <Content Include="Content\images\Brochure\HondaGenerator.png" />
     <Content Include="Content\images\Brochure\ImerMightSmall50.jpg" />
     <Content Include="Content\images\Brochure\JumpingJackCompactor.jpg" />
     <Content Include="Content\images\Brochure\MasonFrame.jpg" />
     <Content Include="Content\images\Brochure\MK212.png" />
     <Content Include="Content\images\Brochure\MKBrickSaw.jpg" />
     <Content Include="Content\images\Brochure\OSHAStandardWoodPlanks.jpg" />
-    <Content Include="Content\images\Brochure\PlasticSheeting.jpg" />
     <Content Include="Content\images\Brochure\PlasticSheeting.png" />
     <Content Include="Content\images\Brochure\PressureWasher.jpg" />
     <Content Include="Content\images\Brochure\RebarBender.jpg" />
