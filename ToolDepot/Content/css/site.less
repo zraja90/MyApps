@@ -423,4 +423,37 @@ form.bs-docs-example {
 }
 
 
+.ProductList {
+	.product {
+        width: 140px;
+        min-height: 190px;
+        padding: 10px;
+        border: 2px solid #1E6Ef4;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+		&:nth-child(5n) {
+		    margin-right: 0;
+		}
+		> .product-image {
+			height: 90px;
+			margin-bottom: 10px;
+		}
+		> .title {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 24px;
+            margin-bottom: 5px;
+        }
+		> p {
+            font-weight: bold;
+        }
+    }
+}
+.blue {
+        color: #1e6ef4;
+    }
 
+    
+
+    

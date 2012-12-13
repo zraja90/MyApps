@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using ToolDepot.Core.Domain.Products;
 using ToolDepot.Data;
-using ToolDepot.Domain.Products;
 using ToolDepot.Models;
 
 namespace ToolDepot.Services

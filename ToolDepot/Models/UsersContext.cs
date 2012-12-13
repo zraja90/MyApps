@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using ToolDepot.Core.Domain.Products;
 using ToolDepot.Data;
-using ToolDepot.Domain.Products;
 
 namespace ToolDepot.Models
 {

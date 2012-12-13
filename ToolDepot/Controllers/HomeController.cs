@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Web.Mvc;
 using ToolDepot.Core;
-using ToolDepot.Domain.Products;
 using ToolDepot.Filters.Helpers;
 using ToolDepot.Models;
 using ToolDepot.Services;

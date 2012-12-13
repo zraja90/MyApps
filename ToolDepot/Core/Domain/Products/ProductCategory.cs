@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ToolDepot.Domain.Products
+namespace ToolDepot.Core.Domain.Products
 {
     [Table("ProductCategory")]
     public class ProductCategory

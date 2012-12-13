@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ToolDepot.Domain.Products;
+using ToolDepot.Core.Domain.Products;
 using ToolDepot.Models.Products;
 
 namespace ToolDepot.Core
