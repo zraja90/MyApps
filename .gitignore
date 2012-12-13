@@ -109,3 +109,4 @@ UpgradeLog*.XML
 
 ToolDepot/App_Data/ToolDepot.mdf
 ToolDepot/App_Data/ToolDepot_log.ldf
+*.db
