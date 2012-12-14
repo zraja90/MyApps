@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
+using ToolDepot.Data;
 using WebMatrix.WebData;
 using ToolDepot.Models;
 
@@ -25,11 +26,11 @@ namespace ToolDepot.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<AppContext>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new AppContext())
                     {
                         if (!context.Database.Exists())
                         {

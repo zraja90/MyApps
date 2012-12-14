@@ -1,3 +1,4 @@
+using ToolDepot.Data;
 using ToolDepot.Models;
 
 namespace ToolDepot.Migrations
@@ -7,14 +8,14 @@ namespace ToolDepot.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<UsersContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<AppContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(UsersContext context)
+        protected override void Seed(AppContext context)
         {
             InitMigrationSeed.Seed(context);
             //  This method will be called after migrating to the latest version.

@@ -3,13 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ToolDepot.Core.Domain.Products
 {
-    [Table("ProductDescription")]
     public class ProductDescription
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [ForeignKey("Product")]
+        
         public int ProductId { get; set; }
 
         public virtual Product Product { get; set; }

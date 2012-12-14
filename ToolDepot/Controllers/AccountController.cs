@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
+using ToolDepot.Data;
 using ToolDepot.Filters;
 using ToolDepot.Models;
 using WebMatrix.WebData;
@@ -262,7 +263,7 @@ namespace ToolDepot.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (UsersContext db = new UsersContext())
+                using (AppContext db = new AppContext())
                 {
                    // UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists

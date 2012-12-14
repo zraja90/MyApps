@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ToolDepot.Core.Domain.Products
 {
-    [Table("Brochure")]
     public class Brochure : BaseEntity
     {
         public Brochure()

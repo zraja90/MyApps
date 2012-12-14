@@ -66,7 +66,7 @@ namespace ToolDepot.App_Start
         private static void InitService(ContainerBuilder builder)
         {
             //data
-            builder.Register<IDbContext>(c => new UsersContext()).InstancePerHttpRequest();
+            builder.Register<IDbContext>(c => new AppContext()).InstancePerHttpRequest();
             builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerHttpRequest();
 
             builder.RegisterType<ProductContext>().As<IProductContext>().InstancePerHttpRequest();

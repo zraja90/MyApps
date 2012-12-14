@@ -4,15 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ToolDepot.Core.Domain.Products
 {
-    [Table("Products")]
     public class Product
     {
         public Product()
         {
             CreatedDate = DateTime.UtcNow;
         }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
         public string BrandName { get; set; }

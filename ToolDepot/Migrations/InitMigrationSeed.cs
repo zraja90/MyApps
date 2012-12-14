@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ToolDepot.Core.Domain.Products;
+using ToolDepot.Data;
 using ToolDepot.Models;
 
 namespace ToolDepot.Migrations
 {
     public class InitMigrationSeed
     {
-        public static void Seed(UsersContext context)
+        public static void Seed(AppContext context)
         {
-            InitProduct(context);
+          /*  InitProduct(context);
             InitProductDescription(context);
-            InitProductCategory(context);
+            InitProductCategory(context);*/
         }
 
-        private static void InitProduct(UsersContext context)
+        private static void InitProduct(AppContext context)
         {
             var product = new List<Product>
                               {
@@ -94,7 +95,7 @@ namespace ToolDepot.Migrations
             context.SaveChanges();
         }
 
-        private static void InitProductDescription(UsersContext context)
+        private static void InitProductDescription(AppContext context)
         {
             var desciption = new List<ProductDescription>
                               {
@@ -154,7 +155,7 @@ namespace ToolDepot.Migrations
             context.SaveChanges();
         }
 
-        private static void InitProductCategory(UsersContext context)
+        private static void InitProductCategory(AppContext context)
         {
             var category = new List<ProductCategory>
                                {
