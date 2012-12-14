@@ -8,9 +8,9 @@ using ToolDepot.Models;
 
 namespace ToolDepot.Services
 {
-    public class UnderConstructionService : CrudService<UnderConstructionModel>, IUnderConstructionService
+    public class UnderConstructionService : CrudService<UnderConstruction>, IUnderConstructionService
     {
-        public UnderConstructionService(IRepository<UnderConstructionModel> repo)
+        public UnderConstructionService(IRepository<UnderConstruction> repo)
             : base(repo)
         {
             

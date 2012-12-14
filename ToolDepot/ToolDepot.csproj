@@ -193,6 +193,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Core\BaseEntity.cs" />
+    <Compile Include="Core\Domain\Products\Brochure.cs" />
     <Compile Include="Core\Fakes\Extensions.cs" />
     <Compile Include="Core\Fakes\FakeHttpContext.cs" />
     <Compile Include="Core\Fakes\FakeHttpRequest.cs" />
@@ -205,7 +206,6 @@
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\SqlWrap.cs" />
-    <Compile Include="Core\Domain\Products\Brochure.cs" />
     <Compile Include="Core\Domain\Products\FeaturedProducts.cs" />
     <Compile Include="Core\Domain\Products\ProductDescription.cs" />
     <Compile Include="Filters\Helpers\ImportedFilePathResolver.cs" />
@@ -220,13 +220,13 @@
     <Compile Include="Infrastructure\ProductContext.cs" />
     <Compile Include="Mappers\MappingExtensions.cs" />
     <Compile Include="Mappers\MappingProfile.cs" />
-    <Compile Include="Migrations\201211261939170_1.cs" />
-    <Compile Include="Migrations\201211261939170_1.Designer.cs">
-      <DependentUpon>201211261939170_1.cs</DependentUpon>
+    <Compile Include="Migrations\201212140552213_v1.cs" />
+    <Compile Include="Migrations\201212140552213_v1.Designer.cs">
+      <DependentUpon>201212140552213_v1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201212061543402_2.cs" />
-    <Compile Include="Migrations\201212061543402_2.Designer.cs">
-      <DependentUpon>201212061543402_2.cs</DependentUpon>
+    <Compile Include="Migrations\201212140554149_v2.cs" />
+    <Compile Include="Migrations\201212140554149_v2.Designer.cs">
+      <DependentUpon>201212140554149_v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
@@ -237,10 +237,13 @@
     <Compile Include="Core\Domain\Products\ProductCategory.cs" />
     <Compile Include="Core\Domain\Products\Product.cs" />
     <Compile Include="Models\Products\ProductWithCategoryModel.cs" />
-    <Compile Include="Core\Domain\UnderConstructionModel.cs" />
+    <Compile Include="Core\Domain\UnderConstruction.cs" />
+    <Compile Include="Models\Products\UnderConstructionModel.cs" />
     <Compile Include="Models\UsersContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BrochureService.cs" />
     <Compile Include="Services\CrudService.cs" />
+    <Compile Include="Services\IBrochureService.cs" />
     <Compile Include="Services\ICrudService.cs" />
     <Compile Include="Services\IProductCategoryService.cs" />
     <Compile Include="Services\IProductService.cs" />
@@ -485,11 +488,11 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201211261939170_1.resx">
-      <DependentUpon>201211261939170_1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201212140552213_v1.resx">
+      <DependentUpon>201212140552213_v1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201212061543402_2.resx">
-      <DependentUpon>201212061543402_2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201212140554149_v2.resx">
+      <DependentUpon>201212140554149_v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

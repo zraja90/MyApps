@@ -1,4 +1,4 @@
-﻿@model ToolDepot.Core.Domain.UnderConstructionModel
+﻿@model ToolDepot.Models.Products.UnderConstructionModel
 
 @{
     ViewBag.Title = "Tool Depot | Tool & Equipment Rental | Repair Services";
@@ -18,8 +18,8 @@
                 <div class="form-inline">
                     <fieldset>
                         <legend class="hide"></legend>
-                        @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "Enter Your Email Address", type = "email", required = "" })
-                        @Html.ValidationMessageFor(m => m.EmailAddress)
+                        @Html.TextBoxFor(m => m.UnderConstruction.EmailAddress, new { placeholder = "Enter Your Email Address", type = "email", required = "" })
+                        @Html.ValidationMessageFor(m => m.UnderConstruction.EmailAddress)
                         <input type="submit" class="btn btn-primary" value="Submit">
                     </fieldset>
                 </div>
@@ -28,119 +28,24 @@
     </div>
     <div class="clearfix"></div>
 </div>
-<h1 class="blue">Featured Tools & Equipment</h1>
+<h1 class="blue">Featured Rental Tools & Equipment</h1>
 <style>
     
 </style>
 <div class="ProductList">
-    foreach()
+    @foreach(var item in Model.Brochure)
     {
     <div class="pull-left product">
-        <img src="Model.ProductImage" class="product-image" />
+        <img src="/Content/images/Brochure/@item.ProductImage" class="product-image" />
         <div style="" class="title">
-            Model.ProductName
+            @item.ProductName
         </div>
-        <p>Model.ProductDescription</p>
+        <p>@item.ProductDescription</p>
     </div>
     }
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BoomLift.jpg" class="product-image" />
-        <div style="" class="title">Boom Lift</div>
-        <p>Available in Many Sizes. Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/ScissorLift.jpg" class="product-image" />
-        <div style="" class="title">Scissor Lift</div>
-        <p>Available in Many Sizes. Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BobCatE35.jpg" class="product-image" />
-        <div style="" class="title">Bobcat E35</div>
-        <p>Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BobCatS650.jpg" class="product-image" />
-        <div style="" class="title">Bobcat S650</div>
-        <p>Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/CPS_AirCompressor.jpg" class="product-image" />
-        <div style="" class="title">Portable Air Compressor</div>
-        <p>$100 Per Day</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/70AvtBreakHammer.jpg" class="product-image" />
-        <div style="" class="title">70 lbs AVT Break Hammer</div>
-        <p>$40 Per Day</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/CoreDrill.jpg" class="product-image" />
-        <div style="" class="title">Core Drill</div>
-        <p>Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/14inPowerCutter.jpg" class="product-image" />
-        <div style="" class="title">14" Power Cutter</div>
-        <p>$40 Per Day</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/11lbsDemolitionHammer.jpg" class="product-image" />
-        <div style="" class="title">Demolition Hammer</div>
-        <p>$20 Per Day</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/14inPowerCutter.jpg" class="product-image" />
-        <div style="" class="title">14" Portable Cut Off Saw</div>
-        <p>$40 Per Day</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BoomLift.jpg" class="product-image" />
-        <div style="" class="title">Boom Lift</div>
-        <p>Available in Many Sizes. Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BoomLift.jpg" class="product-image" />
-        <div style="" class="title">Boom Lift</div>
-        <p>Available in Many Sizes. Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BoomLift.jpg" class="product-image" />
-        <div style="" class="title">Boom Lift</div>
-        <p>Available in Many Sizes. Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BoomLift.jpg" class="product-image" />
-        <div style="" class="title">Boom Lift</div>
-        <p>Available in Many Sizes. Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BoomLift.jpg" class="product-image" />
-        <div style="" class="title">Boom Lift</div>
-        <p>Available in Many Sizes. Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BoomLift.jpg" class="product-image" />
-        <div style="" class="title">Boom Lift</div>
-        <p>Available in Many Sizes. Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BoomLift.jpg" class="product-image" />
-        <div style="" class="title">Boom Lift</div>
-        <p>Available in Many Sizes. Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BoomLift.jpg" class="product-image" />
-        <div style="" class="title">Boom Lift</div>
-        <p>Available in Many Sizes. Call For Price</p>
-    </div>
-    <div style="" class="pull-left product">
-        <img src="/Content/images/Brochure/BoomLift.jpg" class="product-image" />
-        <div style="" class="title">Boom Lift</div>
-        <p>Available in Many Sizes. Call For Price</p>
-    </div>
+    <div class="clearfix"></div>
 </div>
 <div>
-    <img class="margin brochure" src="/Content/css/images/Brochure.jpg" alt="Brochure" />
     <div class="caption margin brochure">Prices and offers are subject to change.</div>
 </div>
 

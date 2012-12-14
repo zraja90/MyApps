@@ -5,6 +5,7 @@ using ToolDepot.Core;
 using ToolDepot.Core.Domain;
 using ToolDepot.Filters.Helpers;
 using ToolDepot.Models;
+using ToolDepot.Models.Products;
 using ToolDepot.Services;
 
 namespace ToolDepot.Controllers
@@ -15,14 +16,15 @@ namespace ToolDepot.Controllers
         private readonly IProductContext _productContext;
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
-
+        private readonly IBrochureService _brochureService;
         public HomeController(IUnderConstructionService underConstructionService,
-            IProductContext productContext,IProductService productService, IProductCategoryService productCategoryService)
+            IProductContext productContext,IProductService productService, IProductCategoryService productCategoryService, IBrochureService brochureService)
         {
             _underConstructionService = underConstructionService;
             _productContext = productContext;
             _productService = productService;
             _productCategoryService = productCategoryService;
+            _brochureService = brochureService;
         }
 
 
@@ -57,13 +59,14 @@ namespace ToolDepot.Controllers
 
         public ActionResult UnderConstruction()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            var model = new UnderConstructionModel();
 
-            return View();
+            model.Brochure = _brochureService.GetAll();
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult UnderConstruction(UnderConstructionModel model)
+        public ActionResult UnderConstruction(UnderConstruction model)
         {
             if (ModelState.IsValid)
             {

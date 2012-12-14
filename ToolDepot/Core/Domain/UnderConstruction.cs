@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ToolDepot.Core.Domain
 {
     [Table("UnderConstruction")]
-    public class UnderConstructionModel : BaseEntity
+    public class UnderConstruction : BaseEntity
     {
 
-        public UnderConstructionModel()
+        public UnderConstruction()
         {
             CreatedDate = DateTime.UtcNow;
         }

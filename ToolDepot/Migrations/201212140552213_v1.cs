@@ -3,10 +3,20 @@ namespace ToolDepot.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _2 : DbMigration
+    public partial class v1 : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.UnderConstruction",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        EmailAddress = c.String(),
+                        CreatedDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.Products",
                 c => new
@@ -59,6 +69,7 @@ namespace ToolDepot.Migrations
             DropTable("dbo.ProductDescription");
             DropTable("dbo.ProductCategory");
             DropTable("dbo.Products");
+            DropTable("dbo.UnderConstruction");
         }
     }
 }

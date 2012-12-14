@@ -7,7 +7,7 @@ using ToolDepot.Models;
 
 namespace ToolDepot.Services
 {
-    public interface IUnderConstructionService : ICrudService<UnderConstructionModel>
+    public interface IUnderConstructionService : ICrudService<UnderConstruction>
     {
     }
 }
