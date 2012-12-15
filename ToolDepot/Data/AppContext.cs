@@ -4,9 +4,8 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
-using ToolDepot.Core.Domain;
-using ToolDepot.Core.Domain.Products;
 using ToolDepot.Data.Mapping.Logging;
+
 
 namespace ToolDepot.Data
 {

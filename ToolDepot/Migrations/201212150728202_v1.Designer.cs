@@ -5,13 +5,13 @@ namespace ToolDepot.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class _1 : IMigrationMetadata
+    public sealed partial class v1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(v1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201212142238090_1"; }
+            get { return "201212150728202_v1"; }
         }
         
         string IMigrationMetadata.Source

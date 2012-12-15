@@ -15,6 +15,24 @@ namespace ToolDepot.Migrations
           /*  InitProduct(context);
             InitProductDescription(context);
             InitProductCategory(context);*/
+            //InitBrochure(context);
+        }
+
+        public static void InitBrochure(AppContext context)
+        {
+            var brochure = new List<Brochure>
+                               {
+                                   new Brochure
+                                       {
+                                           
+                                       }
+                               };
+            if (!context.Set<Brochure>().Any())
+            {
+                brochure.ForEach(x => context.Set<Brochure>().Add(x));
+            }
+            context.SaveChanges();
+
         }
 
         private static void InitProduct(AppContext context)

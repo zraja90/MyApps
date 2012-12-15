@@ -11,11 +11,7 @@ namespace ToolDepot.App_Start
     {
         public static void Configure()
         {
-            Mapper.Initialize(x =>
-            {
-                x.AddProfile<MappingProfile>();
-
-            });
+            Mapper.Initialize(x => x.AddProfile<MappingProfile>());
         }
     }
 }

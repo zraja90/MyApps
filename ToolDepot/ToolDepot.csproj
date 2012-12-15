@@ -208,6 +208,7 @@
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\Mapping\Logging\LogMap.cs" />
+    <Compile Include="Data\Mapping\Products\BrochureMap.cs" />
     <Compile Include="Data\SqlWrap.cs" />
     <Compile Include="Core\Domain\Products\FeaturedProducts.cs" />
     <Compile Include="Core\Domain\Products\ProductDescription.cs" />
@@ -223,9 +224,9 @@
     <Compile Include="Infrastructure\ProductContext.cs" />
     <Compile Include="Mappers\MappingExtensions.cs" />
     <Compile Include="Mappers\MappingProfile.cs" />
-    <Compile Include="Migrations\201212142238090_1.cs" />
-    <Compile Include="Migrations\201212142238090_1.Designer.cs">
-      <DependentUpon>201212142238090_1.cs</DependentUpon>
+    <Compile Include="Migrations\201212150728202_v1.cs" />
+    <Compile Include="Migrations\201212150728202_v1.Designer.cs">
+      <DependentUpon>201212150728202_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Models\NotifyType.cs" />
     <Compile Include="Core\Domain\Products\ProductCategory.cs" />
     <Compile Include="Core\Domain\Products\Product.cs" />
+    <Compile Include="Models\Products\BrochureModel.cs" />
     <Compile Include="Models\Products\ProductWithCategoryModel.cs" />
     <Compile Include="Core\Domain\UnderConstruction.cs" />
     <Compile Include="Models\Products\UnderConstructionModel.cs" />
@@ -487,8 +489,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201212142238090_1.resx">
-      <DependentUpon>201212142238090_1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201212150728202_v1.resx">
+      <DependentUpon>201212150728202_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

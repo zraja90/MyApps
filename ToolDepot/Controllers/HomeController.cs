@@ -29,18 +29,25 @@ namespace ToolDepot.Controllers
 
 
 
-        public ActionResult Index()
+        public ActionResult Index1()
         {
             //var product = _productContext.AllProducts;
-
+            return RedirectToAction("Index");
             var products = _productService.GetAll();
             
             return View(products);
+        }
+        public ActionResult Index()
+        {
+            var model = new BrochureModel();
+            model.Brochures = _brochureService.GetAll().ToList();
+            return View(model);
         }
 
         [ChildActionOnly]
         public ActionResult ProductCategories()
         {
+            return RedirectToAction("Index");
             var productCategories = _productCategoryService.GetAll().OrderBy(x=>x.CategoryName).ToList();
 
             
@@ -51,7 +58,7 @@ namespace ToolDepot.Controllers
         [ChildActionOnly]
         public ActionResult FeaturedProductCategory()
         {
-            
+            return RedirectToAction("Index");
             var featuredProducts = _productContext.FeaturedProducts;
             
             return PartialView(featuredProducts);
@@ -59,6 +66,7 @@ namespace ToolDepot.Controllers
 
         public ActionResult UnderConstruction()
         {
+            return RedirectToAction("Index");
             var model = new UnderConstructionModel();
 
             model.Brochure = _brochureService.GetAll();
@@ -68,6 +76,7 @@ namespace ToolDepot.Controllers
         [HttpPost]
         public ActionResult UnderConstruction(UnderConstruction model)
         {
+            return RedirectToAction("Index");
             if (ModelState.IsValid)
             {
                 if (!string.IsNullOrEmpty(model.EmailAddress))
