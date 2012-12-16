@@ -34,7 +34,7 @@ namespace ToolDepot.Migrations
             context.SaveChanges();
 
         }
-
+        /*
         private static void InitProduct(AppContext context)
         {
             var product = new List<Product>
@@ -115,9 +115,9 @@ namespace ToolDepot.Migrations
 
         private static void InitProductDescription(AppContext context)
         {
-            var desciption = new List<ProductDescription>
+            var desciption = new List<ProductSpecs>
                               {
-                                  new ProductDescription
+                                  new ProductSpecs
                                       {
                                           ProductId = 1,
                                           Description = "Description",
@@ -125,7 +125,7 @@ namespace ToolDepot.Migrations
                                           ProductFeatures = "Features",
                                           ProductSpecs = "Specs",
                                       },
-                                      new ProductDescription
+                                      new ProductSpecs
                                       {
                                           ProductId = 2,
                                           Description = "Description",
@@ -133,7 +133,7 @@ namespace ToolDepot.Migrations
                                           ProductFeatures = "Features",
                                           ProductSpecs = "Specs",
                                       },
-                                       new ProductDescription
+                                       new ProductSpecs
                                       {
                                           ProductId = 3,
                                           Description = "Description",
@@ -141,7 +141,7 @@ namespace ToolDepot.Migrations
                                           ProductFeatures = "Features",
                                           ProductSpecs = "Specs"
                                       },
-                                      new ProductDescription
+                                      new ProductSpecs
                                       {
                                           ProductId = 4,
                                           Description = "Description",
@@ -149,7 +149,7 @@ namespace ToolDepot.Migrations
                                           ProductFeatures = "Features",
                                           ProductSpecs = "Specs",
                                       },
-                                      new ProductDescription
+                                      new ProductSpecs
                                       {
                                           ProductId = 5,
                                           Description = "Description",
@@ -157,7 +157,7 @@ namespace ToolDepot.Migrations
                                           ProductFeatures = "Features",
                                           ProductSpecs = "Specs",
                                       },
-                                       new ProductDescription
+                                       new ProductSpecs
                                       {
                                           ProductId = 6,
                                           Description = "Description",
@@ -166,9 +166,9 @@ namespace ToolDepot.Migrations
                                           ProductSpecs = "Specs"
                                       }
                               };
-            if (!context.Set<ProductDescription>().Any())
+            if (!context.Set<ProductSpecs>().Any())
             {
-                desciption.ForEach(x => context.Set<ProductDescription>().Add(x));
+                desciption.ForEach(x => context.Set<ProductSpecs>().Add(x));
             }
             context.SaveChanges();
         }
@@ -196,5 +196,6 @@ namespace ToolDepot.Migrations
             }
             context.SaveChanges();
         }
+         * */
     }
 }

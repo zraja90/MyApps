@@ -6,7 +6,7 @@ using ToolDepot.Core;
 using ToolDepot.Core.Domain.Products;
 using ToolDepot.Models.Products;
 using ToolDepot.Services;
-
+/*
 namespace ToolDepot.Infrastructure
 {
     public partial class ProductContext : IProductContext
@@ -19,7 +19,7 @@ namespace ToolDepot.Infrastructure
             _productCategoryService = productCategoryService;
 
         }
-
+        
         public List<FeaturedProducts> GetFeaturedProducts()
         {
             var featuredCategory = _productCategoryService.GetMany(x => x.IsFeaturedCategory).ToList();
@@ -49,7 +49,7 @@ namespace ToolDepot.Infrastructure
             }
             return (List<FeaturedProducts>) featuredProductsWithCategory;
         }
-
+        
         public ProductWithCategoryModel GetProductWithDescription(int id)
         {
            
@@ -72,4 +72,4 @@ namespace ToolDepot.Infrastructure
             get { return GetProductWithDescription(Id); }
         }
     }
-}
+}*/

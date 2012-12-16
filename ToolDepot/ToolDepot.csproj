@@ -211,7 +211,7 @@
     <Compile Include="Data\Mapping\Products\BrochureMap.cs" />
     <Compile Include="Data\SqlWrap.cs" />
     <Compile Include="Core\Domain\Products\FeaturedProducts.cs" />
-    <Compile Include="Core\Domain\Products\ProductDescription.cs" />
+    <Compile Include="Core\Domain\Products\ProductSpecs.cs" />
     <Compile Include="Filters\Helpers\ImportedFilePathResolver.cs" />
     <Compile Include="Filters\Helpers\LessMinify.cs" />
     <Compile Include="Filters\Helpers\NotificationHelper.cs" />
