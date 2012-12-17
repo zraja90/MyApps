@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using ToolDepot.Core;
 using ToolDepot.Core.Domain;
 using ToolDepot.Filters.Helpers;
+using ToolDepot.Mailers;
 using ToolDepot.Models;
 using ToolDepot.Models.Products;
 using ToolDepot.Services;
@@ -17,11 +18,12 @@ namespace ToolDepot.Controllers
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
         private readonly IBrochureService _brochureService;
+        private readonly IUserMailer _userMailer;
         public HomeController(IUnderConstructionService underConstructionService,
-           IProductService productService, IProductCategoryService productCategoryService, IBrochureService brochureService)
+           IProductService productService, IProductCategoryService productCategoryService, IBrochureService brochureService, IUserMailer userMailer)
         {
             _underConstructionService = underConstructionService;
-            
+            _userMailer = userMailer;
             _productService = productService;
             _productCategoryService = productCategoryService;
             _brochureService = brochureService;
@@ -41,6 +43,7 @@ namespace ToolDepot.Controllers
         {
             var model = new BrochureModel();
             model.Brochures = _brochureService.GetAll().ToList();
+            _userMailer.Welcome().Send();
             return View(model);
         }
 

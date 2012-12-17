@@ -61,6 +61,9 @@
       <HintPath>..\packages\Microsoft.CompilerServices.AsyncTargetingPack.1.0.0\lib\net45\Microsoft.CompilerServices.AsyncTargetingPack.Net45.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mvc.Mailer">
+      <HintPath>..\packages\MvcMailer.4.0\lib\40\Mvc.Mailer.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList">
       <HintPath>..\packages\PagedList.1.15.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -211,6 +214,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mailers\IUserMailer.cs" />
+    <Compile Include="Mailers\UserMailer.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\NotifyType.cs" />
     <Compile Include="Models\UsersContext.cs" />
@@ -348,6 +353,9 @@
     <Content Include="Views\Home\Demo1.cshtml" />
     <Content Include="Views\Home\Demo2.cshtml" />
     <Content Include="Views\Home\Demo3.cshtml" />
+    <Content Include="Views\UserMailer\_Layout.cshtml" />
+    <Content Include="Views\UserMailer\Welcome.cshtml" />
+    <Content Include="Views\UserMailer\PasswordReset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

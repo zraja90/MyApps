@@ -61,6 +61,9 @@
       <HintPath>..\packages\Microsoft.CompilerServices.AsyncTargetingPack.1.0.0\lib\net45\Microsoft.CompilerServices.AsyncTargetingPack.Net45.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mvc.Mailer">
+      <HintPath>..\packages\MvcMailer.4.0\lib\40\Mvc.Mailer.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList">
       <HintPath>..\packages\PagedList.1.15.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -246,6 +249,8 @@
     <Compile Include="Helpers\GlobalHelper.cs" />
     <Compile Include="Helpers\PageListHelper.cs" />
     <Compile Include="Infrastructure\ProductContext.cs" />
+    <Compile Include="Mailers\IUserMailer.cs" />
+    <Compile Include="Mailers\UserMailer.cs" />
     <Compile Include="Mappers\MappingExtensions.cs" />
     <Compile Include="Mappers\MappingProfile.cs" />
     <Compile Include="Migrations\201212150728202_v1.cs" />
@@ -255,6 +260,10 @@
     <Compile Include="Migrations\201212170616258_v2.cs" />
     <Compile Include="Migrations\201212170616258_v2.Designer.cs">
       <DependentUpon>201212170616258_v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201212172307048_v3.cs" />
+    <Compile Include="Migrations\201212172307048_v3.Designer.cs">
+      <DependentUpon>201212172307048_v3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
@@ -535,6 +544,9 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\AllCategories.cshtml" />
     <Content Include="Views\Products\Category.cshtml" />
+    <Content Include="Views\UserMailer\_LayoutMail.cshtml" />
+    <Content Include="Views\UserMailer\Welcome.cshtml" />
+    <Content Include="Views\UserMailer\PasswordReset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -548,6 +560,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201212170616258_v2.resx">
       <DependentUpon>201212170616258_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201212172307048_v3.resx">
+      <DependentUpon>201212172307048_v3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
