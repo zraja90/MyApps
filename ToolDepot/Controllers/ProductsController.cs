@@ -10,16 +10,14 @@ namespace ToolDepot.Controllers
 {
     public class ProductsController : Controller
     {
-         private readonly IUnderConstructionService _underConstructionService;
-        private readonly IProductContext _productContext;
+
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
 
-        public ProductsController(IUnderConstructionService underConstructionService,
-            IProductContext productContext,IProductService productService, IProductCategoryService productCategoryService)
+        public ProductsController(IProductService productService, IProductCategoryService productCategoryService)
         {
-            _underConstructionService = underConstructionService;
-            _productContext = productContext;
+
+
             _productService = productService;
             _productCategoryService = productCategoryService;
         }
@@ -28,9 +26,8 @@ namespace ToolDepot.Controllers
 
         public ActionResult Index(int id = 0)
         {
-            _productContext.Id = id;
-            var product = _productContext.GetProductInfoById;
-            return View(product);
+
+            return View();
         }
 
         public ActionResult AllCategories()

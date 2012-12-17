@@ -17,8 +17,9 @@ namespace ToolDepot.Core.Domain.Products
         public string CategoryImage { get; set; }
         public DateTime CreatedDate { get; set; }
 
-        public virtual ICollection<Product> Product 
-        { get { return _product = new List<Product>(); }
+        public virtual ICollection<Product> Products
+        {
+            get { return _product ?? (_product = new List<Product>()); }
             protected set { _product = value; }
         }
         private ICollection<Product> _product;

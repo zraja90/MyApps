@@ -30,24 +30,6 @@ namespace ToolDepot.Mappers
 
 
 
-        public static FeaturedProductCategoriesModel ToModel(this FeaturedProducts entity)
-        {
-            return Mapper.Map<FeaturedProducts, FeaturedProductCategoriesModel>(entity);
-        }
-
-        public static FeaturedProducts ToEntity(this FeaturedProductCategoriesModel model)
-        {
-            return Mapper.Map<FeaturedProductCategoriesModel, FeaturedProducts>(model);
-        }
-
-        public static FeaturedProducts ToEntity(this FeaturedProductCategoriesModel model, FeaturedProducts destination)
-        {
-            return Mapper.Map(model, destination);
-        }
-
-
-
-
         #endregion
     }
 }

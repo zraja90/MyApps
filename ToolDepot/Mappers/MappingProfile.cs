@@ -17,8 +17,7 @@ namespace ToolDepot.Mappers
             Mapper.CreateMap<Product, ProductWithCategoryModel>();
             Mapper.CreateMap<ProductWithCategoryModel, Product>();
 
-            Mapper.CreateMap<FeaturedProducts, FeaturedProductCategoriesModel>();
-            Mapper.CreateMap<FeaturedProductCategoriesModel, FeaturedProducts>();
+            
         }
     }
 }

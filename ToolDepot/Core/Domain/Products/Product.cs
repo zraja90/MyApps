@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,15 +19,21 @@ namespace ToolDepot.Core.Domain.Products
 
         public int CategoryId { get; set; }
 
-        private ProductCategory _category;
-        public virtual ProductCategory Category
-        {
-            get { return _category ?? (_category = new ProductCategory()); }
-            protected set { _category = value; }
+        public virtual ProductCategory Category { get; set; }
+
+        private ICollection<ProductSpecs> _productSpecs;
+        public virtual ICollection<ProductSpecs> ProductSpecs 
+        { get { return _productSpecs ?? (_productSpecs = new List<ProductSpecs>()); }
+            protected set { _productSpecs = value; }
         }
+
+        private ICollection<ProductFeatures> _productFeatures;
+        public virtual ICollection<ProductFeatures> ProductFeatures
+        {
+            get { return _productFeatures ?? (_productFeatures = new List<ProductFeatures>()); }
+        }
+
         
-        //Product Featuers
-        //Product Specs
         //Incudes
         //Manuals
 

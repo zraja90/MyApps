@@ -13,15 +13,15 @@ namespace ToolDepot.Controllers
     public class HomeController : Controller
     {
         private readonly IUnderConstructionService _underConstructionService;
-        private readonly IProductContext _productContext;
+        
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
         private readonly IBrochureService _brochureService;
         public HomeController(IUnderConstructionService underConstructionService,
-            IProductContext productContext,IProductService productService, IProductCategoryService productCategoryService, IBrochureService brochureService)
+           IProductService productService, IProductCategoryService productCategoryService, IBrochureService brochureService)
         {
             _underConstructionService = underConstructionService;
-            _productContext = productContext;
+            
             _productService = productService;
             _productCategoryService = productCategoryService;
             _brochureService = brochureService;
@@ -59,9 +59,9 @@ namespace ToolDepot.Controllers
         public ActionResult FeaturedProductCategory()
         {
             return RedirectToAction("Index");
-            var featuredProducts = _productContext.FeaturedProducts;
+            //var featuredProducts = _productContext.FeaturedProducts;
             
-            return PartialView(featuredProducts);
+            return PartialView();
         }
 
         public ActionResult UnderConstruction()

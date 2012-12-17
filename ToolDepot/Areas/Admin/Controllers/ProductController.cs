@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using ToolDepot.Areas.Admin.Models;
 using ToolDepot.Helpers;
 using ToolDepot.Mappers;
 using ToolDepot.Models;
@@ -23,8 +24,8 @@ namespace ToolDepot.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            var products = _productService.GetAll();
-            var model = products.Select(x => x.ToModel()).ToList();
+            var model = new AllProductsListModel {Products = _productService.GetAll().ToList()};
+
 
             return View(model);
         }
