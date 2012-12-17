@@ -210,7 +210,10 @@
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\Mapping\Logging\LogMap.cs" />
     <Compile Include="Data\Mapping\Products\BrochureMap.cs" />
+    <Compile Include="Data\Mapping\Products\ProductCategoryMap.cs" />
+    <Compile Include="Data\Mapping\Products\ProductFeaturesMap.cs" />
     <Compile Include="Data\Mapping\Products\ProductMap.cs" />
+    <Compile Include="Data\Mapping\Products\ProductSpecsMap.cs" />
     <Compile Include="Data\SqlWrap.cs" />
     <Compile Include="Core\Domain\Products\ProductSpecs.cs" />
     <Compile Include="Filters\Helpers\ImportedFilePathResolver.cs" />
@@ -228,6 +231,10 @@
     <Compile Include="Migrations\201212150728202_v1.cs" />
     <Compile Include="Migrations\201212150728202_v1.Designer.cs">
       <DependentUpon>201212150728202_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201212170616258_v2.cs" />
+    <Compile Include="Migrations\201212170616258_v2.Designer.cs">
+      <DependentUpon>201212170616258_v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
@@ -493,6 +500,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201212150728202_v1.resx">
       <DependentUpon>201212150728202_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201212170616258_v2.resx">
+      <DependentUpon>201212170616258_v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
