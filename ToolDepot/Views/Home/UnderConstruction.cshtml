@@ -16,7 +16,7 @@
             <div class="form">
                 <fieldset>
                     <legend class="hide"></legend>
-                    @Html.TextBoxFor(m => m..EmailAddress, new { placeholder = "Enter Your Email Address", type = "email", required = "" })
+                    @Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "Enter Your Email Address", type = "email", required = "" })
                     @Html.ValidationMessageFor(m => m.UnderConstruction.EmailAddress)
                     <input type="submit" class="btn btn-primary" value="Submit">
                 </fieldset>

@@ -61,6 +61,12 @@
       <HintPath>..\packages\Microsoft.CompilerServices.AsyncTargetingPack.1.0.0\lib\net45\Microsoft.CompilerServices.AsyncTargetingPack.Net45.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.15.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.3.18.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -193,11 +199,18 @@
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Core\AppException.cs" />
     <Compile Include="Core\BaseEntity.cs" />
+    <Compile Include="Core\CommonHelper.cs" />
+    <Compile Include="Core\Domain\Email\EmailAccount.cs" />
+    <Compile Include="Core\Domain\Email\EmailTemplates.cs" />
+    <Compile Include="Core\Domain\Email\QueuedEmail.cs" />
+    <Compile Include="Core\Domain\Email\EnumEmailNames.cs" />
     <Compile Include="Core\Domain\Logging\Log.cs" />
     <Compile Include="Core\Domain\Logging\LogLevel.cs" />
     <Compile Include="Core\Domain\Products\Brochure.cs" />
     <Compile Include="Core\Domain\Products\ProductFeatures.cs" />
+    <Compile Include="Core\Domain\Tasks\ScheduleTask.cs" />
     <Compile Include="Core\Fakes\Extensions.cs" />
     <Compile Include="Core\Fakes\FakeHttpContext.cs" />
     <Compile Include="Core\Fakes\FakeHttpRequest.cs" />
@@ -205,9 +218,15 @@
     <Compile Include="Core\Fakes\FakeHttpSessionState.cs" />
     <Compile Include="Core\Fakes\FakeIdentity.cs" />
     <Compile Include="Core\Fakes\FakePrincipal.cs" />
+    <Compile Include="Core\GenericListTypeConverter.cs" />
+    <Compile Include="Core\IWebHelper.cs" />
+    <Compile Include="Core\WebHelper.cs" />
     <Compile Include="Data\EfRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\Mapping\Email\EmailAccountMap.cs" />
+    <Compile Include="Data\Mapping\Email\EmailTemplatesMap.cs" />
+    <Compile Include="Data\Mapping\Email\QueuedEmailMap.cs" />
     <Compile Include="Data\Mapping\Logging\LogMap.cs" />
     <Compile Include="Data\Mapping\Products\BrochureMap.cs" />
     <Compile Include="Data\Mapping\Products\ProductCategoryMap.cs" />
@@ -225,6 +244,7 @@
     </Compile>
     <Compile Include="Helpers\Extensions\HtmlExtensions.cs" />
     <Compile Include="Helpers\GlobalHelper.cs" />
+    <Compile Include="Helpers\PageListHelper.cs" />
     <Compile Include="Infrastructure\ProductContext.cs" />
     <Compile Include="Mappers\MappingExtensions.cs" />
     <Compile Include="Mappers\MappingProfile.cs" />
@@ -250,18 +270,41 @@
     <Compile Include="Models\Products\UnderConstructionModel.cs" />
     <Compile Include="Data\AppContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\BrochureService.cs" />
+    <Compile Include="Services\Email\EmailAccountService.cs" />
+    <Compile Include="Services\Email\EmailSender.cs" />
+    <Compile Include="Services\Email\IEmailAccountService.cs" />
+    <Compile Include="Services\Email\IEmailSender.cs" />
+    <Compile Include="Services\Email\IEmailTemplateService.cs" />
+    <Compile Include="Services\Email\IQueuedEmailService.cs" />
+    <Compile Include="Services\Email\ITokenizer.cs" />
+    <Compile Include="Services\Email\IWorkflowMessageService.cs" />
+    <Compile Include="Services\Email\EmailTemplateService.cs" />
+    <Compile Include="Services\Email\QueuedEmailService.cs" />
+    <Compile Include="Services\Email\QueuedMessagesSendTask.cs" />
+    <Compile Include="Services\Email\Token.cs" />
+    <Compile Include="Services\Email\Tokenizer.cs" />
+    <Compile Include="Services\Email\WorkflowMessageService.cs" />
+    <Compile Include="Services\Logging\DefaultLogger.cs" />
+    <Compile Include="Services\Logging\ILogger.cs" />
+    <Compile Include="Services\Logging\LoggingExtensions.cs" />
+    <Compile Include="Services\Product\BrochureService.cs" />
     <Compile Include="Services\CrudService.cs" />
-    <Compile Include="Services\IBrochureService.cs" />
+    <Compile Include="Services\Product\IBrochureService.cs" />
     <Compile Include="Services\ICrudService.cs" />
-    <Compile Include="Services\IProductCategoryService.cs" />
-    <Compile Include="Services\IProductService.cs" />
-    <Compile Include="Services\IRequestQuoteService.cs" />
+    <Compile Include="Services\Product\IProductCategoryService.cs" />
+    <Compile Include="Services\Product\IProductService.cs" />
+    <Compile Include="Services\Product\IRequestQuoteService.cs" />
     <Compile Include="Services\IUnderConstructionService.cs" />
-    <Compile Include="Services\ProductCategoryService.cs" />
-    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\Product\ProductCategoryService.cs" />
+    <Compile Include="Services\Product\ProductService.cs" />
     <Compile Include="Models\RequestAQuoteModel.cs" />
-    <Compile Include="Services\RequestQuoteService.cs" />
+    <Compile Include="Services\Product\RequestQuoteService.cs" />
+    <Compile Include="Services\Tasks\IScheduleTaskService.cs" />
+    <Compile Include="Services\Tasks\ITask.cs" />
+    <Compile Include="Services\Tasks\ScheduleTaskService.cs" />
+    <Compile Include="Services\Tasks\Task.cs" />
+    <Compile Include="Services\Tasks\TaskManager.cs" />
+    <Compile Include="Services\Tasks\TaskThread.cs" />
     <Compile Include="Services\UnderConstructionService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -356,6 +399,7 @@
     <Content Include="Content\images\Brochure\ScissorLift.jpg" />
     <Content Include="Content\images\Brochure\Tarpaulins.jpg" />
     <Content Include="Content\images\Brochure\WalkBehindSaw.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
