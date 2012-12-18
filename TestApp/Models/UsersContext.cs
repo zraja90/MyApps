@@ -12,7 +12,7 @@ namespace TestApp.Models
         {
         }
 
-        //public DbSet<UnderConstructionModel> UnderConstruction { get; set; }
+        
         public IDbSet<TEntity> Set<TEntity>() where TEntity : class
         {
             return base.Set<TEntity>();

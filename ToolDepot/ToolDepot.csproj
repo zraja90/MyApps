@@ -291,6 +291,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Common\HeaderModel.cs" />
     <Compile Include="Models\FeaturedCategoriesModel.cs" />
     <Compile Include="Models\FeaturedProductModel.cs" />
     <Compile Include="Models\NotifyType.cs" />

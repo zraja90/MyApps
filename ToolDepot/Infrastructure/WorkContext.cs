@@ -95,7 +95,7 @@ namespace ToolDepot.Infrastructure
 
         public string LogoutUrl
         {
-            get { return "/"; }
+            get { return "http://localhost:65403/"; }
         }
 
     }
