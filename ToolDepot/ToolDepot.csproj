@@ -202,13 +202,16 @@
     <Compile Include="Areas\Admin\Models\Products\EditProductModel.cs" />
     <Compile Include="Areas\Admin\Models\Products\ProductDetailModel.cs" />
     <Compile Include="Areas\Admin\Models\Products\ProductFeaturesSpecsModel.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Core\AppException.cs" />
     <Compile Include="Core\BaseEntity.cs" />
     <Compile Include="Core\CommonHelper.cs" />
+    <Compile Include="Core\Domain\Customers\Customer.cs" />
+    <Compile Include="Core\Domain\Customers\CustomerRole.cs" />
+    <Compile Include="Core\Domain\Customers\SystemCustomerRoleNames.cs" />
     <Compile Include="Core\Domain\Email\EmailAccount.cs" />
     <Compile Include="Core\Domain\Email\EmailTemplates.cs" />
     <Compile Include="Core\Domain\Email\QueuedEmail.cs" />
@@ -218,6 +221,8 @@
     <Compile Include="Core\Domain\Products\Brochure.cs" />
     <Compile Include="Core\Domain\Products\ProductFeatures.cs" />
     <Compile Include="Core\Domain\Products\ProductReviews.cs" />
+    <Compile Include="Core\Domain\Security\DefaultPermissionRecord.cs" />
+    <Compile Include="Core\Domain\Security\PermissionRecord.cs" />
     <Compile Include="Core\Domain\Tasks\ScheduleTask.cs" />
     <Compile Include="Core\Fakes\Extensions.cs" />
     <Compile Include="Core\Fakes\FakeHttpContext.cs" />
@@ -232,6 +237,8 @@
     <Compile Include="Data\EfRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\Mapping\Customers\CustomerMap.cs" />
+    <Compile Include="Data\Mapping\Customers\CustomerRoleMap.cs" />
     <Compile Include="Data\Mapping\Email\EmailAccountMap.cs" />
     <Compile Include="Data\Mapping\Email\EmailTemplatesMap.cs" />
     <Compile Include="Data\Mapping\Email\QueuedEmailMap.cs" />
@@ -241,12 +248,14 @@
     <Compile Include="Data\Mapping\Products\ProductFeaturesMap.cs" />
     <Compile Include="Data\Mapping\Products\ProductMap.cs" />
     <Compile Include="Data\Mapping\Products\ProductSpecsMap.cs" />
+    <Compile Include="Data\Mapping\Security\PermissionRecordMap.cs" />
+    <Compile Include="Data\Mapping\Tasks\ScheduleTaskMap.cs" />
     <Compile Include="Data\SqlWrap.cs" />
     <Compile Include="Core\Domain\Products\ProductSpecs.cs" />
+    <Compile Include="Filters\AdminAuthorizeAttribute.cs" />
     <Compile Include="Filters\Helpers\ImportedFilePathResolver.cs" />
     <Compile Include="Filters\Helpers\LessMinify.cs" />
     <Compile Include="Filters\Helpers\NotificationHelper.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -270,6 +279,10 @@
     <Compile Include="Migrations\201212172307048_v3.Designer.cs">
       <DependentUpon>201212172307048_v3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201212181951122_v4.cs" />
+    <Compile Include="Migrations\201212181951122_v4.Designer.cs">
+      <DependentUpon>201212181951122_v4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -285,6 +298,12 @@
     <Compile Include="Models\Products\UnderConstructionModel.cs" />
     <Compile Include="Data\AppContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Authentication\FormsAuthenticationService.cs" />
+    <Compile Include="Services\Authentication\IAuthenticationService.cs" />
+    <Compile Include="Services\CustomerService\CustomerRegistrationService.cs" />
+    <Compile Include="Services\CustomerService\CustomerService.cs" />
+    <Compile Include="Services\CustomerService\ICustomerRegistrationService.cs" />
+    <Compile Include="Services\CustomerService\ICustomerService.cs" />
     <Compile Include="Services\Email\EmailAccountService.cs" />
     <Compile Include="Services\Email\EmailSender.cs" />
     <Compile Include="Services\Email\IEmailAccountService.cs" />
@@ -299,6 +318,10 @@
     <Compile Include="Services\Email\Token.cs" />
     <Compile Include="Services\Email\Tokenizer.cs" />
     <Compile Include="Services\Email\WorkflowMessageService.cs" />
+    <Compile Include="Services\Helpers\DateTimeHelperService.cs" />
+    <Compile Include="Services\Helpers\DateTimeSettings.cs" />
+    <Compile Include="Services\Helpers\IDateTimeHelperService.cs" />
+    <Compile Include="Services\Helpers\TimeZoneInfoHelper.cs" />
     <Compile Include="Services\Logging\DefaultLogger.cs" />
     <Compile Include="Services\Logging\ILogger.cs" />
     <Compile Include="Services\Logging\LoggingExtensions.cs" />
@@ -314,6 +337,12 @@
     <Compile Include="Services\Product\ProductService.cs" />
     <Compile Include="Models\RequestAQuoteModel.cs" />
     <Compile Include="Services\Product\RequestQuoteService.cs" />
+    <Compile Include="Services\Security\EncryptionService.cs" />
+    <Compile Include="Services\Security\IEncryptionService.cs" />
+    <Compile Include="Services\Security\IPermissionProvider.cs" />
+    <Compile Include="Services\Security\IPermissionService.cs" />
+    <Compile Include="Services\Security\PermissionService.cs" />
+    <Compile Include="Services\Security\StandardPermissionProvider.cs" />
     <Compile Include="Services\Tasks\IScheduleTaskService.cs" />
     <Compile Include="Services\Tasks\ITask.cs" />
     <Compile Include="Services\Tasks\ScheduleTaskService.cs" />
@@ -531,7 +560,7 @@
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -572,6 +601,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201212172307048_v3.resx">
       <DependentUpon>201212172307048_v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201212181951122_v4.resx">
+      <DependentUpon>201212181951122_v4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

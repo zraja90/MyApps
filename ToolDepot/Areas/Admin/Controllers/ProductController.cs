@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using ToolDepot.Areas.Admin.Models;
 using ToolDepot.Areas.Admin.Models.Products;
+using ToolDepot.Filters;
 using ToolDepot.Helpers;
 using ToolDepot.Mappers;
 using ToolDepot.Models;
@@ -11,6 +12,7 @@ using ToolDepot.Services;
 
 namespace ToolDepot.Areas.Admin.Controllers
 {
+    [AdminAuthorize]
     public class ProductController : Controller
     {
         //

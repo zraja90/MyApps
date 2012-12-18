@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using ToolDepot.App_Start;
+using ToolDepot.Services.Tasks;
 
 namespace ToolDepot
 {
@@ -26,6 +27,9 @@ namespace ToolDepot
             AuthConfig.RegisterAuth();
             AutofacConfig.RegisterAutofac();
             AutoMapperConfig.Configure();
+
+            TaskManager.Instance.Initialize();
+            TaskManager.Instance.Start();
         }
     }
 }
