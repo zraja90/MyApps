@@ -47,6 +47,18 @@ namespace ToolDepot.Areas.Admin.Controllers
             return View(model);
         }
 
+        public ActionResult CreateCategory()
+        {
+            var model = new CreateCategoryModel();
+
+            return View(model);
+        }
+
+        public ActionResult CreateCategory(CreateCategoryModel model)
+        {
+            return RedirectToAction("Index");
+        }
+
         //
         // GET: /Admin/Product/Details/5
 
