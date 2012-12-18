@@ -5,7 +5,45 @@
     ViewBag.Description = "Shop for all your tool & equipment needs: Boom Lift, Scissor Lift, Drills, Generators, Power TOols, Machinery Tools, Hoses, Planks, Mason Frames, Scaffolding, and more at Tool Depot.";
     ViewBag.Keywords = "Tool Rentals, Equipment Rentals, Tool Sales, Equipment Sales, Repair Services, Hardware, Machinery Tools, Power Tools, Boom Lift";
 }
+@Html.Action("ProductCategories")
+<div id="myCarousel" class="carousel slide span9">
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        @* No Loop *@
+        <div class="item">
+            <img src="/Content/css/images/BoschDrill.jpg"/>
+            <div class="carousel-caption">
+                <h4>Bosch</h4>
+                <p>Description</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="/Content/css/images/BoschDrill.jpg"/>
+            <div class="carousel-caption">
+                <h4>Makita</h4>
+                <p>Description</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="/Content/css/images/BoschDrill.jpg"/>
+            <div class="carousel-caption">
+                <h4>Boom</h4>
+                <p>Description</p>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
 
+<div class="span12">
+     @Html.Action("FeaturedProductCategory")
+    
+</div>
+<script>
+    $(".carousel-inner .item:first-child").addClass("active");
+</script>
 
 <h1 class="blue">Featured Tools & Equipment for Rent</h1>
 <div class="ProductList">

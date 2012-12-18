@@ -1,13 +1,11 @@
 ﻿@model ToolDepot.Areas.Admin.Models.Products.CreateProductModel
 
 @{
-    ViewBag.Title = "Create New Product";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Create Cew Product</h2>
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<h2>Edit</h2>
+
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
@@ -48,8 +46,9 @@
                 @Html.ValidationMessageFor(model => model.IsFeatured)
             </div>
         </div>
+        @Html.HiddenFor(x=>x.Id)
         <div>
-            <input type="submit" name="save" class="btn btn-primary" value="Create Product" />
+            <input type="submit" name="save" class="btn btn-primary" value="Update Product" />
         </div>
     </div>
 }

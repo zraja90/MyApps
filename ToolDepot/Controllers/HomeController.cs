@@ -28,43 +28,31 @@ namespace ToolDepot.Controllers
             _productCategoryService = productCategoryService;
             _brochureService = brochureService;
         }
-
-
-
-        public ActionResult Index1()
-        {
-            //var product = _productContext.AllProducts;
-            return RedirectToAction("Index");
-            var products = _productService.GetAll();
-            
-            return View(products);
-        }
         public ActionResult Index()
         {
             var model = new BrochureModel();
             model.Brochures = _brochureService.GetAll().ToList();
-            _userMailer.Welcome().Send();
+            //_userMailer.Welcome().Send();
             return View(model);
         }
 
         [ChildActionOnly]
         public ActionResult ProductCategories()
         {
-            return RedirectToAction("Index");
-            var productCategories = _productCategoryService.GetAll().OrderBy(x=>x.CategoryName).ToList();
+            //return RedirectToAction("Index");
+            var categories = new CategoriesModel
+                                 {Categories = _productCategoryService.GetAll().OrderBy(x => x.CategoryName).ToList()};
 
-            
-
-            return PartialView(productCategories);
+            return PartialView(categories);
         }
 
         [ChildActionOnly]
         public ActionResult FeaturedProductCategory()
         {
-            return RedirectToAction("Index");
-            //var featuredProducts = _productContext.FeaturedProducts;
+            var model = new FeaturedCategoriesModel();
+            model.FeaturedCategory = _productCategoryService.GetMany(x=>x.IsFeaturedCategory).ToList();
             
-            return PartialView();
+            return PartialView(model);
         }
 
         public ActionResult UnderConstruction()

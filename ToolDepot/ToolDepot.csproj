@@ -198,6 +198,10 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Models\AllProductsListModel.cs" />
+    <Compile Include="Areas\Admin\Models\Products\CreateProductModel.cs" />
+    <Compile Include="Areas\Admin\Models\Products\EditProductModel.cs" />
+    <Compile Include="Areas\Admin\Models\Products\ProductDetailModel.cs" />
+    <Compile Include="Areas\Admin\Models\Products\ProductFeaturesSpecsModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -213,6 +217,7 @@
     <Compile Include="Core\Domain\Logging\LogLevel.cs" />
     <Compile Include="Core\Domain\Products\Brochure.cs" />
     <Compile Include="Core\Domain\Products\ProductFeatures.cs" />
+    <Compile Include="Core\Domain\Products\ProductReviews.cs" />
     <Compile Include="Core\Domain\Tasks\ScheduleTask.cs" />
     <Compile Include="Core\Fakes\Extensions.cs" />
     <Compile Include="Core\Fakes\FakeHttpContext.cs" />
@@ -268,12 +273,13 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\FeaturedProductCategoriesModel.cs" />
+    <Compile Include="Models\FeaturedCategoriesModel.cs" />
     <Compile Include="Models\FeaturedProductModel.cs" />
     <Compile Include="Models\NotifyType.cs" />
     <Compile Include="Core\Domain\Products\ProductCategory.cs" />
     <Compile Include="Core\Domain\Products\Product.cs" />
     <Compile Include="Models\Products\BrochureModel.cs" />
+    <Compile Include="Models\Products\CategoriesModel.cs" />
     <Compile Include="Models\Products\ProductWithCategoryModel.cs" />
     <Compile Include="Core\Domain\UnderConstruction.cs" />
     <Compile Include="Models\Products\UnderConstructionModel.cs" />
@@ -472,6 +478,9 @@
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\AddSpecsFeatures.cshtml" />
     <None Include="Properties\PublishProfiles\tooldepot - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepot - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepotinc.com - FTP.pubxml" />
@@ -539,14 +548,14 @@
     <Content Include="Views\Shared\_Notifications.cshtml" />
     <Content Include="Views\Home\UnderConstruction.cshtml" />
     <Content Include="Views\Products\RequestAQuote.cshtml" />
-    <Content Include="Views\Home\FeaturedProductCategory.cshtml" />
-    <Content Include="Views\Home\ProductCategories.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\AllCategories.cshtml" />
     <Content Include="Views\Products\Category.cshtml" />
     <Content Include="Views\UserMailer\_LayoutMail.cshtml" />
     <Content Include="Views\UserMailer\Welcome.cshtml" />
     <Content Include="Views\UserMailer\PasswordReset.cshtml" />
+    <Content Include="Views\Home\ProductCategories.cshtml" />
+    <Content Include="Views\Home\FeaturedProductCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

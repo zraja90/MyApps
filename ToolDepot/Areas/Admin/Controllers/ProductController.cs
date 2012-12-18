@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using ToolDepot.Areas.Admin.Models;
+using ToolDepot.Areas.Admin.Models.Products;
 using ToolDepot.Helpers;
 using ToolDepot.Mappers;
 using ToolDepot.Models;
@@ -30,12 +31,20 @@ namespace ToolDepot.Areas.Admin.Controllers
             return View(model);
         }
 
+        public ActionResult AddSpecsFeatures(int id=0)
+        {
+            var model = new ProductFeaturesSpecsModel();
+            return View();
+        }
+
         //
         // GET: /Admin/Product/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id=0)
         {
-            return View();
+            var model = new ProductDetailModel();
+            model.Product = _productService.GetById(id);
+            return View(model);
         }
 
         //
@@ -43,8 +52,8 @@ namespace ToolDepot.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            var model = new ProductWithCategoryModel();
-          //  model.AllCategory = //_productCategoryService.GetProductCategorySelectList(model.Category,GlobalHelper.SelectListDefaultOption);
+            var model = new CreateProductModel();
+            model.AllCategories = _productCategoryService.GetProductCategorySelectList(model.CategoryName, GlobalHelper.SelectListDefaultOption);
             return View(model);
         }
         
@@ -52,9 +61,9 @@ namespace ToolDepot.Areas.Admin.Controllers
         // POST: /Admin/Product/Create
 
         [HttpPost]
-        public ActionResult Create(ProductWithCategoryModel model)
+        public ActionResult Create(CreateProductModel model)
         {
-            //model.AllCategory = _productCategoryService.GetProductCategorySelectList(model.Category, GlobalHelper.SelectListDefaultOption);
+            
             try
             {
                 if(ModelState.IsValid)
@@ -75,46 +84,40 @@ namespace ToolDepot.Areas.Admin.Controllers
         //
         // GET: /Admin/Product/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id=0)
         {
-            return View();
+            var product = _productService.GetById(id);
+            var model = new CreateProductModel
+                            {
+                                Id = product.Id,
+                                Name = product.Name,
+                                Description = product.Description,
+                                Image = product.Description,
+                                IsFeatured = product.IsFeatured,
+                                CategoryId = product.CategoryId
+                            };
+            model.AllCategories = _productCategoryService.GetProductCategorySelectList(model.CategoryName, GlobalHelper.SelectListDefaultOption);
+
+            return View(model);
         }
 
         //
         // POST: /Admin/Product/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(CreateProductModel model)
         {
             try
             {
-                // TODO: Add update logic here
+                var product = _productService.GetById(model.Id);
+                product.Name = model.Name;
+                product.Description = model.Description;
+                product.IsFeatured = model.IsFeatured;
+                product.Image = model.Image;
+                product.CreatedDate = model.CreatedDate;
+                product.CategoryId = model.CategoryId;
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Admin/Product/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Admin/Product/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+                _productService.Update(product);
 
                 return RedirectToAction("Index");
             }
@@ -124,4 +127,5 @@ namespace ToolDepot.Areas.Admin.Controllers
             }
         }
     }
+
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ToolDepot.Areas.Admin.Models.Products;
 using ToolDepot.Core.Domain.Products;
 using ToolDepot.Models;
 using ToolDepot.Models.Products;
@@ -14,8 +15,8 @@ namespace ToolDepot.Mappers
         protected override void Configure()
         {
             //Product
-            Mapper.CreateMap<Product, ProductWithCategoryModel>();
-            Mapper.CreateMap<ProductWithCategoryModel, Product>();
+            Mapper.CreateMap<Product, CreateProductModel>();
+            Mapper.CreateMap<CreateProductModel, Product>();
 
             
         }

@@ -1,26 +1,49 @@
-﻿@using ToolDepot.Core.Domain.Products
-@model IList<ToolDepot.Core.Domain.Products.FeaturedProducts>
+﻿@model ToolDepot.Models.FeaturedCategoriesModel
 
-@foreach (FeaturedProducts featuredProduct in Model)
+@if(Model.FeaturedCategory.Any())
 {
+
+for (int i = 0; i < 2; i++)
+ {
+     
+ }
+
+}
+<div class="featured">
     <div class="span3">
-        @if (featuredProduct.CategoryId != ViewBag.LastCategoryId)
-        {
-            <div style="position: relative">
-                @featuredProduct.CategoryName
-            </div>
-            ViewBag.LastCategoryId = featuredProduct.CategoryId;
-        }
+        <h4>Product Category</h4>
         <ul class="unstyled">
-            @foreach (Product product in featuredProduct.Products)
-            {
-                <li>
-                    <a href="#">
-                        @product.Name
-                    </a>
-                </li>
-            }
+            <li><a href="/" >Product 1</a></li>
+            <li><a href="/" >Product 1</a></li>
+            <li><a href="/" >Product 1</a></li>
+            <li><a href="/" >Product 1</a></li>
         </ul>
     </div>
-}
-<div class="clearfix"></div>
+    <div class="span3">
+        <h4>Product Category</h4>
+        <ul class="unstyled">
+            <li><a href="/" >Product 1</a></li>
+            <li><a href="/" >Product 1</a></li>
+            <li><a href="/" >Product 1</a></li>
+            <li><a href="/" >Product 1</a></li>
+        </ul>
+    </div>
+    <div class="span3">
+        <h4>Product Category</h4>
+        <ul class="unstyled">
+            <li><a href="/" >Product 1</a></li>
+            <li><a href="/" >Product 1</a></li>
+            <li><a href="/" >Product 1</a></li>
+            <li><a href="/" >Product 1</a></li>
+        </ul>
+    </div>
+    <div class="span3">
+    <h4>Product Category</h4>
+    <ul class="unstyled">
+        <li><a href="/" >Product 1</a></li>
+        <li><a href="/" >Product 1</a></li>
+        <li><a href="/" >Product 1</a></li>
+        <li><a href="/" >Product 1</a></li>
+    </ul>
+</div>
+    </div>

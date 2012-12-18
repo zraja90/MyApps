@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web;
 using ToolDepot.Core.Domain.Products;
 
-namespace ToolDepot.Models
+namespace ToolDepot.Areas.Admin.Models.Products
 {
-    public class FeaturedProductModel
+    public class ProductDetailModel
     {
-        public IList<Product> Products { get; set; }
+        public Product Product { get; set; }
     }
 }

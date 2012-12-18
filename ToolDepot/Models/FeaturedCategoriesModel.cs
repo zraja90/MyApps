@@ -6,8 +6,8 @@ using ToolDepot.Core.Domain.Products;
 
 namespace ToolDepot.Models
 {
-    public class FeaturedProductModel
+    public class FeaturedCategoriesModel
     {
-        public IList<Product> Products { get; set; }
+        public IList<ProductCategory> FeaturedCategory { get; set; }
     }
 }
