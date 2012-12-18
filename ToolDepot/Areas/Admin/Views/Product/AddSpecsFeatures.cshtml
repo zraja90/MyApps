@@ -6,24 +6,44 @@
 
 <h2>AddSpecsFeatures</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.ValidationSummary(true)
+    <div class="form-horizontal">
 
-    <fieldset>
-        <legend>ProductFeaturesSpecsModel</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ProductId)
+        <div class="control-group">
+            <label class="control-label">
+                Product Name
+            </label>
+            <div class="controls disabled">
+                @Html.TextBoxFor(model => model.Product.Name, null, new { Class = "disabled" })
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ProductId)
-            @Html.ValidationMessageFor(model => model.ProductId)
+        <div class="control-group">
+            <label class="control-label">
+                Product Specs
+            </label>
+            <div class="controls">
+                <ul class="unstyled">
+                    <li>
+                        @Html.TextBoxFor(model => model.Specs) <a href="#" id="specsAdd" class="btn btn-info">Add</a>
+                    </li>
+                    <li>
+                        @Html.TextBoxFor(model => model.Specs) <a href="#" id="specsAdd" class="btn btn-info">Add</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
+        <div class="control-group">
+            <label class="control-label">
+                Product Features
+            </label>
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Features)
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Create" class="btn btn-primary" />
 }
 
 <div>

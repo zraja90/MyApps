@@ -33,8 +33,16 @@ namespace ToolDepot.Areas.Admin.Controllers
 
         public ActionResult AddSpecsFeatures(int id=0)
         {
-            var model = new ProductFeaturesSpecsModel();
-            return View();
+            var model = new ProductFeaturesSpecsModel {Product = _productService.GetById(id)};
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult AddSpecsFeatures(ProductFeaturesSpecsModel model)
+        {
+            //var model = new ProductFeaturesSpecsModel { Product = _productService.GetById(id) };
+            var a = model.Product;
+            return View(model);
         }
 
         //
