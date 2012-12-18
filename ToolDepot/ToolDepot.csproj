@@ -233,6 +233,7 @@
     <Compile Include="Core\Fakes\FakePrincipal.cs" />
     <Compile Include="Core\GenericListTypeConverter.cs" />
     <Compile Include="Core\IWebHelper.cs" />
+    <Compile Include="Core\IWorkContext.cs" />
     <Compile Include="Core\WebHelper.cs" />
     <Compile Include="Data\EfRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
@@ -262,7 +263,7 @@
     <Compile Include="Helpers\Extensions\HtmlExtensions.cs" />
     <Compile Include="Helpers\GlobalHelper.cs" />
     <Compile Include="Helpers\PageListHelper.cs" />
-    <Compile Include="Infrastructure\ProductContext.cs" />
+    <Compile Include="Infrastructure\WorkContext.cs" />
     <Compile Include="Mailers\IUserMailer.cs" />
     <Compile Include="Mailers\UserMailer.cs" />
     <Compile Include="Mappers\MappingExtensions.cs" />

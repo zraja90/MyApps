@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ToolDepot.Core;
 using ToolDepot.Core.Domain.Customers;
 using ToolDepot.Core.Domain.Security;
 using ToolDepot.Data;
@@ -28,16 +29,18 @@ namespace ToolDepot.Services.Security
 
         private readonly IRepository<PermissionRecord> _permissionPecordRepository;
         //private readonly ICustomerService _customerService;
-        //private readonly IWorkContext _workContext;
+        private readonly IWorkContext _workContext;
         //private readonly ICacheManager _cacheManager;
 
         #endregion
 
         #region Ctor
 
-        public PermissionService(IRepository<PermissionRecord> permissionPecordRepository)
+        public PermissionService(IRepository<PermissionRecord> permissionPecordRepository,
+            IWorkContext workContext)
         {
-            this._permissionPecordRepository = permissionPecordRepository;
+            _permissionPecordRepository = permissionPecordRepository;
+            _workContext = workContext;
         }
 
         #endregion
@@ -186,8 +189,7 @@ namespace ToolDepot.Services.Security
         /// <returns>true - authorized; otherwise, false</returns>
         public virtual bool Authorize(PermissionRecord permission)
         {
-           // return Authorize(permission, _workContext.CurrentCustomer);
-            return false;
+           return Authorize(permission, _workContext.CurrentCustomer);
         }
 
         /// <summary>
@@ -214,8 +216,8 @@ namespace ToolDepot.Services.Security
         /// <returns>true - authorized; otherwise, false</returns>
         public virtual bool Authorize(string permissionRecordSystemName)
         {
-            //return Authorize(permissionRecordSystemName, _workContext.CurrentCustomer);
-            return false;
+            return Authorize(permissionRecordSystemName, _workContext.CurrentCustomer);
+            
         }
 
         /// <summary>
@@ -254,8 +256,8 @@ namespace ToolDepot.Services.Security
                 if (permission1 == null)
                 {
                     //new permission (install it)
-                    permission1 = new PermissionRecord()
-                    {
+                    permission1 = new PermissionRecord
+                                      {
                         Name = permission.Name,
                         SystemName = permission.SystemName,
                         Category = permission.Category,
