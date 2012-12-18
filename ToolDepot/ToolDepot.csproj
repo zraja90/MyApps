@@ -209,6 +209,10 @@
     <Compile Include="Core\AppException.cs" />
     <Compile Include="Core\BaseEntity.cs" />
     <Compile Include="Core\CommonHelper.cs" />
+    <Compile Include="Core\Common\CookieHelper.cs" />
+    <Compile Include="Core\Common\EncryptionHelper.cs" />
+    <Compile Include="Core\Common\Md5Encrypt.cs" />
+    <Compile Include="Core\Common\ValidationResult.cs" />
     <Compile Include="Core\Domain\Customers\Customer.cs" />
     <Compile Include="Core\Domain\Customers\CustomerRole.cs" />
     <Compile Include="Core\Domain\Customers\SystemCustomerRoleNames.cs" />

@@ -16,7 +16,7 @@ namespace ToolDepot.Infrastructure
         private readonly IAuthenticationService _authenticationService;
         private readonly IWebHelper _webHelper;
         private Customer _cachedCustomer;
-        private int _programId;
+        
 
         public WorkContext(HttpContextBase httpContext,
                              ICustomerService customerService,
@@ -92,5 +92,11 @@ namespace ToolDepot.Infrastructure
             get { return IsAuthenticated; }
 
         }
+
+        public string LogoutUrl
+        {
+            get { return "/"; }
+        }
+
     }
 }

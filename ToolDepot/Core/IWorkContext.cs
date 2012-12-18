@@ -11,6 +11,6 @@ namespace ToolDepot.Core
     {
         Customer CurrentCustomer { get; set; }
         bool IsLoggedIn { get; }
-
+        string LogoutUrl { get; }
     }
 }

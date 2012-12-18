@@ -58,17 +58,17 @@ namespace ToolDepot.Controllers
         public ActionResult UnderConstruction()
         {
             return RedirectToAction("Index");
-            var model = new UnderConstructionModel();
+            /*var model = new UnderConstructionModel();
 
             model.Brochure = _brochureService.GetAll();
-            return View(model);
+            return View(model);*/
         }
 
         [HttpPost]
         public ActionResult UnderConstruction(UnderConstruction model)
         {
             return RedirectToAction("Index");
-            if (ModelState.IsValid)
+            /*if (ModelState.IsValid)
             {
                 if (!string.IsNullOrEmpty(model.EmailAddress))
                 {
@@ -81,7 +81,7 @@ namespace ToolDepot.Controllers
                 }
             }
 
-            return View();
+            return View();*/
         }
     }
 }

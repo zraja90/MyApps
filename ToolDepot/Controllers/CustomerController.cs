@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ToolDepot.Core;
+using ToolDepot.Core.Common;
 using ToolDepot.Models;
 using ToolDepot.Services.Authentication;
 using ToolDepot.Services.CustomerService;
@@ -14,13 +16,13 @@ namespace ToolDepot.Controllers
     {
         private readonly ICustomerRegistrationService _customerRegistrationService;
         private readonly ICustomerService _customerService;
-        
+        private readonly IWorkContext _workContext;
         private readonly IAuthenticationService _authenticationService;
-        public CustomerController(ICustomerRegistrationService customerRegistrationService,ICustomerService customerService,IAuthenticationService authenticationService)
+        public CustomerController(ICustomerRegistrationService customerRegistrationService,ICustomerService customerService,IAuthenticationService authenticationService, IWorkContext workContext)
         {
             _customerRegistrationService = customerRegistrationService;
             _customerService = customerService;
-            
+            _workContext = workContext;
             _authenticationService = authenticationService;
         }
 
@@ -64,6 +66,22 @@ namespace ToolDepot.Controllers
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
         }
+        [HttpPost]
+        public ActionResult LogOff()
+        {
+            var returnUrl = _workContext.LogoutUrl;
+            _authenticationService.Logout();
+            CookieHelper.DeleteAllCookies();
+
+            if (!string.IsNullOrEmpty(returnUrl))
+            {
+                if (!returnUrl.ToLower().Contains("http://"))
+                    returnUrl = "http://" + returnUrl;
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)
         {
@@ -73,8 +91,7 @@ namespace ToolDepot.Controllers
             }
             else
             {
-                // If we're a rep and have just logged in, send them to rep dashboard
-                return RedirectToAction("Index", "Home", new { goToDashboardIfRep = true });
+                return RedirectToAction("Index", "Home");
             }
         }
 
