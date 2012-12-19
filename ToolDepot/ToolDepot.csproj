@@ -597,6 +597,7 @@
     <Content Include="Views\UserMailer\PasswordReset.cshtml" />
     <Content Include="Views\Home\ProductCategories.cshtml" />
     <Content Include="Views\Home\FeaturedProductCategory.cshtml" />
+    <Content Include="Views\Products\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,16 +1,17 @@
-﻿@model IEnumerable<ToolDepot.Core.Domain.Products.Product>
+﻿@model ToolDepot.Core.Domain.Products.ProductCategory
 
 @{
     ViewBag.Title = "Category";
 }
-@foreach (var item in Model)
+@foreach (var item in Model.Products)
 {
     <div class="span4 align-center">
-        <img src="@item.ProductImage" style="height: 145px;width: 145px;"/>
+        <img src="@item.Image" style="height: 145px;width: 145px;"/>
         <div class=""></div>
         <div class="margin-top-10 margin-bottom-10">
-            @item.BrandName - @item.Name
+            @item.Name
         </div>
+        @Html.ActionLink("See More","Product",new {id=item.Id})
         <a href="#" class="btn btn-primary">See More</a>
     </div>
 }
