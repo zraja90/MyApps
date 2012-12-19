@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ToolDepot.Core.Domain.Products;
 using ToolDepot.Helpers;
 using ToolDepot.Services;
+using ToolDepot.Services.Products;
 
 namespace ToolDepot.Models.Products
 {

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using ToolDepot.Core.Domain.Products;
+﻿using ToolDepot.Core.Domain.Products;
 using ToolDepot.Data;
 
-namespace ToolDepot.Services
+namespace ToolDepot.Services.Products
 {
     public class BrochureService: CrudService<Brochure>, IBrochureService
     {

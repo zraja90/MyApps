@@ -4,11 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ToolDepot.Helpers;
+using ToolDepot.Services;
 
 namespace ToolDepot.Areas.Admin.Models.Products
 {
+    
     public class CreateProductModel
     {
+        
         public CreateProductModel()
         {
             CreatedDate = DateTime.UtcNow;
@@ -27,7 +31,7 @@ namespace ToolDepot.Areas.Admin.Models.Products
         [Required]
         public bool IsFeatured { get; set; }
         public DateTime CreatedDate { get; set; }
-        [Required]
+        
         public SelectList AllCategories { get; set; }
 
         public int Id { get; set; }

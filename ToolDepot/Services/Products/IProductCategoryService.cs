@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using ToolDepot.Core.Domain.Products;
-using ToolDepot.Models;
 
-namespace ToolDepot.Services
+namespace ToolDepot.Services.Products
 {
     public interface IProductCategoryService : ICrudService<ProductCategory>
     {

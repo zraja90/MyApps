@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using ToolDepot.Core.Domain.Products;
 using ToolDepot.Data;
-using ToolDepot.Models;
 
-namespace ToolDepot.Services
+namespace ToolDepot.Services.Products
 {
     public class ProductCategoryService : CrudService<ProductCategory>, IProductCategoryService
     {

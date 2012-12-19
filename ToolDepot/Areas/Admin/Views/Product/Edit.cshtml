@@ -1,54 +1,202 @@
-﻿@model ToolDepot.Areas.Admin.Models.Products.CreateProductModel
+﻿@model ToolDepot.Areas.Admin.Models.Products.EditProductModel
 
 @{
     ViewBag.Title = "Edit";
 }
 
 <h2>Edit</h2>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<ul class="nav nav-tabs" id="editProductTabs">
+    <li class="active">
+        <a href="#editProduct">Product</a>
+    </li>
+    <li>
+        <a href="#editSpecs">Edit Specs</a>
+    </li>
+    <li>
+        <a href="#editFeatures">Edit Features</a>
+    </li>
+    <li>
+        <a href="#editSeo">Edit SEO
+        </a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="editProduct">
+        @using (Html.BeginForm("EditProduct", "Product", new { Area = "Admin", controller = "Product", id = Model.Id }, FormMethod.Post, new { id = "editProductForm" }))
+        {
+            @Html.ValidationSummary(true)
 
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-
-    <div class="form-horizontal">
-        <div class="control-group">
-            @Html.LabelFor(model => model.Name, new { @class = "control-label" })
-            <div class="controls">
-                @Html.EditorFor(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
-            </div>
-        </div>
-        <div class="control-group">
-            @Html.LabelFor(model => model.Description, new { @class = "control-label" })
-            <div class="controls">
-                @Html.EditorFor(model => model.Description, new {required = "required"})
-                @Html.ValidationMessageFor(model => model.Description)
-            </div>
-        </div>
-        <div class="control-group">
-            @Html.LabelFor(model => model.Image, new { @class = "control-label" })
-            <div class="controls">
-                @Html.EditorFor(model => model.Image)
-                @Html.ValidationMessageFor(model => model.Image)
-            </div>
-        </div>
-        <div class="control-group">
-            @Html.LabelFor(model => model.CategoryName, new { @class = "control-label" })
-            <div class="controls">
-                @Html.DropDownListFor(model => model.CategoryId, Model.AllCategories)
-                @Html.ValidationMessageFor(model => model.CategoryId)
+            <div class="form-horizontal">
+                <div class="control-group">
+                    @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
                 </div>
-        </div>
-        <div class="control-group">
-            @Html.LabelFor(model => model.IsFeatured, new { @class = "control-label" })
-            <div class="controls">
-                @Html.EditorFor(model => model.IsFeatured)
-                @Html.ValidationMessageFor(model => model.IsFeatured)
+                <div class="control-group">
+                    @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.Description, new { required = "required" })
+                        @Html.ValidationMessageFor(model => model.Description)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.Image, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.Image)
+                        @Html.ValidationMessageFor(model => model.Image)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.CategoryName, new { @class = "control-label" })
+                    @if (Model.AllCategories != null)
+                    {
+                        <div class="controls">
+                            @Html.DropDownListFor(model => model.CategoryId, Model.AllCategories)
+                            @Html.ValidationMessageFor(model => model.CategoryId)
+                        </div>
+                    }
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.IsFeatured, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.IsFeatured)
+                        @Html.ValidationMessageFor(model => model.IsFeatured)
+                    </div>
+                </div>
+                @Html.HiddenFor(x => x.Id)
+                <div class="controls">
+                    <input type="submit" name="save" class="btn btn-primary" value="Update Product" />
+                </div>
             </div>
-        </div>
-        @Html.HiddenFor(x=>x.Id)
-        <div>
-            <input type="submit" name="save" class="btn btn-primary" value="Update Product" />
-        </div>
+        }
     </div>
-}
+    <div class="tab-pane" id="editSpecs">
+        @using (Html.BeginForm("EditSpecs", "Product", new { Area = "Admin", controller = "Product", id = Model.Id }, FormMethod.Post, new { id = "editSpecForm" }))
+        {
+            if (Model.ProductSpecs != null && Model.ProductSpecs.Any())
+            {
+            <div class="form-horizontal">
+                <div class="control-group">
+                    Edit Specs
+                </div>
+                <div class="controls" id="newTextBox">
+                    @for (int i = 0; i < Model.ProductSpecs.Count; i++)
+                    {
+                        <div class="margin-bottom-10">
+                            @Html.HiddenFor(x => x.ProductSpecs[i].ProductId)
+                            @Html.EditorFor(x => x.ProductSpecs[i].Specs)
+                        </div>
+                        
+                    }
+
+                </div>
+                <div class="controls">
+                    <a href="#" id="addNewSpec" class="btn btn-primary">Add</a>
+                </div>
+
+            </div>
+            }
+            else
+            {
+            <div>You are only allowed to create 5 Specs</div>
+            <div class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">Add Specs</label>
+                    <div class="controls">
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            <div class="margin-bottom-10">
+                                <input name="ProductSpecs[@i].Specs" type="text"/>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                    </div>
+                </div>
+            </div>
+            }
+            <input type="submit" name="saveSpecs" class="btn btn-primary" value="Submit" />
+        }
+    </div>
+    <div class="tab-pane" id="editFeatures">
+        @using (Html.BeginForm("EditFeatured", "Product", new { Area = "Admin", controller = "Product", id = Model.Id }, FormMethod.Post, new { id = "editFeaturedForm" }))
+        {
+            if (Model.ProductFeatures != null && Model.ProductFeatures.Any())
+            {
+            <div class="form-horizontal">
+                <div class="control-group">
+                    Edit Features
+                </div>
+                <div class="controls" id="newTextBoxforFeatures">
+                    @for (int i = 0; i < Model.ProductFeatures.Count; i++)
+                    {
+                        <div class="margin-bottom-10">
+                            @Html.HiddenFor(x => x.ProductFeatures[i].ProductId)
+                            @Html.EditorFor(x => x.ProductFeatures[i].Feature)
+                        </div>
+                    }
+
+                </div>
+                <div class="controls">
+                    <a href="#" id="addNewFeature" class="btn btn-primary">Add</a>
+                </div>
+            </div>
+            }
+            else
+            {
+            <div>You are only allowed to create 5 Features</div>
+            <div class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">Add Features</label>
+                    <div class="controls">
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            <div class="margin-bottom-10">
+                                <input name="ProductFeatures[@i].Feature" type="text"/>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                    </div>
+                </div>
+            </div>
+            }
+            <input type="submit" name="saveFeatures" class="btn btn-primary" value="Submit" />
+        }
+    </div>
+    <div class="tab-pane" id="editSeo"></div>
+</div>
+
+
+<script>
+    $(function () {
+
+        $('#editProductTabs a').click(function (e) {
+            e.preventDefault();
+
+            $(this).tab('show');
+        });
+        $("#addNewSpec").click(function (e) {
+            e.preventDefault();
+
+            var count = $("#newTextBox input:text").size();
+            $("#newTextBox").append("<div><input type='text' class='margin-bottom-10' name='ProductSpecs[" + count + "].Specs'/></div>");
+
+        });
+        $("#addNewFeature").click(function (e) {
+            e.preventDefault();
+            var count = $("#newTextBoxforFeatures input:text").size();
+            $("#newTextBoxforFeatures").append("<div><input type='text' class='margin-bottom-10' name='ProductFeatures[" + count + "].Feature'/></div>");
+
+        });
+    });
+</script>

@@ -1,13 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
-using ToolDepot.Core;
 using ToolDepot.Core.Domain;
-using ToolDepot.Filters.Helpers;
 using ToolDepot.Mailers;
 using ToolDepot.Models;
 using ToolDepot.Models.Products;
 using ToolDepot.Services;
+using ToolDepot.Services.Products;
 
 namespace ToolDepot.Controllers
 {

@@ -33,9 +33,6 @@ namespace ToolDepot
 
             bundles.Add(less);
 
-            //var bootstrapCss = new StyleBundle("~/Content/bootstrapcss").Include("~/Content/bootstrap.css");
-            //bundles.Add(bootstrapCss);
-
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",

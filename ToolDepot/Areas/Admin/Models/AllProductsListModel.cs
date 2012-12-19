@@ -9,5 +9,6 @@ namespace ToolDepot.Areas.Admin.Models
     public class AllProductsListModel
     {
         public IList<Product> Products { get; set; }
+        public IList<ProductCategory> AllCategories { get; set; }
     }
 }
