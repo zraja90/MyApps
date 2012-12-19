@@ -50,12 +50,14 @@ namespace ToolDepot.Areas.Admin.Controllers
         public ActionResult CreateCategory()
         {
             var model = new CreateCategoryModel();
-
+            
             return View(model);
         }
-
+        [HttpPost]
         public ActionResult CreateCategory(CreateCategoryModel model)
         {
+            var entity = model.ToEntity();
+            _productCategoryService.Add(entity);
             return RedirectToAction("Index");
         }
 

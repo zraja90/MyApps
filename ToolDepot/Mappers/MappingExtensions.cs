@@ -29,6 +29,21 @@ namespace ToolDepot.Mappers
             return Mapper.Map(model, destination);
         }
 
+        public static CreateCategoryModel ToModel(this ProductCategory entity)
+        {
+            return Mapper.Map<ProductCategory, CreateCategoryModel>(entity);
+        }
+
+        public static ProductCategory ToEntity(this CreateCategoryModel model)
+        {
+            return Mapper.Map<CreateCategoryModel, ProductCategory>(model);
+        }
+
+        public static ProductCategory ToEntity(this CreateCategoryModel model, ProductCategory destination)
+        {
+            return Mapper.Map(model, destination);
+        }
+
 
 
         #endregion
