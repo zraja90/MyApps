@@ -15,33 +15,18 @@ namespace ToolDepot.Migrations
     {
         public static void Seed(AppContext context)
         {
-            /*  InitProduct(context);
-              InitProductDescription(context);
-              InitProductCategory(context);*/
-            //InitBrochure(context);
-            InitRoles(context);
+           // InitCategory(context);
+           InitProduct(context);
+
+            /*
             InitPermissions(context);
+            InitRoles(context);
             InitCustomers(context);
-            
-            
-        }
-
-        public static void InitBrochure(AppContext context)
-        {
-            var brochure = new List<Brochure>
-                               {
-                                   new Brochure
-                                       {
-                                           
-                                       }
-                               };
-            if (!context.Set<Brochure>().Any())
-            {
-                brochure.ForEach(x => context.Set<Brochure>().Add(x));
-            }
-            context.SaveChanges();
+            */
 
         }
+
+
         private static void InitCustomers(AppContext context)
         {
             var customer = new Customer()
@@ -65,7 +50,7 @@ namespace ToolDepot.Migrations
             var customrole = context.Set<CustomerRole>().FirstOrDefault(x => x.SystemName == "Admin");
 
             customer.CustomerRoles.Add(customrole);
-            
+
             context.Set<Customer>().AddOrUpdate(customer);
 
             context.SaveChanges();
@@ -100,6 +85,7 @@ namespace ToolDepot.Migrations
                                {
                                    new CustomerRole
                                        {
+                                           Id = 1,
                                            Name = "Tool Depot Admin",
                                            Active = true,
                                            IsSystemRole = true,
@@ -114,8 +100,43 @@ namespace ToolDepot.Migrations
             }
             context.SaveChanges();
         }
+        private static void InitCategory(AppContext context)
+        {
+            var category = new List<ProductCategory>
+                               {
+                                   new ProductCategory
+                                       {
+                                           Id = 1,
+                                           CategoryName = "Lifts",
+                                           CategoryImage = "/Content/images/Brochure/BoomLift.jpg",
+                                           IsFeaturedCategory = false,
+                                           CreatedDate = DateTime.UtcNow
+                                       },
+                                       new ProductCategory
+                                       {
+                                           Id = 2,
+                                           CategoryName = "Saws",
+                                           CategoryImage = "/Content/images/Brochure/BoomLift.jpg",
+                                           IsFeaturedCategory = false,
+                                           CreatedDate = DateTime.UtcNow
+                                       },
+                                       new ProductCategory
+                                       {
+                                           Id = 2,
+                                           CategoryName = "Drills",
+                                           CategoryImage = "/Content/images/Brochure/BoomLift.jpg",
+                                           IsFeaturedCategory = false,
+                                           CreatedDate = DateTime.UtcNow
+                                       }
+                               };
+            if (!context.Set<ProductCategory>().Any())
+            {
+                category.ForEach(x => context.Set<ProductCategory>().Add(x));
+            }
+            context.SaveChanges();
 
-        /*
+        }
+
         private static void InitProduct(AppContext context)
         {
             var product = new List<Product>
@@ -123,68 +144,56 @@ namespace ToolDepot.Migrations
                                   new Product
                                       {
                                           Id = 1,
-                                          Name = "Tool",
-                                          Category = 1,
-                                          ProductImage = "Image",
+                                          Name = "JLG Boom Lift",
+                                          CategoryId = 4,
+                                          Image = "/Content/images/Brochure/BoomLift.jpg",
                                           CreatedDate = DateTime.UtcNow,
-                                          IsFeaturedProduct = true,
-                                          DayPrice = 100,
-                                          WeekPrice = 300
+                                          IsFeatured= true
                                       },
                                       new Product
                                       {
-                                           Id = 2,
-                                          Name = "Tool",
-                                          Category = 1,
-                                          ProductImage = "Image",
+                                          Id = 2,
+                                          Name = "Scissor Lift",
+                                          CategoryId = 4,
+                                          Image = "/Content/images/Brochure/ScissorLift.jpg",
                                           CreatedDate = DateTime.UtcNow,
-                                          IsFeaturedProduct = true,
-                                          DayPrice = 100,
-                                          WeekPrice = 300
+                                          IsFeatured= true
                                       },
                                        new Product
                                       {
-                                           Id = 3,
-                                          Name = "Tool",
-                                          Category = 1,
-                                          ProductImage = "Image",
+                                          Id = 3,
+                                          Name = "Core Drill",
+                                          CategoryId = 6,
+                                          Image = "/Content/images/Brochure/CoreDrill.jpg",
                                           CreatedDate = DateTime.UtcNow,
-                                          IsFeaturedProduct = true,
-                                          DayPrice = 100,
-                                          WeekPrice = 300
+                                          IsFeatured= true
                                       },
                                       new Product
                                       {
                                           Id = 4,
-                                          Name = "Tool",
-                                          Category = 2,
-                                          ProductImage = "Image",
+                                         Name = "Rotary Drill",
+                                          CategoryId =6,
+                                          Image = "/Content/images/Brochure/RotaryDrill.jpg",
                                           CreatedDate = DateTime.UtcNow,
-                                          IsFeaturedProduct = true,
-                                          DayPrice = 100,
-                                          WeekPrice = 300
+                                          IsFeatured= true
                                       },
                                       new Product
                                       {
-                                           Id = 5,
-                                          Name = "Tool",
-                                          Category = 2,
-                                          ProductImage = "Image",
+                                          Id = 5,
+                                          Name = "14 inch Portable Cut Off Saw",
+                                          CategoryId = 5,
+                                          Image = "/Content/images/Brochure/14inPortableCutoffSaw.jpg",
                                           CreatedDate = DateTime.UtcNow,
-                                          IsFeaturedProduct = true,
-                                          DayPrice = 100,
-                                          WeekPrice = 300
+                                          IsFeatured= false
                                       },
                                        new Product
                                       {
-                                           Id = 6,
-                                          Name = "Tool",
-                                          Category = 2,
-                                          ProductImage = "Image",
+                                          Id = 6,
+                                          Name = "Walk Behind Saw",
+                                          CategoryId = 5,
+                                          Image = "/Content/images/Brochure/WalkBehindSaw.jpg",
                                           CreatedDate = DateTime.UtcNow,
-                                          IsFeaturedProduct = true,
-                                          DayPrice = 100,
-                                          WeekPrice = 300
+                                          IsFeatured= false
                                       }
                               };
             if (!context.Set<Product>().Any())
@@ -194,89 +203,6 @@ namespace ToolDepot.Migrations
             context.SaveChanges();
         }
 
-        private static void InitProductDescription(AppContext context)
-        {
-            var desciption = new List<ProductSpecs>
-                              {
-                                  new ProductSpecs
-                                      {
-                                          ProductId = 1,
-                                          Description = "Description",
-                                          OwnersManual = "Owners",
-                                          ProductFeatures = "Features",
-                                          ProductSpecs = "Specs",
-                                      },
-                                      new ProductSpecs
-                                      {
-                                          ProductId = 2,
-                                          Description = "Description",
-                                          OwnersManual = "Owners",
-                                          ProductFeatures = "Features",
-                                          ProductSpecs = "Specs",
-                                      },
-                                       new ProductSpecs
-                                      {
-                                          ProductId = 3,
-                                          Description = "Description",
-                                          OwnersManual = "Owners",
-                                          ProductFeatures = "Features",
-                                          ProductSpecs = "Specs"
-                                      },
-                                      new ProductSpecs
-                                      {
-                                          ProductId = 4,
-                                          Description = "Description",
-                                          OwnersManual = "Owners",
-                                          ProductFeatures = "Features",
-                                          ProductSpecs = "Specs",
-                                      },
-                                      new ProductSpecs
-                                      {
-                                          ProductId = 5,
-                                          Description = "Description",
-                                          OwnersManual = "Owners",
-                                          ProductFeatures = "Features",
-                                          ProductSpecs = "Specs",
-                                      },
-                                       new ProductSpecs
-                                      {
-                                          ProductId = 6,
-                                          Description = "Description",
-                                          OwnersManual = "Owners",
-                                          ProductFeatures = "Features",
-                                          ProductSpecs = "Specs"
-                                      }
-                              };
-            if (!context.Set<ProductSpecs>().Any())
-            {
-                desciption.ForEach(x => context.Set<ProductSpecs>().Add(x));
-            }
-            context.SaveChanges();
-        }
 
-        private static void InitProductCategory(AppContext context)
-        {
-            var category = new List<ProductCategory>
-                               {
-                                   new ProductCategory
-                                       {
-                                           CategoryName = "Power Tools",
-                                           IsFeaturedCategory = true,
-                                           CreatedDate = DateTime.UtcNow
-                                       },
-                                new ProductCategory
-                                       {
-                                           CategoryName = "Machinery",
-                                           IsFeaturedCategory = true,
-                                           CreatedDate = DateTime.UtcNow
-                                       }
-                               };
-            if (!context.Set<ProductCategory>().Any())
-            {
-                category.ForEach(x => context.Set<ProductCategory>().Add(x));
-            }
-            context.SaveChanges();
-        }
-         * */
     }
 }
