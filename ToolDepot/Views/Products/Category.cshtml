@@ -1,17 +1,22 @@
-﻿@model ToolDepot.Core.Domain.Products.ProductCategory
+﻿@using ToolDepot.Helpers.Extensions
+@model ToolDepot.Models.Products.CategoryWithProductsModel
 
 @{
     ViewBag.Title = "Category";
 }
-@foreach (var item in Model.Products)
+<h1>Viewing Products in @Model.Category.CategoryName</h1>
+<div class="clearfix"></div>
+@foreach (var item in Model.Category.Products)
 {
-    <div class="span4 align-center">
-        <img src="@item.Image" style="height: 145px;width: 145px;"/>
+    <div class="product">
+        <img src="@item.Image" class="img-rounded image-small align-center" />
         <div class=""></div>
         <div class="margin-top-10 margin-bottom-10">
             @item.Name
+            <br/>
+          @Html.Limit(item.Description,20)
         </div>
-        @Html.ActionLink("See More","Product",new {id=item.Id})
-        <a href="#" class="btn btn-primary">See More</a>
+        @Html.ActionLink("See More","Product",new {id=item.Id},new {Class="btn"})
     </div>
 }
+<div class="clearfix"></div>

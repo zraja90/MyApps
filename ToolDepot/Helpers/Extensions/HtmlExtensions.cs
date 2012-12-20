@@ -28,5 +28,14 @@ namespace ToolDepot.Helpers.Extensions
 
             return MvcHtmlString.Create(sb.ToString());
         }
+        public static MvcHtmlString Limit(this HtmlHelper htmlHelper, string text, int limitCount,int startIndex=0)
+        {
+            var newText = text;
+            if (newText.Length > limitCount)
+            {
+                newText = text.Substring(startIndex, limitCount) + "...";
+            }
+            return MvcHtmlString.Create(newText);
+        }
     }
 }

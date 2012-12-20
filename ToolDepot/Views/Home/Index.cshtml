@@ -1,15 +1,13 @@
-﻿@model ToolDepot.Models.Products.BrochureModel
-
-@{
+﻿@{
     ViewBag.Title = "Tool Rental, Equipment Rental, & Repair Services | Tool Depot";
-    ViewBag.Description = "Shop for all your tool & equipment needs: Boom Lift, Scissor Lift, Drills, Generators, Power TOols, Machinery Tools, Hoses, Planks, Mason Frames, Scaffolding, and more at Tool Depot.";
+    ViewBag.Description = "Shop for all your tool & equipment needs: Boom Lift, Scissor Lift, Drills, Generators, Power Tools, Machinery Tools, Mason Frames, Scaffolding, and more at Tool Depot. The one stop shop for all your tool needs";
     ViewBag.Keywords = "Tool Rentals, Equipment Rentals, Tool Sales, Equipment Sales, Repair Services, Hardware, Machinery Tools, Power Tools, Boom Lift";
 }
+<h1>One Stop Shop For All Your Tool Needs</h1>
 @Html.Action("ProductCategories")
 <div id="myCarousel" class="carousel slide span9">
     <!-- Carousel items -->
     <div class="carousel-inner">
-        @* No Loop *@
         <div class="item">
             <img src="/Content/css/images/BoschDrill.jpg"/>
             <div class="carousel-caption">
@@ -38,29 +36,10 @@
 </div>
 
 <div class="span12">
-     @Html.Action("FeaturedProductCategory")
+    @Html.Action("FeaturedProductCategory")
     
 </div>
+<div class="clearfix"></div>
 <script>
     $(".carousel-inner .item:first-child").addClass("active");
 </script>
-
-<h1 class="blue">Featured Tools & Equipment for Rent</h1>
-<div class="ProductList">
-    @foreach(var item in Model.Brochures)
-    {
-    <div class="pull-left product">
-        <img src="/Content/images/Brochure/@item.ProductImage" class="product-image" />
-        <div style="" class="title">
-            @item.ProductName
-        </div>
-        <p>
-            @Html.Raw(item.ProductDescription)
-        </p>
-    </div>
-    }
-    <div class="clearfix"></div>
-</div>
-<div>
-    <div class="caption margin brochure">Prices and offers are subject to change.</div>
-</div>

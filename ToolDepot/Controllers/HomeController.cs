@@ -12,26 +12,23 @@ namespace ToolDepot.Controllers
     public class HomeController : Controller
     {
         private readonly IUnderConstructionService _underConstructionService;
-        
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
-        private readonly IBrochureService _brochureService;
+        
         private readonly IUserMailer _userMailer;
         public HomeController(IUnderConstructionService underConstructionService,
-           IProductService productService, IProductCategoryService productCategoryService, IBrochureService brochureService, IUserMailer userMailer)
+           IProductService productService, IProductCategoryService productCategoryService, IUserMailer userMailer)
         {
             _underConstructionService = underConstructionService;
             _userMailer = userMailer;
             _productService = productService;
             _productCategoryService = productCategoryService;
-            _brochureService = brochureService;
+            
         }
         public ActionResult Index()
         {
-            var model = new BrochureModel();
-            model.Brochures = _brochureService.GetAll().ToList();
             //_userMailer.Welcome().Send();
-            return View(model);
+            return View();
         }
 
         [ChildActionOnly]

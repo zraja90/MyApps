@@ -224,7 +224,9 @@
     <Compile Include="Core\Domain\Logging\LogLevel.cs" />
     <Compile Include="Core\Domain\Products\Brochure.cs" />
     <Compile Include="Core\Domain\Products\ProductFeatures.cs" />
+    <Compile Include="Core\Domain\Products\ProductPrices.cs" />
     <Compile Include="Core\Domain\Products\ProductReviews.cs" />
+    <Compile Include="Core\Domain\Products\ProductSeo.cs" />
     <Compile Include="Core\Domain\Security\DefaultPermissionRecord.cs" />
     <Compile Include="Core\Domain\Security\PermissionRecord.cs" />
     <Compile Include="Core\Domain\Tasks\ScheduleTask.cs" />
@@ -299,6 +301,7 @@
     <Compile Include="Core\Domain\Products\Product.cs" />
     <Compile Include="Models\Products\BrochureModel.cs" />
     <Compile Include="Models\Products\CategoriesModel.cs" />
+    <Compile Include="Models\Products\CategoryWithProductsModel.cs" />
     <Compile Include="Models\Products\ProductWithCategoryModel.cs" />
     <Compile Include="Core\Domain\UnderConstruction.cs" />
     <Compile Include="Models\Products\UnderConstructionModel.cs" />
@@ -420,11 +423,17 @@
     <Content Include="Content\css\images\logo.jpg" />
     <Content Include="Content\css\images\ToolDepotLogo.jpg" />
     <Content Include="Content\css\images\Under_Construction.jpg" />
+    <Content Include="Content\css\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
     <Content Include="Content\css\site.less" />
+    <Content Include="Content\css\site.min.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
     <Content Include="Content\images\Brochure\11lbsDemolitionHammer.jpg" />
     <Content Include="Content\images\Brochure\14inPortableCutoffSaw.jpg" />
     <Content Include="Content\images\Brochure\14inPowerCutter.jpg" />
-    <Content Include="Content\images\Brochure\1_2AngleDrill.png" />
+    <Content Include="Content\images\Brochure\1_2AngleDrill.jpg" />
     <Content Include="Content\images\Brochure\5inTuckPointingBlade.jpg" />
     <Content Include="Content\images\Brochure\70AvtBreakHammer.jpg" />
     <Content Include="Content\images\Brochure\9inAngleGrinder.jpg" />
@@ -439,14 +448,14 @@
     <Content Include="Content\images\Brochure\FireRetardantDebrisNetting.jpg" />
     <Content Include="Content\images\Brochure\Generator.jpg" />
     <Content Include="Content\images\Brochure\HDContractorTrashBag.jpg" />
-    <Content Include="Content\images\Brochure\HondaGenerator.png" />
+    <Content Include="Content\images\Brochure\HondaGenerator.jpg" />
     <Content Include="Content\images\Brochure\ImerMightSmall50.jpg" />
     <Content Include="Content\images\Brochure\JumpingJackCompactor.jpg" />
     <Content Include="Content\images\Brochure\MasonFrame.jpg" />
-    <Content Include="Content\images\Brochure\MK212.png" />
+    <Content Include="Content\images\Brochure\MK212.jpg" />
     <Content Include="Content\images\Brochure\MKBrickSaw.jpg" />
     <Content Include="Content\images\Brochure\OSHAStandardWoodPlanks.jpg" />
-    <Content Include="Content\images\Brochure\PlasticSheeting.png" />
+    <Content Include="Content\images\Brochure\PlasticSheeting.jpg" />
     <Content Include="Content\images\Brochure\PressureWasher.jpg" />
     <Content Include="Content\images\Brochure\RebarBender.jpg" />
     <Content Include="Content\images\Brochure\RotaryDrill.jpg" />
@@ -598,6 +607,7 @@
     <Content Include="Views\Home\ProductCategories.cshtml" />
     <Content Include="Views\Home\FeaturedProductCategory.cshtml" />
     <Content Include="Views\Products\Product.cshtml" />
+    <Content Include="Views\Products\Featured.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

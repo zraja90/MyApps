@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
+using ToolDepot.Models.Products;
 using ToolDepot.Services;
 using ToolDepot.Services.Products;
 
@@ -6,14 +8,15 @@ namespace ToolDepot.Controllers
 {
     public class ProductsController : Controller
     {
-
+        private readonly IBrochureService _brochureService;
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
 
-        public ProductsController(IProductService productService, IProductCategoryService productCategoryService)
+        public ProductsController(IProductService productService, IProductCategoryService productCategoryService, IBrochureService brochureService)
         {
             _productService = productService;
             _productCategoryService = productCategoryService;
+            _brochureService = brochureService;
         }
         //
         // GET: /Products/
@@ -26,13 +29,15 @@ namespace ToolDepot.Controllers
 
         public ActionResult AllCategories()
         {
-            var categories = _productCategoryService.GetAll();
-            return View(categories);
+            var model = new CategoriesModel();
+            model.Categories = _productCategoryService.GetAll().ToList();
+            return View(model);
         }
 
         public ActionResult Category(int id = 0)
         {
-            var model = _productCategoryService.GetById(id);
+            var model = new CategoryWithProductsModel {Category = _productCategoryService.GetById(id)};
+            
 
             return View(model);
         }
@@ -48,5 +53,10 @@ namespace ToolDepot.Controllers
             return View(model);
         }
 
+        public ActionResult Featured()
+        {
+            var model = new BrochureModel {Brochures = _brochureService.GetAll().ToList()};
+            return View(model);
+        }
     }
 }
