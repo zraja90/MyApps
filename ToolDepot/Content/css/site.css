@@ -1,4 +1,7 @@
-﻿/* Padding and Margins*/
+﻿body {
+  background-color: #323B44 !important;
+}
+/* Padding and Margins*/
 .margin-left-0 {
   margin-left: 0 !important;
 }
