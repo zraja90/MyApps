@@ -35,22 +35,22 @@
     </script>
 </head>
 <body>
-    <div class="" style="height: 100%">
+    <div id="contentWrap">
         @Html.Action("Header", "Common")
-        <div id="contentWrap">
-            <div id="mainContainer" class="container">
-                <section class="row-fluid">
-                    <div class="span12">
-                        @Html.Partial("_Notifications")
-                        @RenderBody()
-                    </div>
-                </section>
+        <div id="mainContainer" class="container">
 
-            </div>
+            <section class="row-fluid">
+                <div class="span12">
+                    @Html.Partial("_Notifications")
+                    @RenderBody()
+                </div>
+            </section>
         </div>
-        <footer>
-            @Html.Action("Footer", "Common")
-        </footer>
+        <div id="contentPush"></div>
+
     </div>
+    <footer>
+        @Html.Action("Footer", "Common")
+    </footer>
 </body>
 </html>
