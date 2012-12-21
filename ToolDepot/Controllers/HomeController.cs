@@ -14,21 +14,21 @@ namespace ToolDepot.Controllers
         private readonly IUnderConstructionService _underConstructionService;
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
-        
+        private readonly IBrochureService _brochureService;
         private readonly IUserMailer _userMailer;
         public HomeController(IUnderConstructionService underConstructionService,
-           IProductService productService, IProductCategoryService productCategoryService, IUserMailer userMailer)
+           IProductService productService, IProductCategoryService productCategoryService, IUserMailer userMailer, IBrochureService brochureService)
         {
             _underConstructionService = underConstructionService;
             _userMailer = userMailer;
             _productService = productService;
             _productCategoryService = productCategoryService;
-            
+            _brochureService = brochureService;
         }
         public ActionResult Index()
         {
-            //_userMailer.Welcome().Send();
-            return View();
+            var model = new BrochureModel { Brochures = _brochureService.GetAll().ToList() };
+            return View(model);
         }
 
         [ChildActionOnly]

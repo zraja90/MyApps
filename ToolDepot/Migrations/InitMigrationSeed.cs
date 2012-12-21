@@ -16,7 +16,7 @@ namespace ToolDepot.Migrations
         public static void Seed(AppContext context)
         {
            // InitCategory(context);
-           InitProduct(context);
+           //InitProduct(context);
 
             /*
             InitPermissions(context);

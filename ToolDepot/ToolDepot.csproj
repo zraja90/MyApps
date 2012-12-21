@@ -416,12 +416,9 @@
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\variables.min.css" />
     <Content Include="Content\bootstrap\wells.less" />
-    <Content Include="Content\css\images\BoschDrill.jpg" />
-    <Content Include="Content\css\images\Brochure.jpg" />
+    <Content Include="Content\css\images\content-bg.jpg" />
     <Content Include="Content\css\images\glyphicons-halflings-white.png" />
     <Content Include="Content\css\images\glyphicons-halflings.png" />
-    <Content Include="Content\css\images\logo.jpg" />
-    <Content Include="Content\css\images\ToolDepotLogo.jpg" />
     <Content Include="Content\css\images\Under_Construction.jpg" />
     <Content Include="Content\css\site.css">
       <DependentUpon>site.less</DependentUpon>
@@ -462,6 +459,10 @@
     <Content Include="Content\images\Brochure\ScissorLift.jpg" />
     <Content Include="Content\images\Brochure\Tarpaulins.jpg" />
     <Content Include="Content\images\Brochure\WalkBehindSaw.jpg" />
+    <Content Include="Content\images\bulldozer.png" />
+    <Content Include="Content\images\crane.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\pickuplift.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -608,6 +609,7 @@
     <Content Include="Views\Home\FeaturedProductCategory.cshtml" />
     <Content Include="Views\Products\Product.cshtml" />
     <Content Include="Views\Products\Featured.cshtml" />
+    <Content Include="Views\Home\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

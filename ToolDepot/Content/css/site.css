@@ -1,6 +1,16 @@
 ﻿body {
   background-color: #323B44 !important;
 }
+/*alignment*/
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+.align-left {
+  text-align: left;
+}
 /* Padding and Margins*/
 .margin-left-0 {
   margin-left: 0 !important;
@@ -146,9 +156,6 @@
   width: 220px;
   margin-bottom: 20px;
   float: left;
-}
-.align-center {
-  text-align: center;
 }
 /* Add additional stylesheets below
 -------------------------------------------------- */

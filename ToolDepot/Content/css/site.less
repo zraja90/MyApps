@@ -1,5 +1,16 @@
-﻿body {
-	background-color:#323B44 !important;
+﻿html,body {
+	height:100%;
+}
+/*alignment*/
+.align-center {
+	text-align:center;
+}
+.align-right
+{
+	text-align:right;
+}
+.align-left {
+	text-align:left;
 }
 /* Padding and Margins*/
 .margin-left-0 {
@@ -72,46 +83,46 @@
 }
 
 #contentWrap {
-    min-height: 100%;
-    margin: 0 auto -40px;
-    background-color: #fff;
-    width: 960px;
-    /*border-left: 1px solid #DDD;
-	border-right: 1px solid #DDD;
-*/ -moz-box-shadow: 0 0 1px #888;
-    -webkit-box-shadow: 0 0 1px#888;
-    box-shadow: 0 0 1px #888;
+    //height: 100%;	
 }
 
 #mainContainer {
-    padding: 15px 30px;
+	//height: 100%;
+	padding: 15px 30px;
     width: 900px;
+	margin:20px auto 0;
+	background-color: #fff;
 }
 
 #topNavHeader {
     position: relative;
     min-height: 100px;
-    background-color: #fff;
+    background-color: #323B44;
 
     .container {
-        width: 920px;
+        width: 940px;
         position: relative;
         padding-bottom: 5px;
-        border-bottom: 3px solid #EEE;
-        margin-bottom: 15px;
+        //border-bottom: 3px solid #EEE;
+        //margin-bottom: 15px;
     }
 
     li {
         list-style: none;
     }
-
+	.contact-info{
+		color:#fff;
+	}
+	.white{
+		color:#fff;
+	}
     .brand {
         padding-top: 25px;
         min-width: 100px;
 
         .logo {
             height: 70px;
-            width: 340px;
+			width: 286px;
             padding-right: 20px;
         }
 
@@ -192,9 +203,7 @@
 	
 
 }
-.align-center {
-	text-align:center;
-}
+
 
 /* Add additional stylesheets below
 -------------------------------------------------- */
@@ -512,4 +521,24 @@ form.bs-docs-example {
 
 h1.blue {
     color: #555;
+}
+nav {
+	position: relative;
+	z-index: 101;
+	background: #FAFAFA;
+	border-top: #EAEAEA 1px solid;
+	padding: 7px 0 7px 0;
+	box-shadow: 0 4px 11px #eaeaea;
+	border-bottom: 1px solid #CCD;
+}
+
+//footer
+footer {
+	color: #AAA;
+	height: 20px;
+	width: 940px;
+	margin: 0 auto;
+	clear: both;
+	padding: 10px 10px;
+	background-color: #EEE;
 }

@@ -1,32 +1,39 @@
 ﻿@model ToolDepot.Models.Common.HeaderModel
-
+<style>
+    .crane-pic {
+        height: 51px;
+        width: 91px;
+        margin-right: 5px;
+    }
+</style>
 <header id="topNavHeader">
-    <div class="container">
-        <div class="pull-left brand margin-right">
+    <div class="container brand">
+        <div class="pull-left  margin-right">
             <a href="@Url.Action("Index", "Home")" class="brand">
-                <img src="/content/css/images/ToolDepotLogo.jpg" class="logo" alt="logo" />
+                <img src="/content/images/logo.png" class="logo" alt="logo" />
             </a>
+
         </div>
-        <ul class="pull-left brand">
-            @*<li id="home">
-                    @Html.ActionLink("Home", "Index", "Home")
-                </li>
-                <li>
-                    @Html.ActionLink("Request A Quote","RequestAQuote","Products")
-                </li>*@
-            <li>For inquiries please contact us at:
-                <ul class="unstyled">
+        <div class="pull-left">
+            <img src="/Content/images/crane.png" class="crane-pic" />
+            <img src="/Content/images/bulldozer.png" class="margin-right-5" />
+            <img src="/Content/images/pickuplift.png" />
+        </div>
+        <ul class="pull-right">
+            <li>
+                <strong><span class="white">For inquiries please contact us at:</span></strong>
+                <ul class="unstyled align-right contact-info">
                     <li>718-786-1500</li>
                     <li>718-786-1502</li>
                     <li>tooldepot786@gmail.com</li>
                 </ul>
             </li>
-            <li>
+            <li class="hide">
                 @if (Model.IsLoggedIn)
                 {
-                    using (Html.BeginForm("LogOff", "Customer", new {area = "", controller = "Customer"}, FormMethod.Post, new {id = "logoutForm"}))
+                    using (Html.BeginForm("LogOff", "Customer", new { area = "", controller = "Customer" }, FormMethod.Post, new { id = "logoutForm" }))
                     {
-                        <a href="javascript:document.getElementById('logoutForm').submit()" class="white">Log off</a>
+                    <a href="javascript:document.getElementById('logoutForm').submit()" class="white">Log off</a>
                     <a href="/Admin/Product">Admin</a>
                     }
                 }
@@ -39,3 +46,81 @@
         <div class="clearfix"></div>
     </div>
 </header>
+<nav>
+    <div class="main-nav">
+        <ul class="unstyled horizontal-list">
+            <li class="current">
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/">Products</a>
+            </li>
+            <li>
+                <a href="/">Request Quote</a>
+            </li>
+            <li>
+                <a href="/">Contact Us</a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    
+</nav>
+
+<style>
+    .main-nav {
+        margin: 0 auto;
+        width: 940px;
+        position: relative;
+    }
+
+    .horizontal-list {
+        display: inline-block;
+        float: left;
+        margin-bottom: 0;
+    }
+
+        .horizontal-list li.current {
+        }
+
+        .horizontal-list li:first-child {
+            border: none;
+        }
+
+        .horizontal-list > li {
+            text-align: center;
+            display: inline-block;
+            border-left: #E0E0E0 1px solid;
+        }
+
+        .horizontal-list li {
+            position: relative;
+            float: left;
+        }
+
+    ul.horizontal-list > li.current > a, ul.horizontal-list > li > a, ul.horizontal-list > li > a:hover {
+        color: #0B51A3;
+    }
+
+    ul.horizontal-list > li:first-child a {
+        padding-left: 0 !important;
+    }
+
+    ul.horizontal-list > li > a {
+        font-size: 16px;
+        line-height: 20px;
+        color: #848484;
+        display: block;
+        position: relative;
+        padding: 12px 29px 9px 29px;
+    }
+
+    .horizontal-list a {
+        text-decoration: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: #1A5BA8;
+    }
+</style>
