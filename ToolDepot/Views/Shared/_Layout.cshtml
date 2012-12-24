@@ -37,18 +37,18 @@
 <body>
     <div id="contentWrap">
         @Html.Action("Header", "Common")
-        <div id="mainContainer" class="container">
-
+        <div id="mainContainer" class="container-fluid">
             <section class="row-fluid">
                 <div class="span12">
                     @Html.Partial("_Notifications")
                     @RenderBody()
+                    <div class="clearfix"></div>
                 </div>
+                <div class="clearfix"></div>
             </section>
         </div>
-        <div id="contentPush"></div>
-
     </div>
+    <div id="contentPush">&nbsp;</div>
     <footer>
         @Html.Action("Footer", "Common")
     </footer>

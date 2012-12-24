@@ -29,8 +29,7 @@ namespace ToolDepot.Controllers
 
         public ActionResult AllCategories()
         {
-            var model = new CategoriesModel();
-            model.Categories = _productCategoryService.GetAll().ToList();
+            var model = new CategoriesModel {Categories = _productCategoryService.GetAll().ToList()};
             return View(model);
         }
 

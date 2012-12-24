@@ -1,12 +1,11 @@
 ﻿@model ToolDepot.Models.Common.HeaderModel
 
 <header id="topNavHeader">
-    <div class="container brand">
+    <div class="brand">
         <div class="pull-left  margin-right">
             <a href="@Url.Action("Index", "Home")" class="brand">
                 <img src="/content/images/logo.png" class="logo" alt="logo" />
             </a>
-
         </div>
         <div class="pull-left">
             <img src="/Content/images/crane.png" class="crane-pic" />
@@ -33,7 +32,7 @@
                 }
                 else
                 {
-                    <a href="/Customer/Login">Log In</a>
+                    @Html.ActionLink("Log In","Login","Customer")
                 }
             </li>
         </ul>
@@ -47,13 +46,13 @@
                 <a href="/">Home</a>
             </li>
             <li>
-                <a href="/products/allcategories">Products</a>
+                @Html.ActionLink("Products","AllCategories","Products")
             </li>
             <li>
-                <a href="/">Request Quote</a>
+                @Html.ActionLink("Request A Quote","RequestAQuote","Products")
             </li>
             <li>
-                <a href="/home/contact">Contact Us</a>
+                @Html.ActionLink("Contact Us","Contact","Home",null,new {Area=""})
             </li>
         </ul>
         <div class="clearfix"></div>
