@@ -2,7 +2,7 @@
 @model ToolDepot.Models.Products.CategoryWithProductsModel
 
 @{
-    ViewBag.Title = "Category";
+    ViewBag.Title = @Model.Category.CategoryName;
 }
 <h1>Viewing Products in @Model.Category.CategoryName</h1>
 <div class="clearfix"></div>
@@ -12,11 +12,14 @@
         <img src="@item.Image" class="img-rounded image-small align-center" />
         <div class=""></div>
         <div class="margin-top-10 margin-bottom-10">
-            @item.Name
-            <br/>
-          @Html.Limit(item.Description,20)
+            <a href="#">
+                @item.Name
+            </a><p>
+                @Html.Limit(item.Description, 20)
+                    </p>
+            
         </div>
-        @Html.ActionLink("See More","Product",new {id=item.Id},new {Class="btn"})
+        @Html.ActionLink("See More", "Product", new { id = item.Id }, new { Class = "btn" })
     </div>
 }
 <div class="clearfix"></div>

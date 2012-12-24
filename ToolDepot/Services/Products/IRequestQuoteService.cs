@@ -2,7 +2,7 @@
 
 namespace ToolDepot.Services.Products
 {
-    public interface IRequestQuoteService : ICrudService<RequestAQuoteModel>
+    public interface IRequestQuoteService : ICrudService<RequestAQuote>
     {
     }
 }

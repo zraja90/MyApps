@@ -43,7 +43,8 @@ namespace ToolDepot.Controllers
 
         public ActionResult RequestAQuote()
         {
-            return View();
+            var model = new RequestQuoteModel();
+            return View(model);
         }
 
         public ActionResult Product(int id = 0)

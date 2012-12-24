@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title | Tool Rental, Equipment Rental, & Repair Services | Tool Depot</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     @if (ViewBag.Description != null)
@@ -21,7 +21,7 @@
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+            @Scripts.Render("~/bundles/html5")          
     <![endif]-->
     <script type="text/javascript">
         var _gaq = _gaq || [];
@@ -46,11 +46,9 @@
                 </div>
                 <div class="clearfix"></div>
             </section>
+            <div id="contentPush"></div>
+            @Html.Action("Footer", "Common")            
         </div>
     </div>
-    <div id="contentPush">&nbsp;</div>
-    <footer>
-        @Html.Action("Footer", "Common")
-    </footer>
 </body>
 </html>

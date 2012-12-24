@@ -1,7 +1,7 @@
 ﻿@model ToolDepot.Models.Common.HeaderModel
 
 <header id="topNavHeader">
-    <div class="brand">
+    <div class="brand container">
         <div class="pull-left  margin-right">
             <a href="@Url.Action("Index", "Home")" class="brand">
                 <img src="/content/images/logo.png" class="logo" alt="logo" />
@@ -16,9 +16,9 @@
             <li>
                 <strong><span class="white">For inquiries please contact us at:</span></strong>
                 <ul class="unstyled align-right contact-info">
-                    <li>718-786-1500</li>
-                    <li>718-786-1502</li>
+                    <li>718-786-1500/02</li>
                     <li>tooldepot786@gmail.com</li>
+                    <li>Open 7 days a week</li>
                 </ul>
             </li>
             <li class="hide">
@@ -47,6 +47,9 @@
             </li>
             <li>
                 @Html.ActionLink("Products","AllCategories","Products")
+            </li>
+             <li>
+                @Html.ActionLink("Repair Service","RepairServices","Products")
             </li>
             <li>
                 @Html.ActionLink("Request A Quote","RequestAQuote","Products")

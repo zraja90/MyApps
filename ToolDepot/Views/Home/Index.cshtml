@@ -1,27 +1,27 @@
 ﻿@{
     ViewBag.Title = "Tool Rental, Equipment Rental, & Repair Services | Tool Depot";
     ViewBag.Description = "Shop for all your tool & equipment needs: Boom Lift, Scissor Lift, Drills, Generators, Power Tools, Machinery Tools, Mason Frames, Scaffolding, and more at Tool Depot. The one stop shop for all your tool needs";
-    ViewBag.Keywords = "Tool Rentals, Equipment Rentals, Tool Sales, Equipment Sales, Repair Services, Hardware, Machinery Tools, Power Tools, Boom Lift";
+    ViewBag.Keywords = "Tool Rentals, Equipment Rentals, Tool Sales, Equipment Sales, Repair Services, Hardware, Machinery Tools, Power Tools, Boom Lift, Scissor Lift";
 }
 <div id="myCarousel" class="carousel slide">
     <!-- Carousel items -->
     <div class="carousel-inner">
         <div class="item">
-            <img src="/Content/images/Brochure/1_2AngleDrill.jpg" style="height:500px"/>
+            <img src="/Content/images/Brochure/1_2AngleDrill.jpg" />
             <div class="carousel-caption">
                 <h4>Power Tools: Drills, etc</h4>
                 <p>Description</p>
             </div>
         </div>
         <div class="item">
-            <img src="/Content/images/Brochure/1_2AngleDrill.jpg"/>
+            <img src="/Content/images/Brochure/1_2AngleDrill.jpg" />
             <div class="carousel-caption">
                 <h4>Machinery Tools: Pressure Washers, etc</h4>
                 <p>Description</p>
             </div>
         </div>
         <div class="item">
-            <img src="/Content/images/Brochure/1_2AngleDrill.jpg"/>
+            <img src="/Content/images/Brochure/1_2AngleDrill.jpg" />
             <div class="carousel-caption">
                 <h4>Eqiupment: Lifts, etc</h4>
                 <p>Description</p>
@@ -33,15 +33,43 @@
     <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
 <h1>One Stop Shop For All Your Tool Needs</h1>
-<div class="span4">
-    Tools
+<div class="services">
+    <div class="pull-left service">
+        picture
+        <h4>Tool & Equipment Rental</h4>
+        <p>
+            We have a wide selection of high-quality equipment available from the most trusted, professional brands.  All of our tools are well-maintained and rental-ready. 
+        </p>
+        <!-- For your convenience, we are also open 7 days a week for more hours than any other rental company. -->
+        <div>
+            <a href="#" class="btn btn-primary">Explore Tools & Equipment</a>
+        </div>
+    </div>
+    <div class="pull-left service">
+        picture
+      <h4>Repair Services</h4>
+        <p>
+            description
+        </p>
+        <div>
+            <a href="#" class="btn btn-primary">Explore Tools & Equipment</a></div>
+    </div>
+    <div class="clearfix"></div>
 </div>
-<div class="span4">
-    Equipment
-</div>
-<div class="span4">
-    Repair Services
-</div>
+
 <script>
     $(".carousel-inner .item:first-child").addClass("active");
 </script>
+<style>
+    .services {
+        margin: 10px 0 10px 0;
+    }
+
+    .service {
+        width: 430px;
+        margin-right: 20px;
+    }
+        .service p {
+            width: 375px;
+        }
+</style>

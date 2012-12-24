@@ -1,37 +1,71 @@
 ﻿@model ToolDepot.Core.Domain.Products.Product
 
 @{
-    ViewBag.Title = @Model.Name;
+    ViewBag.Title = Model.Name + " | " + Model.Category.CategoryName;
 }
+<section class="margin-bottom">
+    <div class="span2">
+        <img src="@Model.Image" class="img-rounded pull-left" alt="@Model.Name"/>
+    </div>
+    <div class="span8">
+        <h1>@Html.DisplayFor(model => model.Name)</h1>
+        Stars and Rating
+    </div>
+    <div class="clearfix"></div>
+</section>
 
-<img src="@Model.Image" class="img-rounded pull-left" alt="@Model.Name"/>
-<div class="pull-left">
-    <h1>@Html.DisplayFor(model => model.Name)</h1>
-    Stars and Rating
-</div>
-
-<div class="clearfix"></div>
-
-<div class="display-label">
-Product Description
-</div>
-<div class="display-field">
+<p class="margin-bottom">
     @Html.DisplayFor(model => model.Description)
-</div>
+</p>
 
-<ul class="nav nav-tabs" id="descriptionTags">
-    <li>
+<ul class="nav nav-tabs margin-top" id="descriptionTags">
+    @if(Model.ProductSpecs.Any())
+    {
+        <li>
         <a href="#specs">Specifications
         </a>
-    </li>
-    <li>
+        </li>
+    }
+    @if(Model.ProductFeatures.Any())
+    {
+        <li>
         <a href="#features">Features
         </a>
-    </li>
+        </li>
+    }
 </ul>
-<div class="tab-content"  id="tabContent">
-    <div class="tab-pane" id="specs">Specs</div>
-    <div class="tab-pane" id="features">Features</div>
+<div class="tab-content margin-bottom" id="tabContent">
+    @if(Model.ProductSpecs.Any())
+    {
+        <div class="tab-pane" id="specs">
+        <table class="table table-striped" style="width: 500px">
+            @foreach (var item in Model.ProductSpecs)
+            {
+                <tr>
+                    <td>
+                        @item.Specs.Split(':')[0]
+                    </td>
+                    <td>
+                        @item.Specs.Split(':')[1]
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    }
+    @if(Model.ProductFeatures.Any())
+    {
+    <div class="tab-pane" id="features">
+        <ul>
+            @foreach(var item in Model.ProductFeatures)
+            {
+                <li>
+                    @item.Feature
+                </li>
+            }
+        </ul>
+    </div>
+    }
 </div>
 
 Somehow get related Products
@@ -39,9 +73,9 @@ also get review forms
 
 
 <script>
-    $(function() {
+    $(function () {
 
-        $('#descriptionTags a').click(function(e) {
+        $('#descriptionTags a').click(function (e) {
             e.preventDefault();
 
             $(this).tab('show');

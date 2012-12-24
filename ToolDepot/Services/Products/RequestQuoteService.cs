@@ -3,9 +3,9 @@ using ToolDepot.Models;
 
 namespace ToolDepot.Services.Products
 {
-    public class RequestQuoteService : CrudService<RequestAQuoteModel>, IRequestQuoteService
+    public class RequestQuoteService : CrudService<RequestAQuote>, IRequestQuoteService 
     {
-        public RequestQuoteService(IRepository<RequestAQuoteModel> repo) : base(repo)
+        public RequestQuoteService(IRepository<RequestAQuote> repo) : base(repo)
         {
         }
     }
