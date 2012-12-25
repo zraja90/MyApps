@@ -535,6 +535,7 @@
     <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Product\CreateCategory.cshtml" />
     <Content Include="Areas\Admin\Views\Product\EditProduct.cshtml" />
+    <Content Include="Content\css\alignment.less" />
     <None Include="Properties\PublishProfiles\tooldepot - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepot - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepotinc.com - FTP.pubxml" />
@@ -615,6 +616,7 @@
     <Content Include="Views\Products\Featured.cshtml" />
     <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\Products\RequestAQuote.cshtml" />
+    <Content Include="Views\Home\HomePageSlider.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -29,7 +29,8 @@ namespace ToolDepot
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
             //bundles.Add(new StyleBundle("~/Content/assets/bootstrap").Include("~/assets/css/bootstrap.min.css"));
 
-            var less = new StyleBundle("~/Content/less").Include("~/Content/css/site.less","~/Content/bootstrap/bootstrap.less");
+            var less = new StyleBundle("~/Content/less").Include("~/Content/css/site.less","~/Content/bootstrap/bootstrap.less",
+                "~/Content/css/alignment.less");
             
             less.Transforms.Add(new LessMinify());
 
