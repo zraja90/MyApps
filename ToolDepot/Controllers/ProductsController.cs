@@ -1,5 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
+using GoogleMapsApi;
+using GoogleMapsApi.Entities.Directions.Request;
+using GoogleMapsApi.Entities.Directions.Response;
 using ToolDepot.Models.Products;
 using ToolDepot.Services;
 using ToolDepot.Services.Products;
@@ -44,6 +48,22 @@ namespace ToolDepot.Controllers
         public ActionResult RequestAQuote()
         {
             var model = new RequestQuoteModel();
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult RequestAQuote(RequestQuoteModel model)
+        {
+            var directionsRequest = new DirectionsRequest()
+            {
+                Origin = "NYC, 5th and 39",
+                Destination = "Philladephia, Chesnut and Wallnut",
+            };
+
+            DirectionsResponse directions = MapsAPI.GetDirections(directionsRequest);
+
+            Console.WriteLine(directions);
+
+            //var model = new RequestQuoteModel();
             return View(model);
         }
 

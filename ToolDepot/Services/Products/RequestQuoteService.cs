@@ -1,4 +1,5 @@
-﻿using ToolDepot.Data;
+﻿using ToolDepot.Core.Domain.Products;
+using ToolDepot.Data;
 using ToolDepot.Models;
 
 namespace ToolDepot.Services.Products
