@@ -89,7 +89,7 @@
                     {
                         <div class="margin-bottom-10">
                             @Html.HiddenFor(x => x.ProductSpecs[i].ProductId)
-                            @Html.TextAreaFor(x => x.ProductSpecs[i].Specs)
+                            @Html.EditorFor(x => x.ProductSpecs[i].Specs)
                         </div>
                         
                     }
@@ -139,7 +139,7 @@
                     {
                         <div class="margin-bottom-10">
                             @Html.HiddenFor(x => x.ProductFeatures[i].ProductId)
-                            @Html.TextAreaFor(x => x.ProductFeatures[i].Feature)
+                            @Html.EditorFor(x => x.ProductFeatures[i].Feature)
                         </div>
                     }
 
