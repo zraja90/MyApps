@@ -18,4 +18,10 @@ Phone Number: [PhoneNumber]
 Fax Number: [FaxNumber]
 Created Date: [CreatedDate]
 
+Message from [FirstName]:
+
+[Message]
+
 Please respond within a timely fashion
+
+Tool Depot
