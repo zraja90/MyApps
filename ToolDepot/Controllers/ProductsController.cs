@@ -6,21 +6,25 @@ using GoogleMapsApi.Entities.Directions.Request;
 using GoogleMapsApi.Entities.Directions.Response;
 using ToolDepot.Models.Products;
 using ToolDepot.Services;
+using ToolDepot.Services.Email;
 using ToolDepot.Services.Products;
 
 namespace ToolDepot.Controllers
 {
     public class ProductsController : Controller
     {
+        private readonly IWorkflowMessageService _workflowMessageService;
         private readonly IBrochureService _brochureService;
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
 
-        public ProductsController(IProductService productService, IProductCategoryService productCategoryService, IBrochureService brochureService)
+        public ProductsController(IProductService productService, IProductCategoryService productCategoryService,
+            IBrochureService brochureService, IWorkflowMessageService workflowMessageService)
         {
             _productService = productService;
             _productCategoryService = productCategoryService;
             _brochureService = brochureService;
+            _workflowMessageService = workflowMessageService;
         }
         //
         // GET: /Products/
@@ -53,17 +57,22 @@ namespace ToolDepot.Controllers
         [HttpPost]
         public ActionResult RequestAQuote(RequestQuoteModel model)
         {
-            var directionsRequest = new DirectionsRequest()
-            {
-                Origin = "NYC, 5th and 39",
-                Destination = "Philladephia, Chesnut and Wallnut",
-            };
+            //var directionsRequest = new DirectionsRequest()
+            //{
+            //    Origin = "NYC, 5th and 39",
+            //    Destination = "Philladephia, Chesnut and Wallnut",
+            //};
 
-            DirectionsResponse directions = MapsAPI.GetDirections(directionsRequest);
+            //DirectionsResponse directions = MapsAPI.GetDirections(directionsRequest);
 
-            Console.WriteLine(directions);
+            //Console.WriteLine(directions);
 
             //var model = new RequestQuoteModel();
+            if(model!=null)
+            {
+                //_workflowMessageService.
+               //var a = model.RequestQuote.Address;
+            }
             return View(model);
         }
 

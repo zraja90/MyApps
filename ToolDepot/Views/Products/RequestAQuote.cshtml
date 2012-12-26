@@ -42,7 +42,10 @@
 
                 @Html.LabelFor(x => x.RequestQuote.Email)
                 @Html.EditorFor(x => x.RequestQuote.Email)
-            </div>
+
+                @Html.LabelFor(x=>x.RequestQuote.Message)
+                @Html.TextAreaFor(x=>x.RequestQuote.Message)
+                    </div>
             <input type="submit" class="btn btn-primary" value="Submit" />
         </fieldset>
     </div>

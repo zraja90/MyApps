@@ -33,8 +33,6 @@ namespace ToolDepot.Services.Email
      
         #region Email Methods
 
-        
-
         public void SendContactEmail(string fromEmail, string name, string message, string issueType, string collegeName)
         {
             var header = EmailHeader();
@@ -82,8 +80,8 @@ namespace ToolDepot.Services.Email
 
             var subjectReplaced = _tokenizer.Replace(subject, tokens, false);
             var bodyReplaced = _tokenizer.Replace(body, tokens, true);
-            string fromEmail = "do-not-reply@collegeswitchboard.com";
-            string fromName = "College Switchboard";
+            string fromEmail = "do-not-reply@tooldepotinc.com";
+            string fromName = "Tool Depot";
             int emailAccountId = 1;
 
             var email = new QueuedEmail()

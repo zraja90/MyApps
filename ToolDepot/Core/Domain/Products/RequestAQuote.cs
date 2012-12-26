@@ -14,6 +14,7 @@ namespace ToolDepot.Core.Domain.Products
         public string ZipCode { get; set; }
         public string PhoneNumber { get; set; }
         public string FaxNumber { get; set; }
+        public string Message { get; set; }
         public DateTime CreatedDate  { get; set; }
     }
 }

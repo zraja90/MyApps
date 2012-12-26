@@ -8,6 +8,7 @@ using ToolDepot.Core.Fakes;
 using ToolDepot.Data;
 using ToolDepot.Infrastructure;
 using ToolDepot.Mailers;
+using ToolDepot.Services.Email;
 
 namespace ToolDepot.App_Start
 {
@@ -71,6 +72,9 @@ namespace ToolDepot.App_Start
             builder.RegisterType<WebHelper>().As<IWebHelper>().InstancePerHttpRequest();
             builder.RegisterType<WorkContext>().As<IWorkContext>().InstancePerHttpRequest();
             builder.RegisterType<UserMailer>().As<IUserMailer>().InstancePerHttpRequest();
+            builder.RegisterType<EmailSender>().As<IEmailSender>().InstancePerHttpRequest();
+            builder.RegisterType<Tokenizer>().As<ITokenizer>().InstancePerHttpRequest();
+            //builder.RegisterType<EmailSender>().As<IEmailSender>().InstancePerHttpRequest();
             //services
             var assembly = Assembly.Load("ToolDepot");
 
