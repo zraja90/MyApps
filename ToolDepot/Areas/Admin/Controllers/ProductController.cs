@@ -106,7 +106,7 @@ namespace ToolDepot.Areas.Admin.Controllers
                 Id = product.Id,
                 Name = product.Name,
                 Description = product.Description,
-                Image = product.Description,
+                Image = product.Image,
                 IsFeatured = product.IsFeatured,
                 CategoryId = product.CategoryId,
                 Product = product,
