@@ -9,10 +9,10 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 <ul class="nav nav-tabs" id="editProductTabs">
-    <li class="active">
+    @* <li >
         <a href="#editProduct">Product</a>
     </li>
-    <li>
+    <li class="active">
         <a href="#editSpecs">Edit Specs</a>
     </li>
     <li>
@@ -21,10 +21,10 @@
     <li>
         <a href="#editSeo">Edit SEO
         </a>
-    </li>
+    </li>*@
 </ul>
 <div class="tab-content">
-    <div class="tab-pane active" id="editProduct">
+    <div class="tab-pane" id="editProduct">
         @using (Html.BeginForm("EditProduct", "Product", new { Area = "Admin", controller = "Product", id = Model.Id }, FormMethod.Post, new { id = "editProductForm" }))
         {
             @Html.ValidationSummary(true)
@@ -75,50 +75,84 @@
             </div>
         }
     </div>
-    <div class="tab-pane" id="editSpecs">
+    <div class="tab-pane active" id="editSpecs">
         @using (Html.BeginForm("EditSpecs", "Product", new { Area = "Admin", controller = "Product", id = Model.Id }, FormMethod.Post, new { id = "editSpecForm" }))
         {
             if (Model.ProductSpecs != null && Model.ProductSpecs.Any())
             {
-            <div class="form-horizontal">
-                <div class="control-group">
-                    Edit Specs
+                <div id="newTextBox">
+                    <table class="table table-striped table-bordered" id="specsTable">
+                        <tr>
+                            <td>Spec Type</td>
+                            <td>Spec Name</td>
+                            <td>
+                                <a href="#" id="addNewSpec" class="btn btn-primary">Add</a>
+                            </td>
+                        </tr>
+                        @for (int i = 0; i < Model.ProductSpecs.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.HiddenFor(x => x.ProductSpecs[i].ProductId)
+                                    @Html.HiddenFor(x => x.ProductSpecs[i].Id)
+                                    
+                                    @Html.EditorFor(x => x.ProductSpecs[i].SpecType)
+                                </td>
+                                <td>
+                                    @Html.EditorFor(x => x.ProductSpecs[i].SpecName)
+                                </td>
+                            </tr>
+                        }
+                    </table>
                 </div>
-                <div class="controls" id="newTextBox">
-                    @for (int i = 0; i < Model.ProductSpecs.Count; i++)
-                    {
-                        <div class="margin-bottom-10">
-                            @Html.HiddenFor(x => x.ProductSpecs[i].ProductId)
-                            @Html.EditorFor(x => x.ProductSpecs[i].Specs)
-                        </div>
-                        
-                    }
+            <div class="controls">
+                <script>
+    $(function () {
 
-                </div>
-                <div class="controls">
-                    <a href="#" id="addNewSpec" class="btn btn-primary">Add</a>
-                </div>
+        $('#editProductTabs a').click(function (e) {
+            e.preventDefault();
 
+            $(this).tab('show');
+        });
+        $("#addNewSpec").click(function (e) {
+            e.preventDefault();
+            
+            var count = $("#newTextBox input:text").size()/2;
+            $("#specsTable").append("<tr><td><input type='text' name='ProductSpecs[" + count + "].SpecType'/></td><td colspan='2'><input type='text' name='ProductSpecs[" + count + "].SpecName'/></td></tr>");
+
+        });
+        $("#addNewFeature").click(function (e) {
+            e.preventDefault();
+            var count = $("#newTextBoxforFeatures input:text").size();
+            $("#newTextBoxforFeatures").append("<div><input type='text' class='margin-bottom-10' name='ProductFeatures[" + count + "].Feature'/></div>");
+
+        });
+    });
+</script>
             </div>
             }
             else
             {
-            <div>You are only allowed to create 5 Specs</div>
-            <div class="form-horizontal">
-                <div class="control-group">
-                    <label class="control-label">Add Specs</label>
-                    <div class="controls">
-                        @for (int i = 0; i < 5; i++)
-                        {
-                            <div class="margin-bottom-10">
-                                <input name="ProductSpecs[@i].Specs" type="text"/>
-                            </div>
-                        }
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="controls">
-                    </div>
+            <div>You are only allowed to create 10 Specs</div>
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <td>Spec Type</td>
+                        <td>Spec Name</td>
+                    </tr>
+                    @for (int i = 0; i < 10; i++)
+                    {
+                        <tr>
+                            <td>
+                                <input name="ProductSpecs[@i].SpecType" type="text"/>
+                            </td>
+                            <td>
+                                <input name="ProductSpecs[@i].SpecName" type="text"/>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            <div class="control-group">
+                <div class="controls">
                 </div>
             </div>
             }
@@ -177,26 +211,4 @@
 </div>
 
 
-<script>
-    $(function () {
 
-        $('#editProductTabs a').click(function (e) {
-            e.preventDefault();
-
-            $(this).tab('show');
-        });
-        $("#addNewSpec").click(function (e) {
-            e.preventDefault();
-
-            var count = $("#newTextBox input:text").size();
-            $("#newTextBox").append("<div><input type='text' class='margin-bottom-10' name='ProductSpecs[" + count + "].Specs'/></div>");
-
-        });
-        $("#addNewFeature").click(function (e) {
-            e.preventDefault();
-            var count = $("#newTextBoxforFeatures input:text").size();
-            $("#newTextBoxforFeatures").append("<div><input type='text' class='margin-bottom-10' name='ProductFeatures[" + count + "].Feature'/></div>");
-
-        });
-    });
-</script>

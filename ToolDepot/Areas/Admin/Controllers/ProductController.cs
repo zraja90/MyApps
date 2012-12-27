@@ -47,7 +47,7 @@ namespace ToolDepot.Areas.Admin.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            var model = new ProductDetailModel {Product = _productService.GetById(id)};
+            var model = new ProductDetailModel { Product = _productService.GetById(id) };
             return View(model);
         }
 
@@ -74,7 +74,7 @@ namespace ToolDepot.Areas.Admin.Controllers
                     var entity = model.ToEntity();
                     _productService.Add(entity);
                 }
-                
+
                 return RedirectToAction("Index");
             }
             catch
@@ -121,7 +121,7 @@ namespace ToolDepot.Areas.Admin.Controllers
 
             _productService.Update(product);
 
-            return RedirectToAction("Edit", "Product",new {id=model.Id});
+            return RedirectToAction("Edit", "Product", new { id = model.Id });
         }
 
         [HttpPost]
@@ -130,27 +130,36 @@ namespace ToolDepot.Areas.Admin.Controllers
             var specs = _productSpecsService.GetMany(x => x.ProductId == model.Id).ToList();
             if (specs.Any())
             {
-                foreach (var spec in specs)
+                for (int i = 0; i < model.ProductSpecs.Count; i++)
                 {
-                    _productSpecsService.Delete(spec);
-                }
-                foreach (var spec in model.ProductSpecs)
-                {
-                    if (spec.ProductId == 0) spec.ProductId = model.Id;
-                    _productSpecsService.Add(spec);
+                    if (specs[i] != null)
+                    {
+                        if (specs[i].Id == model.ProductSpecs[i].Id)
+                        {
+                            specs[i].SpecType = model.ProductSpecs[i].SpecType;
+                            specs[i].SpecName = model.ProductSpecs[i].SpecName;
+                            _productSpecsService.Update(specs[i]);
+                        }
+                    }
+                    else
+                    {
+                        _productSpecsService.Add(model.ProductSpecs[i]);
+                    }
                 }
             }
             else
             {
                 foreach (var spec in model.ProductSpecs)
                 {
-                    spec.ProductId = model.Id;
-                    _productSpecsService.Add(spec);
+                    if (!string.IsNullOrEmpty(spec.SpecName))
+                    {
+                        spec.ProductId = model.Id;
+                        _productSpecsService.Add(spec);
+                    }
                 }
             }
-            return RedirectToAction("Edit", "Product",new {id=model.Id});
+            return RedirectToAction("Edit", "Product", new { id = model.Id });
         }
-
         [HttpPost]
         public ActionResult EditFeatured(EditProductModel model)
         {
@@ -177,7 +186,7 @@ namespace ToolDepot.Areas.Admin.Controllers
             }
             return RedirectToAction("Edit", "Product", new { id = model.Id });
         }
-#endregion
+        #endregion
 
         #region Category
         public ActionResult CreateCategory()
@@ -194,7 +203,7 @@ namespace ToolDepot.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult EditCategory(int id=0)
+        public ActionResult EditCategory(int id = 0)
         {
             var model = new CreateCategoryModel();
             model = _productCategoryService.GetById(id).ToModel();

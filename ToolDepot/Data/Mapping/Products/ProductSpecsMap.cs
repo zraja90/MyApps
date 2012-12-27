@@ -12,7 +12,8 @@ namespace ToolDepot.Data.Mapping.Products
         public ProductSpecsMap()
         {
             this.ToTable("ProductSpecs");
-            this.Property(t => t.Specs);
+            Property(t => t.SpecType);
+            this.Property(t => t.SpecName);
 
             HasRequired(t => t.Product)
                 .WithMany(p => p.ProductSpecs)

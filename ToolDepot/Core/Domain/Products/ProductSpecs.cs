@@ -8,6 +8,7 @@ namespace ToolDepot.Core.Domain.Products
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
 
-        public string Specs { get; set; }
+        public string SpecType { get; set; }
+        public string SpecName { get; set; }
     }
 }
