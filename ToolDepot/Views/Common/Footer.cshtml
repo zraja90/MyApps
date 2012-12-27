@@ -1,52 +1,34 @@
-﻿<style>
-     .footerBox {
-         border: 1px solid #ccc;
-     }
-     .footerBox .left-side {
-         margin-left: 0; border-right: 1px solid #ccc; padding: 5px 20px;width: 220px;float: left;
-     }
-     .footerBox .right-side {
-         padding: 5px 20px;float: left;width: 400px;
-     }
- </style>
-
-<footer class="footer">
-<div class="footerBox">
-    <div class="left-side">
-        <h4>Connect with Tool Depot</h4>
-        @Html.Action("SubscriptionModule")
-        <p>Can't find what you're looking for? Please call us: </p>
-        <p>
-            <abbr title="Phone">P:</abbr>
-            718-786-1500
+﻿<footer class="footer">
+    <div class="footerBox">
+        <div class="left-side">
+            <h4>Connect with Tool Depot</h4>
+            @Html.Action("SubscriptionModule")
+            <p>Can't find what you're looking for? Please call us: </p>
+            <p>
+                <abbr title="Phone">P:</abbr>
+                718-786-1500
             <br />
-            <abbr title="Phone">P:</abbr>
-            718-786-1502
-        </p>
-        <p>Or come visit us:</p>
-        <address>
-            <strong>Tool Depot Inc.</strong><br />
-            43-77 9th St<br />
-            Long Island City, NY 11101
-        </address>
-        
+                <abbr title="Phone">P:</abbr>
+                718-786-1502
+            </p>
+            <p>Or come visit us:</p>
+            <address>
+                <strong>Tool Depot Inc.</strong><br />
+                43-77 9th St<br />
+                Long Island City, NY 11101
+            </address>
+        </div>
+        @Html.Action("ProductCategories", "Home")
+        <div class="clearfix"></div>
     </div>
-    @Html.Action("ProductCategories", "Home")
-    <div class="clearfix"></div>
-</div>
-
-    <div class="clearfix"></div>
     <div class="margin-top">
         <p class="pull-left margin-right">&copy; @DateTime.Now.Year - Tool Depot Inc.</p>
         <div class="align-center span6">
-            @Html.ActionLink("Home","Index","Home") | 
-            @Html.ActionLink("All Products","AllCategories","Products") | 
-            @Html.ActionLink("Weekly Ad","Featured","Products") | 
-            @Html.ActionLink("Contact Us","Contact","Home") | 
-            @Html.ActionLink("About Us","AboutUs","Common")
-            
-            
-            
+            @Html.ActionLink("Home", "Index", "Home") | 
+            @Html.ActionLink("All Products", "AllCategories", "Products") | 
+            @Html.ActionLink("Weekly Ad", "Featured", "Products") | 
+            @Html.ActionLink("Contact Us", "Contact", "Home") | 
+            @Html.ActionLink("About Us", "About", "Home")
         </div>
     </div>
 </footer>

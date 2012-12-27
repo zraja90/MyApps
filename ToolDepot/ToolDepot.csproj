@@ -637,6 +637,7 @@
     <Content Include="Views\Products\RequestAQuote.cshtml" />
     <Content Include="Views\Home\HomePageSlider.cshtml" />
     <Content Include="Views\Common\SubscriptionModule.cshtml" />
+    <Content Include="Views\Products\RepairServices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

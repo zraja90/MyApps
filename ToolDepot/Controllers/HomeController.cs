@@ -82,5 +82,10 @@ namespace ToolDepot.Controllers
         {
             return View();
         }
+
+        public ActionResult About()
+        {
+            return View();
+        }
     }
 }

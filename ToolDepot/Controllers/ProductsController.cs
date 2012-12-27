@@ -87,5 +87,10 @@ namespace ToolDepot.Controllers
             var model = new BrochureModel {Brochures = _brochureService.GetAll().ToList()};
             return View(model);
         }
+
+        public ActionResult RepairServices()
+        {
+            return View();
+        }
     }
 }
