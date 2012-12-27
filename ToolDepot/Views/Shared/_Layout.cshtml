@@ -37,7 +37,10 @@
 </head>
 <body>
     <div id="contentWrap">
-        @*@Html.Action("Header", "Common")*@
+        @if (Request.Url != null && !Request.Url.ToString().ToLower().Contains("localhost"))
+        {
+            @Html.Action("Header", "Common")
+        }
         <div id="mainContainer" class="container-fluid">
             <section class="row-fluid">
                 <div class="span12">
@@ -48,7 +51,7 @@
                 <div class="clearfix"></div>
             </section>
             <div id="contentPush"></div>
-            @Html.Action("Footer", "Common")            
+            @Html.Action("Footer", "Common")
         </div>
     </div>
 </body>
