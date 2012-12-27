@@ -12,6 +12,8 @@ namespace ToolDepot.Areas.Admin.Models.Products
         {
             CreatedDate = DateTime.UtcNow;
         }
+
+        public int Id { get; set; }
         [DisplayName("Category Name")]
         public string CategoryName { get; set; }
 

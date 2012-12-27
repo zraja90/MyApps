@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using ToolDepot.Areas.Admin.Models;
 using ToolDepot.Areas.Admin.Models.Products;
+using ToolDepot.Core.Domain.Products;
 using ToolDepot.Filters;
 using ToolDepot.Helpers;
 using ToolDepot.Mappers;
@@ -39,20 +40,7 @@ namespace ToolDepot.Areas.Admin.Controllers
 
             return View(model);
         }
-
-        public ActionResult CreateCategory()
-        {
-            var model = new CreateCategoryModel();
-
-            return View(model);
-        }
-        [HttpPost]
-        public ActionResult CreateCategory(CreateCategoryModel model)
-        {
-            var entity = model.ToEntity();
-            _productCategoryService.Add(entity);
-            return RedirectToAction("Index");
-        }
+        #region Product
 
         //
         // GET: /Admin/Product/Details/5
@@ -189,6 +177,45 @@ namespace ToolDepot.Areas.Admin.Controllers
             }
             return RedirectToAction("Edit", "Product", new { id = model.Id });
         }
+#endregion
+
+        #region Category
+        public ActionResult CreateCategory()
+        {
+            var model = new CreateCategoryModel();
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult CreateCategory(CreateCategoryModel model)
+        {
+            var entity = model.ToEntity();
+            _productCategoryService.Add(entity);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult EditCategory(int id=0)
+        {
+            var model = new CreateCategoryModel();
+            model = _productCategoryService.GetById(id).ToModel();
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditCategory(CreateCategoryModel model)
+        {
+            var entity = _productCategoryService.GetById(model.Id);
+            entity.CategoryName = model.CategoryName;
+            entity.CategoryImage = model.CategoryImage;
+            entity.CreatedDate = model.CreatedDate;
+            entity.IsFeaturedCategory = model.IsFeatured;
+
+            _productCategoryService.Update(entity);
+
+            return View(model);
+        }
+
+        #endregion
     }
 
 }

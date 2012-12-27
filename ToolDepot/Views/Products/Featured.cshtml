@@ -3,14 +3,14 @@
     ViewBag.Title = "Featured";
 }
 
-<h1 class="blue">Featured Tools & Equipment for Rent</h1>
+<h1>Featured Tools & Equipment for Rent</h1>
 
 <div class="ProductList">
     @foreach(var item in Model.Brochures)
     {
     <div class="pull-left product">
         <img src="/Content/images/Brochure/@item.ProductImage" class="product-image" />
-        <div style="" class="title">
+        <div class="title">
             @item.ProductName
         </div>
         <p>

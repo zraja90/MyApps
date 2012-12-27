@@ -14,9 +14,9 @@ namespace ToolDepot.Data.Mapping.Products
             this.ToTable("Product");
             this.HasKey(t => t.Id);
             this.Property(t => t.Name);
-            this.Property(t => t.Image);
+            this.Property(t => t.Image).IsOptional();
             this.Property(t => t.IsFeatured);
-            this.Property(t => t.Description);
+            this.Property(t => t.Description).IsOptional();
             this.Property(t => t.CreatedDate);
 
             HasRequired(t => t.Category)

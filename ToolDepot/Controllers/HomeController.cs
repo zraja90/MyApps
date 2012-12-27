@@ -27,8 +27,8 @@ namespace ToolDepot.Controllers
         }
         public ActionResult Index()
         {
-            var model = new BrochureModel { Brochures = _brochureService.GetAll().ToList() };
-            return View(model);
+            //var model = new BrochureModel { Brochures = _brochureService.GetAll().ToList() };
+            return View();
         }
 
         [ChildActionOnly]

@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using AutoMapper;
 using ToolDepot.Areas.Admin.Models.Products;
+using ToolDepot.Core.Domain.Customers;
 using ToolDepot.Core.Domain.Products;
 using ToolDepot.Models;
+using ToolDepot.Models.Common;
 using ToolDepot.Models.Products;
 
 namespace ToolDepot.Mappers
@@ -40,6 +42,22 @@ namespace ToolDepot.Mappers
         }
 
         public static ProductCategory ToEntity(this CreateCategoryModel model, ProductCategory destination)
+        {
+            return Mapper.Map(model, destination);
+        }
+
+
+        public static SubscriptionModel ToModel(this EmailSubscription entity)
+        {
+            return Mapper.Map<EmailSubscription, SubscriptionModel>(entity);
+        }
+
+        public static EmailSubscription ToEntity(this SubscriptionModel model)
+        {
+            return Mapper.Map<SubscriptionModel, EmailSubscription>(model);
+        }
+
+        public static EmailSubscription ToEntity(this SubscriptionModel model, EmailSubscription destination)
         {
             return Mapper.Map(model, destination);
         }

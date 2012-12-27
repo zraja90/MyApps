@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using ToolDepot.Areas.Admin.Models.Products;
+using ToolDepot.Core.Domain.Customers;
 using ToolDepot.Core.Domain.Products;
 using ToolDepot.Models;
+using ToolDepot.Models.Common;
 using ToolDepot.Models.Products;
 
 namespace ToolDepot.Mappers
@@ -20,6 +22,9 @@ namespace ToolDepot.Mappers
 
             Mapper.CreateMap<ProductCategory, CreateCategoryModel>();
             Mapper.CreateMap<CreateCategoryModel, ProductCategory>();
+
+            Mapper.CreateMap<EmailSubscription, SubscriptionModel>();
+            Mapper.CreateMap<SubscriptionModel, EmailSubscription>();
 
         }
     }

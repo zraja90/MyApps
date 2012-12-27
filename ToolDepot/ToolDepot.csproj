@@ -216,6 +216,7 @@
     <Compile Include="Core\Common\ValidationResult.cs" />
     <Compile Include="Core\Domain\Customers\Customer.cs" />
     <Compile Include="Core\Domain\Customers\CustomerRole.cs" />
+    <Compile Include="Core\Domain\Customers\EmailSubscription.cs" />
     <Compile Include="Core\Domain\Customers\SystemCustomerRoleNames.cs" />
     <Compile Include="Core\Domain\Email\EmailAccount.cs" />
     <Compile Include="Core\Domain\Email\EmailTemplates.cs" />
@@ -247,6 +248,7 @@
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\Mapping\Customers\CustomerMap.cs" />
     <Compile Include="Data\Mapping\Customers\CustomerRoleMap.cs" />
+    <Compile Include="Data\Mapping\Customers\EmailSubscriptionMap.cs" />
     <Compile Include="Data\Mapping\Email\EmailAccountMap.cs" />
     <Compile Include="Data\Mapping\Email\EmailTemplatesMap.cs" />
     <Compile Include="Data\Mapping\Email\QueuedEmailMap.cs" />
@@ -291,11 +293,24 @@
     <Compile Include="Migrations\201212181951122_v4.Designer.cs">
       <DependentUpon>201212181951122_v4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201212271842386_v5.0.cs" />
+    <Compile Include="Migrations\201212271842386_v5.0.Designer.cs">
+      <DependentUpon>201212271842386_v5.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201212271843303_v5.1.cs" />
+    <Compile Include="Migrations\201212271843303_v5.1.Designer.cs">
+      <DependentUpon>201212271843303_v5.1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201212271940046_v5.2.cs" />
+    <Compile Include="Migrations\201212271940046_v5.2.Designer.cs">
+      <DependentUpon>201212271940046_v5.2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Common\ContactUsModel.cs" />
     <Compile Include="Models\Common\HeaderModel.cs" />
+    <Compile Include="Models\Common\SubscriptionModel.cs" />
     <Compile Include="Models\FeaturedCategoriesModel.cs" />
     <Compile Include="Models\FeaturedProductModel.cs" />
     <Compile Include="Models\NotifyType.cs" />
@@ -315,8 +330,10 @@
     <Compile Include="Services\Authentication\IAuthenticationService.cs" />
     <Compile Include="Services\CustomerService\CustomerRegistrationService.cs" />
     <Compile Include="Services\CustomerService\CustomerService.cs" />
+    <Compile Include="Services\CustomerService\EmailSubscriptionService.cs" />
     <Compile Include="Services\CustomerService\ICustomerRegistrationService.cs" />
     <Compile Include="Services\CustomerService\ICustomerService.cs" />
+    <Compile Include="Services\CustomerService\IEmailSubscriptionService.cs" />
     <Compile Include="Services\Email\EmailAccountService.cs" />
     <Compile Include="Services\Email\EmailSender.cs" />
     <Compile Include="Services\Email\IEmailAccountService.cs" />
@@ -537,6 +554,7 @@
     <Content Include="Areas\Admin\Views\Product\CreateCategory.cshtml" />
     <Content Include="Areas\Admin\Views\Product\EditProduct.cshtml" />
     <Content Include="Content\css\alignment.less" />
+    <Content Include="Areas\Admin\Views\Product\EditCategory.cshtml" />
     <None Include="Properties\PublishProfiles\tooldepot - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepot - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepotinc.com - FTP.pubxml" />
@@ -616,9 +634,9 @@
     <Content Include="Views\Home\FeaturedProductCategory.cshtml" />
     <Content Include="Views\Products\Product.cshtml" />
     <Content Include="Views\Products\Featured.cshtml" />
-    <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\Products\RequestAQuote.cshtml" />
     <Content Include="Views\Home\HomePageSlider.cshtml" />
+    <Content Include="Views\Common\SubscriptionModule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -638,6 +656,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201212181951122_v4.resx">
       <DependentUpon>201212181951122_v4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201212271842386_v5.0.resx">
+      <DependentUpon>201212271842386_v5.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201212271843303_v5.1.resx">
+      <DependentUpon>201212271843303_v5.1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201212271940046_v5.2.resx">
+      <DependentUpon>201212271940046_v5.2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
