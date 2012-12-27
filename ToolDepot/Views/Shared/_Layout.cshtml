@@ -5,11 +5,11 @@
     <title>@ViewBag.Title | Tool Rental, Equipment Rental, & Repair Services | Tool Depot</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-    @if (ViewBag.Description != null)
+    @if (!string.IsNullOrEmpty(ViewBag.Description))
     {
         <meta name="description" content="@ViewBag.Description" />
     }
-    @if (ViewBag.Keywords != null)
+    @if (!string.IsNullOrEmpty(ViewBag.Keywords))
     {
         <meta name="keywords" content="@ViewBag.Keywords" />
     }

@@ -19,10 +19,10 @@ namespace ToolDepot.Migrations
            //InitProduct(context);
 
            
-            InitPermissions(context);
+          /*  InitPermissions(context);
             InitRoles(context);
             InitCustomers(context);
-           
+           */
 
         }
 

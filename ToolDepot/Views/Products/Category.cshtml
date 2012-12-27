@@ -9,17 +9,13 @@
 @foreach (var item in Model.Category.Products)
 {
     <div class="product">
-        <img src="@item.Image" class="img-rounded image-small align-center" />
-        <div class=""></div>
-        <div class="margin-top-10 margin-bottom-10">
-            <a href="#">
+        <a href="/Products/Product/@item.Id">
+            <img src="@item.Image" class="img-rounded image-small align-center" />
+            <div class=""></div>
+            <div class="margin-top-10 margin-bottom-10">
                 @item.Name
-            </a><p>
-                @Html.Limit(item.Description, 20)
-                    </p>
-            
-        </div>
-        @Html.ActionLink("See More", "Product", new { id = item.Id }, new { Class = "btn" })
+            </div>
+        </a>
     </div>
 }
 <div class="clearfix"></div>
