@@ -37,7 +37,7 @@ namespace ToolDepot.Migrations
                                        {
                                            Name = "Send Emails",
                                            Seconds = 60,
-                                           Type = "Happy.Services.Messages.QueuedMessagesSendTask, Happy.Services",
+                                           Type = "ToolDepot.Services.Messages.QueuedMessagesSendTask, ToolDepot.Services",
                                            Enabled = true,
                                            StopOnError = false,
                                            LastStartUtc = null,
@@ -48,7 +48,7 @@ namespace ToolDepot.Migrations
                                        {
                                            Name = "Keep alive",
                                            Seconds = 300,
-                                           Type = "Happy.Services.Common.KeepAliveTask, Happy.Services",
+                                           Type = "ToolDepot.Services.Common.KeepAliveTask, ToolDepot.Services",
                                            Enabled = true,
                                            StopOnError = false,
                                            LastStartUtc = null,
@@ -69,13 +69,13 @@ namespace ToolDepot.Migrations
                                {
                                    new EmailAccount
                                        {
-                                           DisplayName = "College Switchboard",
-                                           Email = "do-not-reply@collegeswitchboard.com",
+                                           DisplayName = "Tool Depot",
+                                           Email = "zeeshan@unigo.com",
                                            Host = "127.0.0.1",
                                            Port = 25,
                                            EnableSsl = false,
                                            IsDefault = true,
-                                           Username = "do-not-reply@collegeswitchboard.com",
+                                           Username = "zeeshan@unigo.com",
                                            Password = "aa",
                                            UseDefaultCredentials = true
                                        }
