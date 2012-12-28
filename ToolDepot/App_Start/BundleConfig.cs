@@ -21,6 +21,8 @@ namespace ToolDepot
 
             bundles.Add(new ScriptBundle("~/bundles/html5").Include("~/Scripts/html5.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/validation").Include("~/Scripts/bootstrap.validation.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

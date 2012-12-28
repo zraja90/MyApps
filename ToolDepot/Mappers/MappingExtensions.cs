@@ -63,6 +63,21 @@ namespace ToolDepot.Mappers
         }
 
 
+        public static ContactUsModel ToModel(this ContactUs entity)
+        {
+            return Mapper.Map<ContactUs, ContactUsModel>(entity);
+        }
+
+        public static ContactUs ToEntity(this ContactUsModel model)
+        {
+            return Mapper.Map<ContactUsModel, ContactUs>(model);
+        }
+
+        public static ContactUs ToEntity(this ContactUsModel model, ContactUs destination)
+        {
+            return Mapper.Map(model, destination);
+        }
+
 
         #endregion
     }

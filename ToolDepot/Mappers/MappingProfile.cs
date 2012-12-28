@@ -26,6 +26,8 @@ namespace ToolDepot.Mappers
             Mapper.CreateMap<EmailSubscription, SubscriptionModel>();
             Mapper.CreateMap<SubscriptionModel, EmailSubscription>();
 
+            Mapper.CreateMap<ContactUs, ContactUsModel>();
+            Mapper.CreateMap<ContactUsModel, ContactUs>();
         }
     }
 }

@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace ToolDepot.Core.Common
+namespace ToolDepot.Core.Domain.Customers
 {
-    public class ContactUs
+    public class ContactUs : BaseEntity
     {
         public string EmailAddress { get; set; }
         public string Name { get; set; }
         public string Message { get; set; }
+        public string PhoneNumber { get; set; }
+        public bool CallBack { get; set; }
         public DateTime CreatedDate { get; set; }
     }
 }

@@ -1,10 +1,17 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using ToolDepot.Core.Domain;
+using ToolDepot.Filters.Helpers;
+using ToolDepot.Helpers;
 using ToolDepot.Mailers;
+using ToolDepot.Mappers;
 using ToolDepot.Models;
+using ToolDepot.Models.Common;
 using ToolDepot.Models.Products;
 using ToolDepot.Services;
+using ToolDepot.Services.CustomerService;
+using ToolDepot.Services.Email;
 using ToolDepot.Services.Products;
 
 namespace ToolDepot.Controllers
@@ -15,15 +22,19 @@ namespace ToolDepot.Controllers
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
         private readonly IBrochureService _brochureService;
-        private readonly IUserMailer _userMailer;
+        private readonly IContactUsService _contactUsService;
+        private readonly IWorkflowMessageService _workflowMessageService;
+
         public HomeController(IUnderConstructionService underConstructionService,
-           IProductService productService, IProductCategoryService productCategoryService, IUserMailer userMailer, IBrochureService brochureService)
+           IProductService productService, IProductCategoryService productCategoryService, IBrochureService brochureService,IContactUsService contactUsService,
+            IWorkflowMessageService workflowMessageService)
         {
             _underConstructionService = underConstructionService;
-            _userMailer = userMailer;
             _productService = productService;
             _productCategoryService = productCategoryService;
             _brochureService = brochureService;
+            _contactUsService = contactUsService;
+            _workflowMessageService = workflowMessageService;
         }
         public ActionResult Index()
         {
@@ -80,7 +91,24 @@ namespace ToolDepot.Controllers
         }
         public ActionResult Contact()
         {
-            return View();
+            var model = new ContactUsModel();
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Contact(ContactUsModel model)
+        {
+            try
+            {
+                var entity = model.ToEntity();
+                _contactUsService.Add(entity);
+                //_workflowMessageService.
+            }
+            catch (Exception)
+            {
+                this.ErrorNotification(GlobalHelper.DefaultFormSubmissionErrorMessage);
+                throw;
+            }
+            return View(model);
         }
 
         public ActionResult About()
