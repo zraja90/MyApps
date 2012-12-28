@@ -37,5 +37,18 @@ namespace ToolDepot.Helpers.Extensions
             }
             return MvcHtmlString.Create(newText);
         }
+        public static MvcHtmlString RequiredHint(this HtmlHelper helper, string additionalText = null)
+        {
+            // Create tag builder
+            var builder = new TagBuilder("span");
+            builder.AddCssClass("required");
+            var innerText = "*";
+            //add additinal text if specified
+            if (!String.IsNullOrEmpty(additionalText))
+                innerText += " " + additionalText;
+            builder.SetInnerText(innerText);
+            // Render tag
+            return MvcHtmlString.Create(builder.ToString());
+        }
     }
 }

@@ -39,10 +39,7 @@
 </head>
 <body>
     <div id="contentWrap">
-        @if (Request.Url != null && !Request.Url.ToString().ToLower().Contains("localhost"))
-        {
-            @Html.Action("Header", "Common")
-        }
+        @Html.Action("Header", "Common")
         <div id="mainContainer" class="container-fluid">
             <section class="row-fluid">
                 <div class="span12">

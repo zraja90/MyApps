@@ -17,10 +17,6 @@ namespace ToolDepot.Migrations
     {
         public static void Seed(AppContext context)
         {
-           // InitCategory(context);
-           //InitProduct(context);
-
-           
           /*  InitPermissions(context);
             InitRoles(context);
             InitCustomers(context);
@@ -158,108 +154,6 @@ namespace ToolDepot.Migrations
             {
                 settings.ForEach(x => context.Set<CustomerRole>().AddOrUpdate(x));
 
-            }
-            context.SaveChanges();
-        }
-        private static void InitCategory(AppContext context)
-        {
-            var category = new List<ProductCategory>
-                               {
-                                   new ProductCategory
-                                       {
-                                           Id = 1,
-                                           CategoryName = "Lifts",
-                                           CategoryImage = "/Content/images/Brochure/BoomLift.jpg",
-                                           IsFeaturedCategory = false,
-                                           CreatedDate = DateTime.UtcNow
-                                       },
-                                       new ProductCategory
-                                       {
-                                           Id = 2,
-                                           CategoryName = "Saws",
-                                           CategoryImage = "/Content/images/Brochure/BoomLift.jpg",
-                                           IsFeaturedCategory = false,
-                                           CreatedDate = DateTime.UtcNow
-                                       },
-                                       new ProductCategory
-                                       {
-                                           Id = 2,
-                                           CategoryName = "Drills",
-                                           CategoryImage = "/Content/images/Brochure/BoomLift.jpg",
-                                           IsFeaturedCategory = false,
-                                           CreatedDate = DateTime.UtcNow
-                                       }
-                               };
-            if (!context.Set<ProductCategory>().Any())
-            {
-                category.ForEach(x => context.Set<ProductCategory>().Add(x));
-            }
-            context.SaveChanges();
-
-        }
-
-        private static void InitProduct(AppContext context)
-        {
-            var product = new List<Product>
-                              {
-                                  new Product
-                                      {
-                                          Id = 1,
-                                          Name = "JLG Boom Lift",
-                                          CategoryId = 4,
-                                          Image = "/Content/images/Brochure/BoomLift.jpg",
-                                          CreatedDate = DateTime.UtcNow,
-                                          IsFeatured= true
-                                      },
-                                      new Product
-                                      {
-                                          Id = 2,
-                                          Name = "Scissor Lift",
-                                          CategoryId = 4,
-                                          Image = "/Content/images/Brochure/ScissorLift.jpg",
-                                          CreatedDate = DateTime.UtcNow,
-                                          IsFeatured= true
-                                      },
-                                       new Product
-                                      {
-                                          Id = 3,
-                                          Name = "Core Drill",
-                                          CategoryId = 6,
-                                          Image = "/Content/images/Brochure/CoreDrill.jpg",
-                                          CreatedDate = DateTime.UtcNow,
-                                          IsFeatured= true
-                                      },
-                                      new Product
-                                      {
-                                          Id = 4,
-                                         Name = "Rotary Drill",
-                                          CategoryId =6,
-                                          Image = "/Content/images/Brochure/RotaryDrill.jpg",
-                                          CreatedDate = DateTime.UtcNow,
-                                          IsFeatured= true
-                                      },
-                                      new Product
-                                      {
-                                          Id = 5,
-                                          Name = "14 inch Portable Cut Off Saw",
-                                          CategoryId = 5,
-                                          Image = "/Content/images/Brochure/14inPortableCutoffSaw.jpg",
-                                          CreatedDate = DateTime.UtcNow,
-                                          IsFeatured= false
-                                      },
-                                       new Product
-                                      {
-                                          Id = 6,
-                                          Name = "Walk Behind Saw",
-                                          CategoryId = 5,
-                                          Image = "/Content/images/Brochure/WalkBehindSaw.jpg",
-                                          CreatedDate = DateTime.UtcNow,
-                                          IsFeatured= false
-                                      }
-                              };
-            if (!context.Set<Product>().Any())
-            {
-                product.ForEach(x => context.Set<Product>().Add(x));
             }
             context.SaveChanges();
         }
