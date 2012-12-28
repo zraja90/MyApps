@@ -106,29 +106,7 @@
                     </table>
                 </div>
             <div class="controls">
-                <script>
-    $(function () {
-
-        $('#editProductTabs a').click(function (e) {
-            e.preventDefault();
-
-            $(this).tab('show');
-        });
-        $("#addNewSpec").click(function (e) {
-            e.preventDefault();
-            
-            var count = $("#newTextBox input:text").size()/2;
-            $("#specsTable").append("<tr><td><input type='text' name='ProductSpecs[" + count + "].SpecType'/></td><td colspan='2'><input type='text' name='ProductSpecs[" + count + "].SpecName'/></td></tr>");
-
-        });
-        $("#addNewFeature").click(function (e) {
-            e.preventDefault();
-            var count = $("#newTextBoxforFeatures input:text").size();
-            $("#newTextBoxforFeatures").append("<div><input type='text' class='margin-bottom-10' name='ProductFeatures[" + count + "].Feature'/></div>");
-
-        });
-    });
-</script>
+                
             </div>
             }
             else
@@ -212,3 +190,26 @@
 
 
 
+<script>
+    $(function () {
+
+        $('#editProductTabs a').click(function (e) {
+            e.preventDefault();
+
+            $(this).tab('show');
+        });
+        $("#addNewSpec").click(function (e) {
+            e.preventDefault();
+            
+            var count = $("#newTextBox input:text").size()/2;
+            $("#specsTable").append("<tr><td><input type='text' name='ProductSpecs[" + count + "].SpecType'/></td><td colspan='2'><input type='text' name='ProductSpecs[" + count + "].SpecName'/></td></tr>");
+
+        });
+        $("#addNewFeature").click(function (e) {
+            e.preventDefault();
+            var count = $("#newTextBoxforFeatures input:text").size();
+            $("#newTextBoxforFeatures").append("<div><input type='text' class='margin-bottom-10' name='ProductFeatures[" + count + "].Feature'/></div>");
+
+        });
+    });
+</script>
