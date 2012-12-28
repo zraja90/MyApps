@@ -33,10 +33,10 @@ namespace ToolDepot.Services.Email
      
         #region Email Methods
 
-        public void SendContactEmail(string fromEmail, string name, string message, string issueType, string collegeName)
+        public void SendContactEmail(string fromEmail, string name, string message)
         {
             var header = EmailHeader();
-            var body = string.Format("College Name: {0} <br/>Name: {1} <br/>Regarding: {2} <br/><br/>{3}", collegeName, name, issueType, message);
+            var body = string.Format("Regarding: {0}",message);
             var emailBody = header.Replace("[Body]", body);
             
             
@@ -48,12 +48,12 @@ namespace ToolDepot.Services.Email
                 Priority = 5,
                 From = fromEmail,
                 FromName = fromName,
-                To = "contact@unigo.com",
+                To = "zeeshan@unigo.com",
                 EmailName = "Contact Email",
                 ToName = "Contact",
                 CC = string.Empty,
                 Bcc = string.Empty,
-                Subject = "College Switchboard Inquiry",
+                Subject = "Tool Depot Inquiry",
                 Body = emailBody,
                 CreatedOnUtc = DateTime.UtcNow,
                 EmailAccountId = emailAccountId

@@ -16,7 +16,7 @@ namespace ToolDepot.Data.Mapping.Email
             this.Property(ea => ea.Username).IsRequired().HasMaxLength(255);
             this.Property(ea => ea.Password).IsRequired().HasMaxLength(255);
             this.Property(ea => ea.IsDefault).IsRequired();
-            this.Property(ea => ea.ProgramId);
+            
             this.Ignore(ea => ea.FriendlyName);
         }
     }

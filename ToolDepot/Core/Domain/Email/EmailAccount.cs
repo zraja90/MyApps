@@ -48,7 +48,7 @@ namespace ToolDepot.Core.Domain.Email
         public virtual bool UseDefaultCredentials { get; set; }
 
         public virtual bool IsDefault { get; set; }
-        public virtual int ProgramId { get; set; }
+        
 
         /// <summary>
         /// Gets a friendly email account name

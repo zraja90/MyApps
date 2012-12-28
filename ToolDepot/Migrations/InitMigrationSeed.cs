@@ -4,8 +4,10 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using ToolDepot.Core.Domain.Customers;
+using ToolDepot.Core.Domain.Email;
 using ToolDepot.Core.Domain.Products;
 using ToolDepot.Core.Domain.Security;
+using ToolDepot.Core.Domain.Tasks;
 using ToolDepot.Data;
 using ToolDepot.Models;
 
@@ -23,7 +25,66 @@ namespace ToolDepot.Migrations
             InitRoles(context);
             InitCustomers(context);
            */
+            InitEmailAccount(context);
+            InitScheduleTask(context);
+        }
 
+        private static void InitScheduleTask(AppContext context)
+        {
+            var settings = new List<ScheduleTask>
+                               {
+                                   new ScheduleTask
+                                       {
+                                           Name = "Send Emails",
+                                           Seconds = 60,
+                                           Type = "Happy.Services.Messages.QueuedMessagesSendTask, Happy.Services",
+                                           Enabled = true,
+                                           StopOnError = false,
+                                           LastStartUtc = null,
+                                           LastEndUtc = null,
+                                           LastSuccessUtc = null
+                                       },
+                                   new ScheduleTask
+                                       {
+                                           Name = "Keep alive",
+                                           Seconds = 300,
+                                           Type = "Happy.Services.Common.KeepAliveTask, Happy.Services",
+                                           Enabled = true,
+                                           StopOnError = false,
+                                           LastStartUtc = null,
+                                           LastEndUtc = null,
+                                           LastSuccessUtc = null
+                                       }
+                               };
+            if (!context.Set<ScheduleTask>().Any())
+            {
+                settings.ForEach(x => context.Set<ScheduleTask>().Add(x));
+            }
+            context.SaveChanges();
+        }
+
+        private static void InitEmailAccount(AppContext context)
+        {
+            var settings = new List<EmailAccount>
+                               {
+                                   new EmailAccount
+                                       {
+                                           DisplayName = "College Switchboard",
+                                           Email = "do-not-reply@collegeswitchboard.com",
+                                           Host = "127.0.0.1",
+                                           Port = 25,
+                                           EnableSsl = false,
+                                           IsDefault = true,
+                                           Username = "do-not-reply@collegeswitchboard.com",
+                                           Password = "aa",
+                                           UseDefaultCredentials = true
+                                       }
+                               };
+            if (!context.Set<EmailAccount>().Any())
+            {
+                settings.ForEach(x => context.Set<EmailAccount>().Add(x));
+            }
+            context.SaveChanges();
         }
 
 

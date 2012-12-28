@@ -10,6 +10,6 @@
         
         //int SendEmailNotification(Customer customer, string emailName, string newPassword="");
         //bool SendAdminNotification(Customer customer, string emailTemplateName, int programId);
-        //void SendContactEmail(string fromEmail, string name, string message, string issueType, string collegeName);
+        void SendContactEmail(string fromEmail, string name, string message);
     }
 }

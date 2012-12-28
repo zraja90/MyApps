@@ -101,7 +101,9 @@ namespace ToolDepot.Controllers
             {
                 var entity = model.ToEntity();
                 _contactUsService.Add(entity);
-                //_workflowMessageService.
+                _workflowMessageService.SendContactEmail(model.EmailAddress,model.Name,model.Message);
+                this.SuccessNotification("Thank you for contacting us. We will respond withing 24-48 hours.");
+                model = new ContactUsModel();
             }
             catch (Exception)
             {

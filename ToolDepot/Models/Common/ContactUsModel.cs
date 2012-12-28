@@ -16,6 +16,7 @@ namespace ToolDepot.Models.Common
         public string Name { get; set; }
         [Required]
         [DisplayName("Email Address")]
+        [DataType(DataType.EmailAddress)]
         public string EmailAddress { get; set; }
         [Required]
         public string Message { get; set; }
