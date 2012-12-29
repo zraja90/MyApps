@@ -9,10 +9,10 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 <ul class="nav nav-tabs" id="editProductTabs">
-    @* <li >
+     <li class="active">
         <a href="#editProduct">Product</a>
     </li>
-    <li class="active">
+    <li>
         <a href="#editSpecs">Edit Specs</a>
     </li>
     <li>
@@ -21,10 +21,10 @@
     <li>
         <a href="#editSeo">Edit SEO
         </a>
-    </li>*@
+    </li>
 </ul>
 <div class="tab-content">
-    <div class="tab-pane" id="editProduct">
+    <div class="tab-pane active" id="editProduct">
         @using (Html.BeginForm("EditProduct", "Product", new { Area = "Admin", controller = "Product", id = Model.Id }, FormMethod.Post, new { id = "editProductForm" }))
         {
             @Html.ValidationSummary(true)
@@ -75,7 +75,8 @@
             </div>
         }
     </div>
-    <div class="tab-pane active" id="editSpecs">
+   
+    <div class="tab-pane" id="editSpecs">
         @using (Html.BeginForm("EditSpecs", "Product", new { Area = "Admin", controller = "Product", id = Model.Id }, FormMethod.Post, new { id = "editSpecForm" }))
         {
             if (Model.ProductSpecs != null && Model.ProductSpecs.Any())
