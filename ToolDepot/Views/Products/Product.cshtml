@@ -19,52 +19,52 @@
 </p>
 
 <ul class="nav nav-tabs margin-top" id="descriptionTags">
-    @if(Model.ProductSpecs.Any())
+    @if (Model.ProductSpecs.Any())
     {
         <li>
-        <a href="#specs">Specifications
-        </a>
+            <a href="#specs">Specifications
+            </a>
         </li>
     }
-    @if(Model.ProductFeatures.Any())
+    @if (Model.ProductFeatures.Any())
     {
         <li>
-        <a href="#features">Features
-        </a>
+            <a href="#features">Features
+            </a>
         </li>
     }
 </ul>
 <div class="tab-content margin-bottom" id="tabContent">
-    @if(Model.ProductSpecs.Any())
+    @if (Model.ProductSpecs.Any())
     {
         <div class="tab-pane" id="specs">
-        <table class="table table-striped" width="500">
-            @foreach (var item in Model.ProductSpecs)
-            {
-                <tr>
-                    <td>
-                        @item.Specs.Split(':')[0]
-                    </td>
-                    <td>
-                        @item.Specs.Split(':')[1]
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>
+            <table class="table table-striped" width="500">
+                @foreach (var item in Model.ProductSpecs)
+                {
+                    <tr>
+                        <td>
+                            @item.SpecType
+                        </td>
+                        <td>
+                            @item.SpecName
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
     }
-    @if(Model.ProductFeatures.Any())
+    @if (Model.ProductFeatures.Any())
     {
-    <div class="tab-pane" id="features">
-        <ul>
-            @foreach(var item in Model.ProductFeatures)
-            {
-                <li>
-                    @item.Feature
-                </li>
-            }
-        </ul>
-    </div>
+        <div class="tab-pane" id="features">
+            <ul>
+                @foreach (var item in Model.ProductFeatures)
+                {
+                    <li>
+                        @item.Feature
+                    </li>
+                }
+            </ul>
+        </div>
     }
 </div>
 
