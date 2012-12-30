@@ -33,7 +33,7 @@ namespace ToolDepot.Migrations
                                        {
                                            Name = "Send Emails",
                                            Seconds = 60,
-                                           Type = "ToolDepot.Services.Messages.QueuedMessagesSendTask, ToolDepot.Services",
+                                           Type = "ToolDepot.Services.Email.QueuedMessagesSendTask, ToolDepot.Services",
                                            Enabled = true,
                                            StopOnError = false,
                                            LastStartUtc = null,

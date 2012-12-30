@@ -83,7 +83,6 @@ namespace ToolDepot.App_Start
                 .InstancePerHttpRequest();
 
             //tasks
-
             builder.RegisterAssemblyTypes(assembly)
                 .Where(t => t.Name.EndsWith("Task"))
                 .AsImplementedInterfaces()
