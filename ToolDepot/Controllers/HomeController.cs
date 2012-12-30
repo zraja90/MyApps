@@ -4,7 +4,6 @@ using System.Web.Mvc;
 using ToolDepot.Core.Domain;
 using ToolDepot.Filters.Helpers;
 using ToolDepot.Helpers;
-using ToolDepot.Mailers;
 using ToolDepot.Mappers;
 using ToolDepot.Models;
 using ToolDepot.Models.Common;
