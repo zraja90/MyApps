@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using ToolDepot.Helpers;
 using ToolDepot.Models.Products;
 using ToolDepot.Services.Email;
 using ToolDepot.Services.Products;
@@ -44,9 +45,13 @@ namespace ToolDepot.Controllers
             return View(model);
         }
 
-        public ActionResult RequestAQuote()
+        public ActionResult RequestAQuote(string id="0")
         {
-            var model = new RequestQuoteModel();
+            var model = new RequestQuoteModel
+                            {
+                                ProductId = id,
+                                AllProducts = _productService.GetAllProductsSelectList(id,GlobalHelper.SelectListDefaultOption)
+                            };
             return View(model);
         }
         [HttpPost]

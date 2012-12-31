@@ -10,17 +10,22 @@
 {
     @Html.ValidationSummary(true)
     <div>
+        @Html.HiddenFor(x=>x.AllProducts)
         Fill out the form below to get a quote
         <div class="well">
+            Customer Info
             @Html.LabelFor(x => x.RequestQuote.CompanyName)
             @Html.EditorFor(x => x.RequestQuote.CompanyName)
-
-            @Html.LabelFor(x => x.RequestQuote.FirstName)
-            @Html.EditorFor(x => x.RequestQuote.FirstName)
-
-            @Html.LabelFor(x => x.RequestQuote.LastName)
-            @Html.EditorFor(x => x.RequestQuote.LastName)
-
+            <div class="controls controls-row">
+                <div class="span4">
+                    @Html.LabelFor(x => x.RequestQuote.FirstName)
+                    @Html.EditorFor(x => x.RequestQuote.FirstName)
+                </div>
+                <div class="span4">
+                    @Html.LabelFor(x => x.RequestQuote.LastName)
+                    @Html.EditorFor(x => x.RequestQuote.LastName)
+                </div>
+            </div>
             @Html.LabelFor(x => x.RequestQuote.Address)
             @Html.EditorFor(x => x.RequestQuote.Address)
 
@@ -42,8 +47,11 @@
             @Html.LabelFor(x => x.RequestQuote.Email)
             @Html.EditorFor(x => x.RequestQuote.Email)
 
-            @Html.LabelFor(x=>x.RequestQuote.Message)
-            @Html.TextAreaFor(x=>x.RequestQuote.Message)
+            @Html.LabelFor(x => x.RequestQuote.Message)
+            @Html.TextAreaFor(x => x.RequestQuote.Message)
+            
+            Product Info
+            @Html.DropDownListFor(x=>x.ProductId,Model.AllProducts)
         </div>
         <input type="submit" class="btn btn-primary" value="Submit" />
     </div>
