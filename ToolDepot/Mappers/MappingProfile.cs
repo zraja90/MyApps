@@ -28,6 +28,9 @@ namespace ToolDepot.Mappers
 
             Mapper.CreateMap<ContactUs, ContactUsModel>();
             Mapper.CreateMap<ContactUsModel, ContactUs>();
+
+            Mapper.CreateMap<RequestAQuote, RequestQuoteModel>();
+            Mapper.CreateMap<RequestQuoteModel, RequestAQuote>();
         }
     }
 }

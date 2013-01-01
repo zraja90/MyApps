@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using ToolDepot.Helpers;
+using ToolDepot.Mappers;
 using ToolDepot.Models.Products;
 using ToolDepot.Services.Email;
 using ToolDepot.Services.Products;
@@ -13,14 +14,15 @@ namespace ToolDepot.Controllers
         private readonly IBrochureService _brochureService;
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
-
+        private readonly IRequestAQuoteService _requestAQuoteService;
         public ProductsController(IProductService productService, IProductCategoryService productCategoryService,
-            IBrochureService brochureService, IWorkflowMessageService workflowMessageService)
+            IBrochureService brochureService, IWorkflowMessageService workflowMessageService, IRequestAQuoteService requestAQuoteService)
         {
             _productService = productService;
             _productCategoryService = productCategoryService;
             _brochureService = brochureService;
             _workflowMessageService = workflowMessageService;
+            _requestAQuoteService = requestAQuoteService;
         }
         //
         // GET: /Products/
@@ -57,6 +59,11 @@ namespace ToolDepot.Controllers
         [HttpPost]
         public ActionResult RequestAQuote(RequestQuoteModel model)
         {
+            if(ModelState.IsValid)
+            {
+                var entity = model.ToEntity();
+                _requestAQuoteService.Add(entity);
+            }
             return View(model);
         }
 

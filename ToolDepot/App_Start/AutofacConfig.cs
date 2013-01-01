@@ -73,7 +73,7 @@ namespace ToolDepot.App_Start
             
             builder.RegisterType<EmailSender>().As<IEmailSender>().InstancePerHttpRequest();
             builder.RegisterType<Tokenizer>().As<ITokenizer>().InstancePerHttpRequest();
-            //builder.RegisterType<EmailSender>().As<IEmailSender>().InstancePerHttpRequest();
+            builder.RegisterType<EmailSender>().As<IEmailSender>().InstancePerHttpRequest();
             //services
             var assembly = Assembly.Load("ToolDepot");
 

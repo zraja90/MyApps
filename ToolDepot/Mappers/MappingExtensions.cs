@@ -79,6 +79,21 @@ namespace ToolDepot.Mappers
         }
 
 
+        public static RequestQuoteModel ToModel(this RequestAQuote entity)
+        {
+            return Mapper.Map<RequestAQuote, RequestQuoteModel>(entity);
+        }
+
+        public static RequestAQuote ToEntity(this RequestQuoteModel model)
+        {
+            return Mapper.Map<RequestQuoteModel, RequestAQuote>(model);
+        }
+
+        public static RequestAQuote ToEntity(this RequestQuoteModel model, RequestAQuote destination)
+        {
+            return Mapper.Map(model, destination);
+        }
+
         #endregion
     }
 }
