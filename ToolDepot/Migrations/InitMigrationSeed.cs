@@ -33,7 +33,7 @@ namespace ToolDepot.Migrations
                                        {
                                            Name = "Send Emails",
                                            Seconds = 60,
-                                           Type = "ToolDepot.Services.Email.QueuedMessagesSendTask, ToolDepot.Services",
+                                           Type = "ToolDepot.Services.Email.QueuedMessagesSendTask, ToolDepot",
                                            Enabled = true,
                                            StopOnError = false,
                                            LastStartUtc = null,
@@ -44,7 +44,7 @@ namespace ToolDepot.Migrations
                                        {
                                            Name = "Keep alive",
                                            Seconds = 300,
-                                           Type = "ToolDepot.Services.Common.KeepAliveTask, ToolDepot.Services",
+                                           Type = "ToolDepot.Services.Common.KeepAliveTask, ToolDepot",
                                            Enabled = true,
                                            StopOnError = false,
                                            LastStartUtc = null,
