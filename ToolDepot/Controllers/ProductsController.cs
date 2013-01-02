@@ -100,23 +100,27 @@ namespace ToolDepot.Controllers
 
         public ActionResult RepairServices()
         {
-           
+
             return View();
         }
 
         public ActionResult RepairAppt()
         {
-            var model = new RepairApptModel {Dates = TimeRange.GetFutureDates(), Times = TimeRange.GetWorkHours()};
+            var model = new RepairApptModel { Dates = TimeRange.GetFutureDates(), Times = TimeRange.GetWorkHours() };
             return PartialView(model);
         }
         [HttpPost]
         public ActionResult RepairAppt(RepairApptModel model)
         {
-            model.ScheduledTime = DateTime.Parse(model.ScheduledDate + " " + model.ScheduledTimes);
+            if (ModelState.IsValid)
+            {
+                model.ScheduledTime = DateTime.Parse(model.ScheduledDate + " " + model.ScheduledTimes);
 
-            var entity = model.ToEntity();
-            //entity.ScheduledTime = scheduledDate;
-            _repairApptService.Add(entity);
+                var entity = model.ToEntity();
+                //entity.ScheduledTime = scheduledDate;
+                _repairApptService.Add(entity);
+
+            }
             model.Dates = TimeRange.GetFutureDates();
             model.Times = TimeRange.GetWorkHours();
             return PartialView(model);
