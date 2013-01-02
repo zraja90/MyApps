@@ -23,12 +23,15 @@
     </div>
     <div class="margin-top">
         <p class="pull-left margin-right">&copy; @DateTime.Now.Year - Tool Depot Inc.</p>
-        <div class="align-center span6">
+        <div class="align-center span9">
             @Html.ActionLink("Home", "Index", "Home") | 
             @Html.ActionLink("Products", "AllCategories", "Products") | 
             @Html.ActionLink("Weekly Ad", "Featured", "Products") | 
+            <a href="#myRepairApptModal" role="button" data-toggle="modal">Schedule Repair Appointment</a> |
             @Html.ActionLink("Contact Us", "Contact", "Home") | 
             @Html.ActionLink("About Us", "About", "Home")
         </div>
+        <div class="clearfix"></div>
     </div>
+    <div class="clearfix"></div>
 </footer>
