@@ -7,6 +7,7 @@ using ToolDepot.Core.Domain.Products;
 using ToolDepot.Filters;
 using ToolDepot.Helpers;
 using ToolDepot.Mappers;
+using ToolDepot.Models.Products;
 using ToolDepot.Services;
 using ToolDepot.Services.Products;
 
@@ -21,13 +22,15 @@ namespace ToolDepot.Areas.Admin.Controllers
         private readonly IProductService _productService;
         private readonly IProductSpecsService _productSpecsService;
         private readonly IProductFeaturesService _productFeaturesService;
+        private readonly IBrochureService _brochureService;
 
-        public ProductController(IProductCategoryService productCategoryService, IProductService productService, IProductSpecsService productSpecsService, IProductFeaturesService productFeaturesService)
+        public ProductController(IProductCategoryService productCategoryService, IProductService productService, IProductSpecsService productSpecsService, IProductFeaturesService productFeaturesService, IBrochureService brochureService)
         {
             _productCategoryService = productCategoryService;
             _productService = productService;
             _productSpecsService = productSpecsService;
             _productFeaturesService = productFeaturesService;
+            _brochureService = brochureService;
         }
 
         public ActionResult Index()
@@ -224,7 +227,14 @@ namespace ToolDepot.Areas.Admin.Controllers
             return View(model);
         }
 
-        #endregion
+     #endregion
+
+        public ActionResult ManageBrochure()
+        {
+            var model = new BrochureModel {Brochures = _brochureService.GetAll().ToList()};
+            return View(model);
+        }
     }
+
 
 }

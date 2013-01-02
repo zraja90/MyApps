@@ -18,5 +18,10 @@ namespace ToolDepot.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult LeftMenu()
+        {
+            return PartialView();
+        }
     }
 }
