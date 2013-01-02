@@ -222,6 +222,7 @@
     <Compile Include="Core\Domain\Products\ProductPrices.cs" />
     <Compile Include="Core\Domain\Products\ProductReviews.cs" />
     <Compile Include="Core\Domain\Products\ProductSeo.cs" />
+    <Compile Include="Core\Domain\Products\RepairAppt.cs" />
     <Compile Include="Core\Domain\Security\DefaultPermissionRecord.cs" />
     <Compile Include="Core\Domain\Security\PermissionRecord.cs" />
     <Compile Include="Core\Domain\Tasks\ScheduleTask.cs" />
@@ -252,6 +253,7 @@
     <Compile Include="Data\Mapping\Products\ProductFeaturesMap.cs" />
     <Compile Include="Data\Mapping\Products\ProductMap.cs" />
     <Compile Include="Data\Mapping\Products\ProductSpecsMap.cs" />
+    <Compile Include="Data\Mapping\Products\RepairApptMap.cs" />
     <Compile Include="Data\Mapping\Products\RequestAQuoteMap.cs" />
     <Compile Include="Data\Mapping\Security\PermissionRecordMap.cs" />
     <Compile Include="Data\Mapping\Tasks\ScheduleTaskMap.cs" />
@@ -267,6 +269,7 @@
     <Compile Include="Helpers\Extensions\HtmlExtensions.cs" />
     <Compile Include="Helpers\GlobalHelper.cs" />
     <Compile Include="Helpers\PageListHelper.cs" />
+    <Compile Include="Helpers\TimeRange.cs" />
     <Compile Include="Infrastructure\WorkContext.cs" />
     <Compile Include="Mappers\MappingExtensions.cs" />
     <Compile Include="Mappers\MappingProfile.cs" />
@@ -318,6 +321,14 @@
     <Compile Include="Migrations\201301010731188_5.7.Designer.cs">
       <DependentUpon>201301010731188_5.7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201301021615359_v5.8.cs" />
+    <Compile Include="Migrations\201301021615359_v5.8.Designer.cs">
+      <DependentUpon>201301021615359_v5.8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201301021625350_v5.9.cs" />
+    <Compile Include="Migrations\201301021625350_v5.9.Designer.cs">
+      <DependentUpon>201301021625350_v5.9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -334,6 +345,7 @@
     <Compile Include="Models\Products\CategoryWithProductsModel.cs" />
     <Compile Include="Models\Products\ProductWithCategoryModel.cs" />
     <Compile Include="Core\Domain\UnderConstruction.cs" />
+    <Compile Include="Models\Products\RepairApptModel.cs" />
     <Compile Include="Models\Products\RequestQuoteModel.cs" />
     <Compile Include="Models\Products\UnderConstructionModel.cs" />
     <Compile Include="Data\AppContext.cs" />
@@ -373,6 +385,7 @@
     <Compile Include="Services\Products\BrochureService.cs" />
     <Compile Include="Services\CrudService.cs" />
     <Compile Include="Services\Products\IProductFeaturesService.cs" />
+    <Compile Include="Services\Products\IRepairApptService.cs" />
     <Compile Include="Services\Products\ProductFeaturesService.cs" />
     <Compile Include="Services\Products\IProductSpecsService.cs" />
     <Compile Include="Services\Products\ProductSpecsService.cs" />
@@ -384,6 +397,7 @@
     <Compile Include="Services\IUnderConstructionService.cs" />
     <Compile Include="Services\Products\ProductCategoryService.cs" />
     <Compile Include="Services\Products\ProductService.cs" />
+    <Compile Include="Services\Products\RepairApptService.cs" />
     <Compile Include="Services\Products\RequestQuoteService.cs" />
     <Compile Include="Services\Security\EncryptionService.cs" />
     <Compile Include="Services\Security\IEncryptionService.cs" />
@@ -665,6 +679,7 @@
     <Content Include="Views\Home\HomePageSlider.cshtml" />
     <Content Include="Views\Common\SubscriptionModule.cshtml" />
     <Content Include="Views\Products\RepairServices.cshtml" />
+    <Content Include="Views\Products\RepairAppt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -709,6 +724,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201301010731188_5.7.resx">
       <DependentUpon>201301010731188_5.7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201301021615359_v5.8.resx">
+      <DependentUpon>201301021615359_v5.8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201301021625350_v5.9.resx">
+      <DependentUpon>201301021625350_v5.9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

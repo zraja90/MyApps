@@ -39,7 +39,7 @@
 </head>
 <body>
     <div id="contentWrap">
-        @Html.Action("Header", "Common")
+        @*@Html.Action("Header", "Common")*@
         <div id="mainContainer" class="container-fluid">
             <section class="row-fluid">
                 <div class="span12">
@@ -49,10 +49,12 @@
                 </div>
                 <div class="clearfix"></div>
             </section>
+            <div class="modal hide" id="myRepairApptModal" data-backdrop="static">
+                @Html.Action("RepairAppt", "Products")
+            </div>
             <div id="contentPush"></div>
-             @Html.Action("Footer", "Common")
+            @Html.Action("Footer", "Common")
         </div>
     </div>
-    
 </body>
 </html>

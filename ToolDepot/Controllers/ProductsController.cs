@@ -13,19 +13,21 @@ namespace ToolDepot.Controllers
     public class ProductsController : Controller
     {
         private readonly IWorkflowMessageService _workflowMessageService;
+        public readonly IRepairApptService _repairApptService;
         private readonly IBrochureService _brochureService;
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
         private readonly IRequestQuoteService _requestAQuoteService;
         public ProductsController(IProductService productService, IProductCategoryService productCategoryService,
             IBrochureService brochureService, IWorkflowMessageService workflowMessageService,
-            IRequestQuoteService requestAQuoteService)
+            IRequestQuoteService requestAQuoteService, IRepairApptService repairApptService)
         {
             _productService = productService;
             _productCategoryService = productCategoryService;
             _brochureService = brochureService;
             _workflowMessageService = workflowMessageService;
             _requestAQuoteService = requestAQuoteService;
+            _repairApptService = repairApptService;
         }
         //
         // GET: /Products/
@@ -98,7 +100,26 @@ namespace ToolDepot.Controllers
 
         public ActionResult RepairServices()
         {
+           
             return View();
+        }
+
+        public ActionResult RepairAppt()
+        {
+            var model = new RepairApptModel {Dates = TimeRange.GetFutureDates(), Times = TimeRange.GetWorkHours()};
+            return PartialView(model);
+        }
+        [HttpPost]
+        public ActionResult RepairAppt(RepairApptModel model)
+        {
+            model.ScheduledTime = DateTime.Parse(model.ScheduledDate + " " + model.ScheduledTimes);
+
+            var entity = model.ToEntity();
+            //entity.ScheduledTime = scheduledDate;
+            _repairApptService.Add(entity);
+            model.Dates = TimeRange.GetFutureDates();
+            model.Times = TimeRange.GetWorkHours();
+            return PartialView(model);
         }
     }
 }

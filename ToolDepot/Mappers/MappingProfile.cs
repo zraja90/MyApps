@@ -31,6 +31,9 @@ namespace ToolDepot.Mappers
 
             Mapper.CreateMap<RequestAQuote, RequestQuoteModel>();
             Mapper.CreateMap<RequestQuoteModel, RequestAQuote>();
+
+            Mapper.CreateMap<RepairAppt, RepairApptModel>();
+            Mapper.CreateMap<RepairApptModel, RepairAppt>();
         }
     }
 }

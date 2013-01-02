@@ -94,6 +94,22 @@ namespace ToolDepot.Mappers
             return Mapper.Map(model, destination);
         }
 
+
+        public static RepairApptModel ToModel(this RepairAppt entity)
+        {
+            return Mapper.Map<RepairAppt, RepairApptModel>(entity);
+        }
+
+        public static RepairAppt ToEntity(this RepairApptModel model)
+        {
+            return Mapper.Map<RepairApptModel, RepairAppt>(model);
+        }
+
+        public static RepairAppt ToEntity(this RepairApptModel model, RepairAppt destination)
+        {
+            return Mapper.Map(model, destination);
+        }
+
         #endregion
     }
 }
