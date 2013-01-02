@@ -14,9 +14,10 @@ namespace ToolDepot.Controllers
         private readonly IBrochureService _brochureService;
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
-        private readonly IRequestAQuoteService _requestAQuoteService;
+        private readonly IRequestQuoteService _requestAQuoteService;
         public ProductsController(IProductService productService, IProductCategoryService productCategoryService,
-            IBrochureService brochureService, IWorkflowMessageService workflowMessageService, IRequestAQuoteService requestAQuoteService)
+            IBrochureService brochureService, IWorkflowMessageService workflowMessageService,
+            IRequestQuoteService requestAQuoteService)
         {
             _productService = productService;
             _productCategoryService = productCategoryService;
@@ -61,8 +62,7 @@ namespace ToolDepot.Controllers
         {
             if(ModelState.IsValid)
             {
-                var entity = model.ToEntity();
-                _requestAQuoteService.Add(entity);
+               model.AllProducts = _productService.GetAllProductsSelectList(model.ProductId,GlobalHelper.SelectListDefaultOption);
             }
             return View(model);
         }

@@ -10,7 +10,7 @@
 {
     @Html.ValidationSummary(true)
     <div>
-        @Html.HiddenFor(x => x.AllProducts)
+        
         <div class="well">
             <fieldset>
                 <legend>Fill out the form below to get a quote
@@ -38,7 +38,7 @@
                 <div class="control-group">
                     @Html.LabelFor(x => x.ProductId, new { Class = "control-label" })
                     @Html.DropDownListFor(x => x.ProductId, Model.AllProducts)
-                    @Html.ValidationMessageFor(x => x.ProductId)
+                    
                 </div>
                 <div class="control-group">
                     @Html.LabelFor(x => x.PhoneNumber, new { Class = "control-label" })
