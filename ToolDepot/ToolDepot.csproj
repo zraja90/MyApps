@@ -604,7 +604,7 @@
     <Content Include="Areas\Admin\Views\Product\EditCategory.cshtml" />
     <Content Include="Areas\Admin\Views\Home\LeftMenu.cshtml" />
     <Content Include="Areas\Admin\Views\Product\ManageBrochure.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\UploadImages.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\UploadPic.cshtml" />
     <None Include="Properties\PublishProfiles\tooldepot - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepot - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepotinc.com - FTP.pubxml" />

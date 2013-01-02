@@ -4,7 +4,7 @@
 
 @Styles.Render("~/Content/imageUpload")
 
-@using (Html.BeginForm("UploadPic", "Home", FormMethod.Post, new {Area="Admin", id="uploadProfilePicForm", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("UploadPic", "Product", FormMethod.Post, new {Area="Admin", id="uploadPicForm", enctype = "multipart/form-data" }))
 {
     <fieldset>
         <legend>Profile Picture</legend>
