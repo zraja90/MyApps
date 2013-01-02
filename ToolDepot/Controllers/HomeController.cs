@@ -25,7 +25,7 @@ namespace ToolDepot.Controllers
         private readonly IWorkflowMessageService _workflowMessageService;
 
         public HomeController(IUnderConstructionService underConstructionService,
-           IProductService productService, IProductCategoryService productCategoryService, IBrochureService brochureService,IContactUsService contactUsService,
+           IProductService productService, IProductCategoryService productCategoryService, IBrochureService brochureService, IContactUsService contactUsService,
             IWorkflowMessageService workflowMessageService)
         {
             _underConstructionService = underConstructionService;
@@ -45,8 +45,7 @@ namespace ToolDepot.Controllers
         public ActionResult ProductCategories()
         {
             //return RedirectToAction("Index");
-            var categories = new CategoriesModel
-                                 {Categories = _productCategoryService.GetAll().OrderBy(x => x.CategoryName).ToList()};
+            var categories = new CategoriesModel { Categories = _productCategoryService.GetAll().OrderBy(x => x.CategoryName).ToList() };
 
             return PartialView(categories);
         }
@@ -55,8 +54,8 @@ namespace ToolDepot.Controllers
         public ActionResult FeaturedProductCategory()
         {
             var model = new FeaturedCategoriesModel();
-            model.FeaturedCategory = _productCategoryService.GetMany(x=>x.IsFeaturedCategory).ToList();
-            
+            model.FeaturedCategory = _productCategoryService.GetMany(x => x.IsFeaturedCategory).ToList();
+
             return PartialView(model);
         }
 
@@ -96,18 +95,21 @@ namespace ToolDepot.Controllers
         [HttpPost]
         public ActionResult Contact(ContactUsModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                var entity = model.ToEntity();
-                _contactUsService.Add(entity);
-                _workflowMessageService.SendContactEmail(model.EmailAddress,model.Name,model.Message);
-                this.SuccessNotification("Thank you for contacting us. We will respond withing 24-48 hours.");
-                model = new ContactUsModel();
-            }
-            catch (Exception)
-            {
-                this.ErrorNotification(GlobalHelper.DefaultFormSubmissionErrorMessage);
-                throw;
+                try
+                {
+                    var entity = model.ToEntity();
+                    _contactUsService.Add(entity);
+                    _workflowMessageService.SendContactEmail(model.EmailAddress, model.Name, model.Message);
+                    this.SuccessNotification("Thank you for contacting us. We will respond withing 24-48 hours.");
+                    model = new ContactUsModel();
+                }
+                catch (Exception)
+                {
+                    this.ErrorNotification(GlobalHelper.DefaultFormSubmissionErrorMessage);
+                    throw;
+                }
             }
             return View(model);
         }
