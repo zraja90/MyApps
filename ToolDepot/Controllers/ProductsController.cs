@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
+using ToolDepot.Filters.Helpers;
 using ToolDepot.Helpers;
 using ToolDepot.Mappers;
 using ToolDepot.Models.Products;
@@ -36,33 +38,45 @@ namespace ToolDepot.Controllers
 
         public ActionResult AllCategories()
         {
-            var model = new CategoriesModel {Categories = _productCategoryService.GetAll().ToList()};
+            var model = new CategoriesModel { Categories = _productCategoryService.GetAll().ToList() };
             return View(model);
         }
 
         public ActionResult Category(int id = 0)
         {
-            var model = new CategoryWithProductsModel {Category = _productCategoryService.GetById(id)};
-            
+            var model = new CategoryWithProductsModel { Category = _productCategoryService.GetById(id) };
+
 
             return View(model);
         }
 
-        public ActionResult RequestAQuote(string id="0")
+        public ActionResult RequestAQuote(string id = "0")
         {
             var model = new RequestQuoteModel
                             {
                                 ProductId = id,
-                                AllProducts = _productService.GetAllProductsSelectList(id,GlobalHelper.SelectListDefaultOption)
+                                AllProducts = _productService.GetAllProductsSelectList(id, GlobalHelper.SelectListDefaultOption)
                             };
             return View(model);
         }
         [HttpPost]
         public ActionResult RequestAQuote(RequestQuoteModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-               model.AllProducts = _productService.GetAllProductsSelectList(model.ProductId,GlobalHelper.SelectListDefaultOption);
+                try
+                {
+                    var entity = model.ToEntity();
+                    _requestAQuoteService.Add(entity);
+                    model.AllProducts = _productService.GetAllProductsSelectList(model.ProductId, GlobalHelper.SelectListDefaultOption);
+                    this.SuccessNotification("We have receieved your request. We will respond withing 24-48 hours.");
+                }
+                catch (Exception)
+                {
+                    this.ErrorNotification("An error has occurred while submitting your request. Please check your form fields and submit again.");
+                }
+
+
             }
             return View(model);
         }

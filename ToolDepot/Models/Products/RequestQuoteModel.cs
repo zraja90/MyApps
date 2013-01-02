@@ -7,10 +7,10 @@ namespace ToolDepot.Models.Products
 {
     public class RequestQuoteModel
     {
-        //public RequestQuoteModel()
-        //{
-        //    CreatedDate = DateTime.UtcNow;
-        //}
+        public RequestQuoteModel()
+        {
+            CreatedDate = DateTime.UtcNow;
+        }
         [Required]
         [DisplayName("Email Address")]
         public string Email { get; set; }
