@@ -4,7 +4,8 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using ToolDepot.Core;
 using ToolDepot.Core.Domain.Tasks;
-using dotless.Core.Loggers;
+using ToolDepot.Services.Logging;
+
 
 namespace ToolDepot.Services.Tasks
 {
