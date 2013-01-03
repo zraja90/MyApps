@@ -25,7 +25,7 @@ namespace ToolDepot.Areas.Admin.Controllers
            var path = Server.MapPath("/content/images/products/");
 
            var folder = new DirectoryInfo(path);
-           FileInfo[] images = folder.GetFiles();
+           var images = folder.GetFiles();
            
            string[] sizes = { "B", "KB", "MB", "GB" };
            
@@ -41,6 +41,7 @@ namespace ToolDepot.Areas.Admin.Controllers
                        order++;
                        len = len/1024;
                    }
+                   
                    string result = String.Format("{0:0.##} {1}", len, sizes[order]);
                    var item = new UploadImageModel
                                   {
