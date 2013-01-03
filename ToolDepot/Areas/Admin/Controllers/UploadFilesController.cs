@@ -46,7 +46,7 @@ namespace ToolDepot.Areas.Admin.Controllers
                                   {
                                       Name = images[i].Name,
                                       FileSize = result,
-                                      ImageUrl = images[i].DirectoryName
+                                      ImageUrl = images[i].DirectoryName 
                                   };
                    model.Add(item);
                }
