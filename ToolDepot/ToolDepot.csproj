@@ -625,7 +625,6 @@
     <Content Include="Areas\Admin\Views\Product\EditProduct.cshtml" />
     <Content Include="Content\css\alignment.less" />
     <Content Include="Areas\Admin\Views\Product\EditCategory.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\LeftMenu.cshtml" />
     <Content Include="Areas\Admin\Views\Product\ManageBrochure.cshtml" />
     <Content Include="Areas\Admin\Views\UploadFiles\Index.cshtml" />
     <None Include="Properties\PublishProfiles\tooldepot - FTP.pubxml" />

@@ -4,4 +4,16 @@
 
 
 <h1>Welcome to Tool Depot Admin</h1>
-@Html.Action("LeftMenu", "Home", new { Area = "Admin" })
+<div class="span4">
+    <ul class="nav nav-tabs nav-stacked">
+        <li>
+            @Html.ActionLink("Manage Products", "Index", "Product")
+        </li>
+        <li>
+            @Html.ActionLink("Manage Weekly Ad", "ManageBrochure", "Product")
+        </li>
+        <li>
+            @Html.ActionLink("Upload Images", "Index", "UploadFiles")
+        </li>
+    </ul>
+</div>
