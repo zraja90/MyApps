@@ -1,0 +1,72 @@
+﻿@model ToolDepot.Models.Products.ProductReviewModel
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Your Rating & Review</legend>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAddress)
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Location)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Location)
+            @Html.ValidationMessageFor(model => model.Location)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Rating)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Rating)
+            @Html.ValidationMessageFor(model => model.Rating)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ReviewTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ReviewTitle)
+            @Html.ValidationMessageFor(model => model.ReviewTitle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Review)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Review)
+            @Html.ValidationMessageFor(model => model.Review)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Recommend)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Recommend)
+            @Html.ValidationMessageFor(model => model.Recommend)
+        </div>
+        <div>
+            <input type="submit" value="Create" />
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

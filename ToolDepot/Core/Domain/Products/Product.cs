@@ -33,7 +33,11 @@ namespace ToolDepot.Core.Domain.Products
             get { return _productFeatures ?? (_productFeatures = new List<ProductFeatures>()); }
         }
 
-        
+        private ICollection<ProductReviews> _productReviews;
+        public virtual ICollection<ProductReviews> ProductReviews  {
+            get { return _productReviews ?? (_productReviews = new List<ProductReviews>()); }
+        }
+
         //Incudes
         //Manuals
 

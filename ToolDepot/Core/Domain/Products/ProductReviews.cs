@@ -20,6 +20,7 @@ namespace ToolDepot.Core.Domain.Products
         public bool Recommend { get; set; }
 
         public bool IsApproved { get; set; }
+        public DateTime CreatedDate { get; set; }
         
     }
 }

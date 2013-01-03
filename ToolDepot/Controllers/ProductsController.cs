@@ -13,14 +13,15 @@ namespace ToolDepot.Controllers
     public class ProductsController : Controller
     {
         private readonly IWorkflowMessageService _workflowMessageService;
-        public readonly IRepairApptService _repairApptService;
+        private readonly IRepairApptService _repairApptService;
+        private readonly IProductReviewService _productReviewService;
         private readonly IBrochureService _brochureService;
         private readonly IProductService _productService;
         private readonly IProductCategoryService _productCategoryService;
         private readonly IRequestQuoteService _requestAQuoteService;
         public ProductsController(IProductService productService, IProductCategoryService productCategoryService,
             IBrochureService brochureService, IWorkflowMessageService workflowMessageService,
-            IRequestQuoteService requestAQuoteService, IRepairApptService repairApptService)
+            IRequestQuoteService requestAQuoteService, IRepairApptService repairApptService, IProductReviewService productReviewService)
         {
             _productService = productService;
             _productCategoryService = productCategoryService;
@@ -28,6 +29,7 @@ namespace ToolDepot.Controllers
             _workflowMessageService = workflowMessageService;
             _requestAQuoteService = requestAQuoteService;
             _repairApptService = repairApptService;
+            _productReviewService = productReviewService;
         }
         //
         // GET: /Products/
@@ -123,6 +125,18 @@ namespace ToolDepot.Controllers
             }
             model.Dates = TimeRange.GetFutureDates();
             model.Times = TimeRange.GetWorkHours();
+            return PartialView(model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult Review(int id)
+        {
+            var model = new ProductReviewModel
+                            {
+                                CurrentReviews =
+                                    _productReviewService.GetMany(
+                                        x => x.ProductId == id && x.IsApproved).ToList()
+                            };
             return PartialView(model);
         }
     }

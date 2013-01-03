@@ -67,22 +67,22 @@
             </div>
         }
     </div>
-    Review Form
+    @Html.Action("Review", Model.Id)
 </div>
-<div class="span2" style="border: 1px solid #ccc;">
-    <div style="background-color: #ccc; padding: 10px">
+<div class="span2 related-products">
+    <div class="related-title">
         <h4 class="no-margin">Customers also viewed...</h4>
     </div>
-    <div style="">
+    <div>
         @foreach (var item in @Model.Category.Products.SkipWhile(x => x.Id == Model.Id).Take(4))
         {
             if (item.Id != Model.Id)
             {
-            <div style="margin: 10px; padding: 10px">
+            <div class="margin-10 padding-10">
 
-                <div style="margin-bottom: 5px">
+                <div class="margin-bottom-5">
                     <a href="/Products/Product/@item.Id">
-                        <img alt="@item.Name" src="/Content/images/Products/@item.Image" style="height: 100px;"/>
+                        <img alt="@item.Name" src="/Content/images/Products/@item.Image" class="h100" />
                     </a>
                 </div>
                 <div>

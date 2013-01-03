@@ -262,6 +262,7 @@
     <Compile Include="Data\Mapping\Products\ProductCategoryMap.cs" />
     <Compile Include="Data\Mapping\Products\ProductFeaturesMap.cs" />
     <Compile Include="Data\Mapping\Products\ProductMap.cs" />
+    <Compile Include="Data\Mapping\Products\ProductReviewsMap.cs" />
     <Compile Include="Data\Mapping\Products\ProductSpecsMap.cs" />
     <Compile Include="Data\Mapping\Products\RepairApptMap.cs" />
     <Compile Include="Data\Mapping\Products\RequestAQuoteMap.cs" />
@@ -340,6 +341,10 @@
     <Compile Include="Migrations\201301021625350_v5.9.Designer.cs">
       <DependentUpon>201301021625350_v5.9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201301032142096_v6.0.cs" />
+    <Compile Include="Migrations\201301032142096_v6.0.Designer.cs">
+      <DependentUpon>201301032142096_v6.0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -354,6 +359,7 @@
     <Compile Include="Models\Products\BrochureModel.cs" />
     <Compile Include="Models\Products\CategoriesModel.cs" />
     <Compile Include="Models\Products\CategoryWithProductsModel.cs" />
+    <Compile Include="Models\Products\ProductReviewModel.cs" />
     <Compile Include="Models\Products\ProductWithCategoryModel.cs" />
     <Compile Include="Core\Domain\UnderConstruction.cs" />
     <Compile Include="Models\Products\RepairApptModel.cs" />
@@ -396,9 +402,11 @@
     <Compile Include="Services\Products\BrochureService.cs" />
     <Compile Include="Services\CrudService.cs" />
     <Compile Include="Services\Products\IProductFeaturesService.cs" />
+    <Compile Include="Services\Products\IProductReviewService.cs" />
     <Compile Include="Services\Products\IRepairApptService.cs" />
     <Compile Include="Services\Products\ProductFeaturesService.cs" />
     <Compile Include="Services\Products\IProductSpecsService.cs" />
+    <Compile Include="Services\Products\ProductReviewService.cs" />
     <Compile Include="Services\Products\ProductSpecsService.cs" />
     <Compile Include="Services\Products\IBrochureService.cs" />
     <Compile Include="Services\ICrudService.cs" />
@@ -711,6 +719,7 @@
     <Content Include="Views\Products\RepairServices.cshtml" />
     <Content Include="Views\Products\RepairAppt.cshtml" />
     <Content Include="Upload\UploadHandler.ashx" />
+    <Content Include="Views\Products\Review.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -761,6 +770,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201301021625350_v5.9.resx">
       <DependentUpon>201301021625350_v5.9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201301032142096_v6.0.resx">
+      <DependentUpon>201301032142096_v6.0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
