@@ -449,6 +449,10 @@
     <Content Include="Content\bootstrap\accordion.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Content\bootstrap\bootstrap-blue.less" />
+    <Content Include="Content\css\images\bg_jRatingInfos.png" />
+    <Content Include="Content\css\images\small.png" />
+    <Content Include="Content\css\images\stars.png" />
+    <Content Include="Content\css\jRating.jquery.css" />
     <Content Include="Content\FileUpload\bootstrap-image-gallery.min.css" />
     <Content Include="Content\bootstrap\bootstrap-red.less" />
     <Content Include="Content\bootstrap\bootstrap.less" />
@@ -664,6 +668,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jRating.jquery.js" />
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />

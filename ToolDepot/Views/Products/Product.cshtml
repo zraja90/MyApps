@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = Model.Product.Name + " | " + Model.Product.Category.CategoryName;
 }
+<link rel="stylesheet" href="/Content/css/jRating.jquery.css"/>
 <div class="span10 no-margin">
     <section class="margin-bottom">
         <div class="span2">
@@ -10,6 +11,7 @@
         </div>
         <div class="span8">
             <h1>@Html.DisplayFor(model => model.Product.Name)</h1>
+            <div id="rating"></div>
             @Model.OverallRating
         </div>
         <div class="clearfix"></div>
@@ -119,5 +121,8 @@
         });
         $("#descriptionTags li:first").addClass('active');
         $("#tabContent .tab-pane:first").addClass('active');
+
+        $('#stars').jRating('@Model.OverallRating', { maxvalue: 5, increment: .5 });
     });
 </script>
+<script src="/Scripts/jRating.jquery.js"></script>
