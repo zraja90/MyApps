@@ -21,6 +21,23 @@ namespace ToolDepot
 
             bundles.Add(new ScriptBundle("~/bundles/html5").Include("~/Scripts/html5.js"));
 
+            //File Upload
+            bundles.Add(new ScriptBundle("~/bundles/fileupload")
+                .Include(
+                    "~/Scripts/FileUpload/tmpl.min.js",
+                    "~/Scripts/FileUpload/canvas-to-blob.min.js",
+                    "~/Scripts/FileUpload/canvas-to-blob.min.js",
+                    "~/Scripts/FileUpload/load-image.min.js",
+                    "~/Scripts/FileUpload/bootstrap-image-gallery.min.js",
+                    "~/Scripts/FileUpload/jquery.iframe-transport.js",
+                    "~/Scripts/FileUpload/jquery.fileupload.js",
+                    "~/Scripts/FileUpload/jquery.fileupload-ip.js",
+                    "~/Scripts/FileUpload/jquery.fileupload-ui.js",
+                    "~/Scripts/FileUpload/locale.js",
+                    "~/Scripts/FileUpload/main.js"
+                    ));
+            bundles.Add(new StyleBundle("~/Content/fileupload").Include("~/Content/FileUpload/*.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/validation").Include("~/Scripts/bootstrap.validation.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -31,13 +48,7 @@ namespace ToolDepot
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
             //bundles.Add(new StyleBundle("~/Content/assets/bootstrap").Include("~/assets/css/bootstrap.min.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/imageUpload").Include(
-               "~/Scripts/jquery.imgareaselect.js",
-               "~/Scripts/jquery.form.js",
-               "~/Scripts/happy.profile-pic-edit.js")
-           );
-            bundles.Add(new StyleBundle("~/Content/imageUpload").Include("~/Content/css/ImageArea.css"));
-
+          
             var less = new StyleBundle("~/Content/less").Include("~/Content/css/site.less", "~/Content/bootstrap/bootstrap.less",
                 "~/Content/css/alignment.less");
 

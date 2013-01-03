@@ -6,7 +6,7 @@
 
 <h2 class="pull-left">Manage</h2>
 <div class="pull-right">
-    <a href="#" id="uploadPicForm">Upload Images</a>
+    @Html.ActionLink("Upload Images", "Index","UploadFiles")
 </div>'<div class="clearfix"></div>
 @Html.ActionLink("Back to Home","Index","Home",null,new {Area="Admin"})
 <div class="ProductList">
@@ -30,9 +30,7 @@
     </ul>
     <div class="clearfix"></div>
 </div>
-<div id="photoUploadForm" class="hide">
-    @Html.Partial("UploadPic", Model.Photo)
-</div>
+
 @*<table class="table table-striped">
     <tr>
         <th>#</th>
