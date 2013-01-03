@@ -202,7 +202,7 @@
     <Compile Include="Areas\Admin\Models\Products\CreateProductModel.cs" />
     <Compile Include="Areas\Admin\Models\Products\EditProductModel.cs" />
     <Compile Include="Areas\Admin\Models\Products\ProductDetailModel.cs" />
-    <Compile Include="Areas\Admin\Models\UploadImageModel.cs" />
+    <Compile Include="Areas\Admin\Models\UploadImages\UploadImageModel.cs" />
     <Compile Include="Areas\Admin\Models\UploadImages\ViewDataUploadFilesResult.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -627,6 +627,7 @@
     <Content Include="Areas\Admin\Views\Product\EditCategory.cshtml" />
     <Content Include="Areas\Admin\Views\Product\ManageBrochure.cshtml" />
     <Content Include="Areas\Admin\Views\UploadFiles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UploadFiles\AllPictures.cshtml" />
     <None Include="Properties\PublishProfiles\tooldepot - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepot - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepotinc.com - FTP.pubxml" />

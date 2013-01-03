@@ -18,13 +18,49 @@ namespace ToolDepot.Areas.Admin.Controllers
         {
             return View();
         }
+       [ChildActionOnly]
+        public ActionResult AllPictures()
+       {
+           var model = new List<UploadImageModel>();
+           var path = Server.MapPath("/content/images/products/");
+
+           var folder = new DirectoryInfo(path);
+           FileInfo[] images = folder.GetFiles();
+
+           string[] sizes = { "B", "KB", "MB", "GB" };
+           
+
+           for (int i = 0; i < images.Length; i++)
+           {
+               if (images[i].Extension != ".db")
+               {
+                   double len = images[i].Length;
+                   int order = 0;
+                   while (len >= 1024 && order + 1 < sizes.Length)
+                   {
+                       order++;
+                       len = len/1024;
+                   }
+                   string result = String.Format("{0:0.##} {1}", len, sizes[order]);
+                   var item = new UploadImageModel
+                                  {
+                                      Name = images[i].Name,
+                                      FileSize = result,
+                                      ImageUrl = images[i].DirectoryName
+                                  };
+                   model.Add(item);
+               }
+           }
+           
+           return PartialView(model);
+        }
 
         private string StorageRoot
         {
             get { return Path.Combine(Server.MapPath("~/Content/Images/Products/")); }
         }
         
-        //DONT USE THIS IF YOU NEED TO ALLOW LARGE FILES UPLOADS
+        
         [HttpGet]
         public void Delete(string id)
         {
@@ -37,7 +73,7 @@ namespace ToolDepot.Areas.Admin.Controllers
             }
         }
 
-        //DONT USE THIS IF YOU NEED TO ALLOW LARGE FILES UPLOADS
+        
         [HttpGet]
         public void Download(string id)
         {
@@ -57,7 +93,7 @@ namespace ToolDepot.Areas.Admin.Controllers
                 context.Response.StatusCode = 404;
         }
 
-        //DONT USE THIS IF YOU NEED TO ALLOW LARGE FILES UPLOADS
+        
         [HttpPost]
         public ActionResult UploadFiles()
         {
@@ -91,8 +127,6 @@ namespace ToolDepot.Areas.Admin.Controllers
             return Convert.ToBase64String(System.IO.File.ReadAllBytes(fileName));
         }
 
-        //DONT USE THIS IF YOU NEED TO ALLOW LARGE FILES UPLOADS
-        //Credit to i-e-b and his ASP.Net uploader for the bulk of the upload helper methods - https://github.com/i-e-b/jQueryFileUpload.Net
         private void UploadPartialFile(string fileName, HttpRequestBase request, List<ViewDataUploadFilesResult> statuses)
         {
             if (request.Files.Count != 1) throw new HttpRequestValidationException("Attempt to upload chunked file containing more than one fragment per request");

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.Mvc;
 using ToolDepot.Areas.Admin.Models;
 using ToolDepot.Areas.Admin.Models.Products;
+using ToolDepot.Areas.Admin.Models.UploadImages;
 using ToolDepot.Core.Domain.Products;
 using ToolDepot.Filters;
 using ToolDepot.Helpers;

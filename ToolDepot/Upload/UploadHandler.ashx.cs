@@ -182,7 +182,7 @@ namespace ToolDepot.Upload
         {
             var files =
                 new DirectoryInfo(StorageRoot)
-                    .GetFiles("*", SearchOption.TopDirectoryOnly)
+                    .GetFiles("*", SearchOption.AllDirectories)
                     .Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden))
                     .Select(f => new FilesStatus(f))
                     .ToArray();
