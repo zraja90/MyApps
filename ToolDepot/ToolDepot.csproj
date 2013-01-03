@@ -345,6 +345,10 @@
     <Compile Include="Migrations\201301032142096_v6.0.Designer.cs">
       <DependentUpon>201301032142096_v6.0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201301032221233_v6.1.cs" />
+    <Compile Include="Migrations\201301032221233_v6.1.Designer.cs">
+      <DependentUpon>201301032221233_v6.1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitMigrationSeed.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -359,6 +363,7 @@
     <Compile Include="Models\Products\BrochureModel.cs" />
     <Compile Include="Models\Products\CategoriesModel.cs" />
     <Compile Include="Models\Products\CategoryWithProductsModel.cs" />
+    <Compile Include="Models\Products\ProductModel.cs" />
     <Compile Include="Models\Products\ProductReviewModel.cs" />
     <Compile Include="Models\Products\ProductWithCategoryModel.cs" />
     <Compile Include="Core\Domain\UnderConstruction.cs" />
@@ -773,6 +778,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201301032142096_v6.0.resx">
       <DependentUpon>201301032142096_v6.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201301032221233_v6.1.resx">
+      <DependentUpon>201301032221233_v6.1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

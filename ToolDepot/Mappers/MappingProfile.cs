@@ -34,6 +34,10 @@ namespace ToolDepot.Mappers
 
             Mapper.CreateMap<RepairAppt, RepairApptModel>();
             Mapper.CreateMap<RepairApptModel, RepairAppt>();
+
+            Mapper.CreateMap<ProductReviews, ProductReviewModel>();
+            Mapper.CreateMap<ProductReviewModel, ProductReviews>();
+            
         }
     }
 }

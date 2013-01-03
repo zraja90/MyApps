@@ -38,6 +38,7 @@ namespace ToolDepot.Models.Products
         public bool IsApproved { get; set; }
         public DateTime CreatedDate { get; set; }
 
-        public IList<ProductReviews> CurrentReviews { get; set; }
+        
+        public Product Product { get; set; }
     }
 }

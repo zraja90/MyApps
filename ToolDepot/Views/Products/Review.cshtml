@@ -1,72 +1,69 @@
 ﻿@model ToolDepot.Models.Products.ProductReviewModel
+<div class="modal hide fade" id="ReviewModal" data-backdrop="static">
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Your Rating & Review</legend>
-
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UserName)
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Review @Model.Product.Name</h3>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UserName)
-            @Html.ValidationMessageFor(model => model.UserName)
+        <div class="modal-body">
+            <div class="form-horizontal">
+                <div class="control-group">
+                    @Html.LabelFor(model => model.UserName, new { Class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.UserName)
+                        @Html.ValidationMessageFor(model => model.UserName)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.EmailAddress, new { Class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.EmailAddress)
+                        @Html.ValidationMessageFor(model => model.EmailAddress)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.Location, new { Class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.Location)
+                        @Html.ValidationMessageFor(model => model.Location)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.Rating, new { Class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.Rating)
+                        @Html.ValidationMessageFor(model => model.Rating)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.ReviewTitle, new { Class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.ReviewTitle)
+                        @Html.ValidationMessageFor(model => model.ReviewTitle)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.Review, new { Class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.Review)
+                        @Html.ValidationMessageFor(model => model.Review)
+                    </div>
+                </div>
+                <div class="control-group">
+                    @Html.LabelFor(model => model.Recommend, new { Class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.Recommend)
+                        @Html.ValidationMessageFor(model => model.Recommend)
+                    </div>
+                </div>
+                @Html.HiddenFor(x=>x.ProductId)
+            </div>
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.EmailAddress)
+        <div class="modal-footer">
+            <input type="submit" value="Create" class="btn btn-primary" />
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.EmailAddress)
-            @Html.ValidationMessageFor(model => model.EmailAddress)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Location)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Location)
-            @Html.ValidationMessageFor(model => model.Location)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Rating)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Rating)
-            @Html.ValidationMessageFor(model => model.Rating)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ReviewTitle)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ReviewTitle)
-            @Html.ValidationMessageFor(model => model.ReviewTitle)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Review)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Review)
-            @Html.ValidationMessageFor(model => model.Review)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Recommend)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Recommend)
-            @Html.ValidationMessageFor(model => model.Recommend)
-        </div>
-        <div>
-            <input type="submit" value="Create" />
-        </div>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    }
 </div>

@@ -110,6 +110,21 @@ namespace ToolDepot.Mappers
             return Mapper.Map(model, destination);
         }
 
+        public static ProductReviewModel ToModel(this ProductReviews entity)
+        {
+            return Mapper.Map<ProductReviews, ProductReviewModel>(entity);
+        }
+
+        public static ProductReviews ToEntity(this ProductReviewModel model)
+        {
+            return Mapper.Map<ProductReviewModel, ProductReviews>(model);
+        }
+
+        public static ProductReviews ToEntity(this ProductReviewModel model, ProductReviews destination)
+        {
+            return Mapper.Map(model, destination);
+        }
+
         #endregion
     }
 }

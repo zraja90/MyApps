@@ -14,7 +14,7 @@ namespace ToolDepot.Core.Domain.Products
         public string EmailAddress { get; set; }
         public string Location { get; set; }
 
-        public int Rating { get; set; }
+        public double Rating { get; set; }
         public string ReviewTitle { get; set; }
         public string Review { get; set; }
         public bool Recommend { get; set; }

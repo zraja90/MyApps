@@ -87,7 +87,10 @@ namespace ToolDepot.Controllers
 
         public ActionResult Product(int id = 0)
         {
-            var model = _productService.GetById(id);
+            var model = new ProductModel { Product = _productService.GetById(id) };
+            double count = (model.Product.ProductReviews.Sum(review => review.Rating) / (model.Product.ProductReviews.Count));
+
+            model.OverallRating = count;
             return View(model);
         }
 
@@ -133,10 +136,28 @@ namespace ToolDepot.Controllers
         {
             var model = new ProductReviewModel
                             {
-                                CurrentReviews =
-                                    _productReviewService.GetMany(
-                                        x => x.ProductId == id && x.IsApproved).ToList()
+                                Product = _productService.GetById(id),
+                                ProductId = id
                             };
+            return PartialView(model);
+        }
+
+        [HttpPost]
+        public ActionResult Review(ProductReviewModel model)
+        {
+            try
+            {
+                var entity = model.ToEntity();
+                _productReviewService.Add(entity);
+                this.SuccessNotification("Thank you for your review. We will email you once it has been approved.");
+            }
+            catch (Exception)
+            {
+
+                this.ErrorNotification("An error has occurred while submitting your review. Please try again later.");
+            }
+            int productId = model.ProductId;
+            model = new ProductReviewModel { Product = _productService.GetById(productId) };
             return PartialView(model);
         }
     }

@@ -1,32 +1,32 @@
-﻿@model ToolDepot.Core.Domain.Products.Product
+﻿@model ToolDepot.Models.Products.ProductModel
 
 @{
-    ViewBag.Title = Model.Name + " | " + Model.Category.CategoryName;
+    ViewBag.Title = Model.Product.Name + " | " + Model.Product.Category.CategoryName;
 }
 <div class="span10 no-margin">
     <section class="margin-bottom">
         <div class="span2">
-            <img src="@Model.Image" class="img-rounded pull-left" alt="@Model.Name"/>
+            <img src="@Model.Product.Image" class="img-rounded pull-left" alt="@Model.Product.Name"/>
         </div>
         <div class="span8">
-            <h1>@Html.DisplayFor(model => model.Name)</h1>
-            Stars and Rating
+            <h1>@Html.DisplayFor(model => model.Product.Name)</h1>
+            @Model.OverallRating
         </div>
         <div class="clearfix"></div>
     </section>
     <p class="margin-bottom">
-        @Html.DisplayFor(model => model.Description)
+        @Html.DisplayFor(model => model.Product.Description)
     </p>
 
     <ul class="nav nav-tabs margin-top" id="descriptionTags">
-        @if (Model.ProductSpecs.Any())
+        @if (Model.Product.ProductSpecs.Any())
         {
             <li>
                 <a href="#specs">Specifications
                 </a>
             </li>
         }
-        @if (Model.ProductFeatures.Any())
+        @if (Model.Product.ProductFeatures.Any())
         {
             <li>
                 <a href="#features">Features
@@ -35,11 +35,11 @@
         }
     </ul>
     <div class="tab-content margin-bottom" id="tabContent">
-        @if (Model.ProductSpecs.Any())
+        @if (Model.Product.ProductSpecs.Any())
         {
             <div class="tab-pane" id="specs">
                 <table class="table table-striped">
-                    @foreach (var item in Model.ProductSpecs)
+                    @foreach (var item in Model.Product.ProductSpecs)
                     {
                         <tr>
                             <td>
@@ -53,11 +53,11 @@
                 </table>
             </div>
         }
-        @if (Model.ProductFeatures.Any())
+        @if (Model.Product.ProductFeatures.Any())
         {
             <div class="tab-pane" id="features">
                 <ul>
-                    @foreach (var item in Model.ProductFeatures)
+                    @foreach (var item in Model.Product.ProductFeatures)
                     {
                         <li>
                             @item.Feature
@@ -67,16 +67,31 @@
             </div>
         }
     </div>
-    @Html.Action("Review", Model.Id)
+    <div>
+        <div style="border-bottom: 1px solid #ccc; padding-bottom: 5px">
+            <a href="#ReviewModal" data-toggle="modal" role="button" class="btn btn-primary">Write a Review</a>
+        </div>
+        @if (Model.Product.ProductReviews.Any())
+        {
+            foreach (var review in Model.Product.ProductReviews)
+            {
+            <div>
+                @review.UserName
+            </div>
+            }
+        }
+    </div>
+    @Html.Action("Review", Model.Product.Id)
+    
 </div>
 <div class="span2 related-products">
     <div class="related-title">
         <h4 class="no-margin">Customers also viewed...</h4>
     </div>
     <div>
-        @foreach (var item in @Model.Category.Products.SkipWhile(x => x.Id == Model.Id).Take(4))
+        @foreach (var item in @Model.Product.Category.Products.SkipWhile(x => x.Id == Model.Product.Id).Take(4))
         {
-            if (item.Id != Model.Id)
+            if (item.Id != Model.Product.Id)
             {
             <div class="margin-10 padding-10">
 
