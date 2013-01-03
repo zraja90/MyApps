@@ -26,7 +26,7 @@ namespace ToolDepot.Areas.Admin.Controllers
 
            var folder = new DirectoryInfo(path);
            FileInfo[] images = folder.GetFiles();
-
+           
            string[] sizes = { "B", "KB", "MB", "GB" };
            
 
@@ -49,6 +49,7 @@ namespace ToolDepot.Areas.Admin.Controllers
                                       ImageUrl = images[i].DirectoryName 
                                   };
                    model.Add(item);
+                   
                }
            }
            
