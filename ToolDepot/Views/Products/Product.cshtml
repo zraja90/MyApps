@@ -3,78 +3,100 @@
 @{
     ViewBag.Title = Model.Name + " | " + Model.Category.CategoryName;
 }
-<section class="margin-bottom">
-    <div class="span2">
-        <img src="@Model.Image" class="img-rounded pull-left" alt="@Model.Name"/>
-    </div>
-    <div class="span8">
-        <h1>@Html.DisplayFor(model => model.Name)</h1>
-        Stars and Rating
-    </div>
-    <div class="clearfix"></div>
-</section>
-
-<p class="margin-bottom">
-    @Html.DisplayFor(model => model.Description)
-</p>
-
-<ul class="nav nav-tabs margin-top" id="descriptionTags">
-    @if (Model.ProductSpecs.Any())
-    {
-        <li>
-            <a href="#specs">Specifications
-            </a>
-        </li>
-    }
-    @if (Model.ProductFeatures.Any())
-    {
-        <li>
-            <a href="#features">Features
-            </a>
-        </li>
-    }
-</ul>
-<div class="tab-content margin-bottom" id="tabContent">
-    @if (Model.ProductSpecs.Any())
-    {
-        <div class="tab-pane" id="specs">
-            <table class="table table-striped" width="500">
-                @foreach (var item in Model.ProductSpecs)
-                {
-                    <tr>
-                        <td>
-                            @item.SpecType
-                        </td>
-                        <td>
-                            @item.SpecName
-                        </td>
-                    </tr>
-                }
-            </table>
+<div class="span10 no-margin">
+    <section class="margin-bottom">
+        <div class="span2">
+            <img src="@Model.Image" class="img-rounded pull-left" alt="@Model.Name"/>
         </div>
-    }
-    @if (Model.ProductFeatures.Any())
-    {
-        <div class="tab-pane" id="features">
-            <ul>
-                @foreach (var item in Model.ProductFeatures)
-                {
-                    <li>
-                        @item.Feature
-                    </li>
-                }
-            </ul>
+        <div class="span8">
+            <h1>@Html.DisplayFor(model => model.Name)</h1>
+            Stars and Rating
         </div>
-    }
+        <div class="clearfix"></div>
+    </section>
+    <p class="margin-bottom">
+        @Html.DisplayFor(model => model.Description)
+    </p>
+
+    <ul class="nav nav-tabs margin-top" id="descriptionTags">
+        @if (Model.ProductSpecs.Any())
+        {
+            <li>
+                <a href="#specs">Specifications
+                </a>
+            </li>
+        }
+        @if (Model.ProductFeatures.Any())
+        {
+            <li>
+                <a href="#features">Features
+                </a>
+            </li>
+        }
+    </ul>
+    <div class="tab-content margin-bottom" id="tabContent">
+        @if (Model.ProductSpecs.Any())
+        {
+            <div class="tab-pane" id="specs">
+                <table class="table table-striped">
+                    @foreach (var item in Model.ProductSpecs)
+                    {
+                        <tr>
+                            <td>
+                                @item.SpecType
+                            </td>
+                            <td>
+                                @item.SpecName
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+        @if (Model.ProductFeatures.Any())
+        {
+            <div class="tab-pane" id="features">
+                <ul>
+                    @foreach (var item in Model.ProductFeatures)
+                    {
+                        <li>
+                            @item.Feature
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+    Review Form
 </div>
+<div class="span2" style="border: 1px solid #ccc;">
+    <div style="background-color: #ccc; padding: 10px">
+        <h4 class="no-margin">Customers also viewed...</h4>
+    </div>
+    <div style="">
+        @foreach (var item in @Model.Category.Products.SkipWhile(x => x.Id == Model.Id).Take(4))
+        {
+            if (item.Id != Model.Id)
+            {
+            <div style="margin: 10px; padding: 10px">
 
-Somehow get related Products
-also get review forms
-
-
+                <div style="margin-bottom: 5px">
+                    <a href="/Products/Product/@item.Id">
+                        <img alt="@item.Name" src="/Content/images/Products/@item.Image" style="height: 100px;"/>
+                    </a>
+                </div>
+                <div>
+                    <a href="/Products/Product/@item.Id">
+                        @item.Name
+                    </a>
+                </div>
+            </div>
+            }
+        }
+    </div>
+</div>
 <script>
     $(function () {
-
         $('#descriptionTags a').click(function (e) {
             e.preventDefault();
 
