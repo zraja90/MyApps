@@ -90,31 +90,32 @@
             {
                 if (review.IsApproved)
                 {
-                    <div style="border-top: 2px solid #ccc; padding: 10px">
-                        <div class="margin-bottom">
-                            <div class="span3">
-                                <div class="individual-rating pull-left margin-right-5" data-rating="@review.Rating"></div> 
-                                <div class="pull-left">@review.Rating/5</div> 
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="span7">@review.ReviewTitle</div>
-                            <div class="span2 align-right">@review.CreatedDate.ToString("MMMM dd,yyyy")</div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div>
-                            @review.UserName from @review.Location
-                        </div>
-                        <div class="margin-top">
-                            @review.Review
-                        </div>
-                        <div class="margin-top">
-                            @if (review.Recommend)
-                            {
-                                <div>
-                                    <img src="/Content/images/recommended.png" alt="Recommended"/>
-                                </div>
-                            }                </div>
+            <div style="border-top: 2px solid #ccc; padding: 10px">
+                <div class="margin-bottom">
+                    <div class="span3">
+                        <div class="individual-rating pull-left margin-right-5" data-rating="@review.Rating"></div>
+                        <div class="pull-left">@review.Rating/5</div>
+                        <div class="clearfix"></div>
                     </div>
+                    <div class="span7">@review.ReviewTitle</div>
+                    <div class="span2 align-right">@review.CreatedDate.ToString("MMMM dd,yyyy")</div>
+                    <div class="clearfix"></div>
+                </div>
+                <div>
+                    @review.UserName from @review.Location
+                </div>
+                <div class="margin-top">
+                    @review.Review
+                </div>
+                <div class="margin-top">
+                    @if (review.Recommend)
+                    {
+                        <div>
+                            <img src="/Content/images/recommended.png" alt="Recommended" />
+                        </div>
+                    }
+                </div>
+            </div>
                 }
             }
         }
