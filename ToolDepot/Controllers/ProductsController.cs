@@ -89,13 +89,19 @@ namespace ToolDepot.Controllers
         {
             var model = new ProductModel { Product = _productService.GetById(id) };
             double count = 0;
+            var recommendCount = 0;
+            var recommendPercentage = "0";
             model.TotalReviews = model.Product.ProductReviews.Count;
             if (model.TotalReviews > 0)
             {
                 count = (model.Product.ProductReviews.Sum(review => review.Rating) / (model.Product.ProductReviews.Count));
+                recommendCount = model.Product.ProductReviews.Count(review => review.Recommend);
+                recommendPercentage =string.Format("{0:P0}", recommendCount / model.TotalReviews);
             }
-
+            
+            model.OverallRecommend = recommendCount;
             model.OverallRating = count;
+            model.RecommendPercentage = recommendPercentage;
             return View(model);
         }
 

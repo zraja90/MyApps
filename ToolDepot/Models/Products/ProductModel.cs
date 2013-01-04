@@ -12,6 +12,6 @@ namespace ToolDepot.Models.Products
         public double OverallRating { get; set; }
         public int OverallRecommend { get; set; }
         public int TotalReviews { get; set; }
-        public decimal RecommendPercentage { get; set; }
+        public string RecommendPercentage { get; set; }
     }
 }
