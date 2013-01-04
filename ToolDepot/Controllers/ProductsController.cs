@@ -88,7 +88,12 @@ namespace ToolDepot.Controllers
         public ActionResult Product(int id = 0)
         {
             var model = new ProductModel { Product = _productService.GetById(id) };
-            double count = (model.Product.ProductReviews.Sum(review => review.Rating) / (model.Product.ProductReviews.Count));
+            double count = 0;
+            model.TotalReviews = model.Product.ProductReviews.Count;
+            if (model.TotalReviews > 0)
+            {
+                count = (model.Product.ProductReviews.Sum(review => review.Rating) / (model.Product.ProductReviews.Count));
+            }
 
             model.OverallRating = count;
             return View(model);
@@ -145,16 +150,33 @@ namespace ToolDepot.Controllers
         [HttpPost]
         public ActionResult Review(ProductReviewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                var entity = model.ToEntity();
-                _productReviewService.Add(entity);
-                this.SuccessNotification("Thank you for your review. We will email you once it has been approved.");
-            }
-            catch (Exception)
-            {
+                var product = _productService.GetById(model.ProductId);
+                model.Product = product;
+                try
+                {
+                    var review =
+                        _productReviewService.Get(x => model.ProductId == x.ProductId && (x.EmailAddress == model.EmailAddress || x.UserName == model.UserName));
+                    if (review == null)
+                    {
+                        var entity = model.ToEntity();
+                        _productReviewService.Add(entity);
+                        this.SuccessNotification("Thank you for your review. We will email you once it has been approved.");
+                    }
+                    else
+                    {
+                        this.ErrorNotification(review.EmailAddress == model.EmailAddress
+                                                   ? "The email address entered is already in use. Please use another email address"
+                                                   : "The username entered is already in use. Please use another username");
+                        return PartialView(model);
+                    }
+                }
+                catch (Exception)
+                {
 
-                this.ErrorNotification("An error has occurred while submitting your review. Please try again later.");
+                    this.ErrorNotification("An error has occurred while submitting your review. Please try again later.");
+                }
             }
             int productId = model.ProductId;
             model = new ProductReviewModel { Product = _productService.GetById(productId) };

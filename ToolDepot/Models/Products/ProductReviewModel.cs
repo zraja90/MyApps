@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -25,14 +26,18 @@ namespace ToolDepot.Models.Products
         public string Location { get; set; }
         
         [Required]
-        public int Rating { get; set; }
+        public double Rating { get; set; }
+        
         
         [Required]
+        [DisplayName("Review Summary")]
         public string ReviewTitle { get; set; }
         
         [Required]
+        [DisplayName("Your Review")]
         public string Review { get; set; }
         
+        [DisplayName("Would you recommend this?")]
         public bool Recommend { get; set; }
 
         public bool IsApproved { get; set; }

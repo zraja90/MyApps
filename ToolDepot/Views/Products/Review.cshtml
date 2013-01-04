@@ -1,5 +1,5 @@
 ﻿@model ToolDepot.Models.Products.ProductReviewModel
-<div class="modal hide fade" id="ReviewModal" data-backdrop="static">
+<div class="modal hide fade" id="ReviewModal" data-backdrop="static" style="width: 860px; left: 40%">
 
     @using (Html.BeginForm())
     {
@@ -20,7 +20,7 @@
                 <div class="control-group">
                     @Html.LabelFor(model => model.EmailAddress, new { Class = "control-label" })
                     <div class="controls">
-                        @Html.EditorFor(model => model.EmailAddress)
+                        @Html.TextBoxFor(model => model.EmailAddress, new { type = "email" })
                         @Html.ValidationMessageFor(model => model.EmailAddress)
                     </div>
                 </div>
@@ -34,7 +34,9 @@
                 <div class="control-group">
                     @Html.LabelFor(model => model.Rating, new { Class = "control-label" })
                     <div class="controls">
-                        @Html.EditorFor(model => model.Rating)
+                        <div id="productRating" class="pull-left margin-right-10"></div>
+                        <div id="hint" class="pull-left"></div>
+                        <div class="clearfix"></div>
                         @Html.ValidationMessageFor(model => model.Rating)
                     </div>
                 </div>
@@ -48,18 +50,20 @@
                 <div class="control-group">
                     @Html.LabelFor(model => model.Review, new { Class = "control-label" })
                     <div class="controls">
-                        @Html.EditorFor(model => model.Review)
+                        @Html.TextAreaFor(model => model.Review, new { Class = "contactbox" })
                         @Html.ValidationMessageFor(model => model.Review)
                     </div>
                 </div>
                 <div class="control-group">
                     @Html.LabelFor(model => model.Recommend, new { Class = "control-label" })
                     <div class="controls">
-                        @Html.EditorFor(model => model.Recommend)
+                        <label class="checkbox">
+                            @Html.CheckBoxFor(model => model.Recommend) Yes
                         @Html.ValidationMessageFor(model => model.Recommend)
+                        </label>
                     </div>
                 </div>
-                @Html.HiddenFor(x=>x.ProductId)
+                @Html.HiddenFor(x => x.ProductId)
             </div>
         </div>
         <div class="modal-footer">
@@ -67,3 +71,17 @@
         </div>
     }
 </div>
+
+<script>
+    $(function () {
+        $('#productRating').raty({
+            size: 24,
+            half: true,
+            scoreName: "Rating",
+            target: '#hint',
+            targetFormat: '{score}',
+            targetText: '',
+            targetKeep: true
+        });
+    });
+</script>

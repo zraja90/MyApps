@@ -449,9 +449,11 @@
     <Content Include="Content\bootstrap\accordion.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Content\bootstrap\bootstrap-blue.less" />
-    <Content Include="Content\css\images\bg_jRatingInfos.png" />
-    <Content Include="Content\css\images\small.png" />
-    <Content Include="Content\css\images\stars.png" />
+    <Content Include="Content\css\images\cancel-off-big.png" />
+    <Content Include="Content\css\images\cancel-on-big.png" />
+    <Content Include="Content\css\images\star-half-big.png" />
+    <Content Include="Content\css\images\star-off-big.png" />
+    <Content Include="Content\css\images\star-on-big.png" />
     <Content Include="Content\css\jRating.jquery.css" />
     <Content Include="Content\FileUpload\bootstrap-image-gallery.min.css" />
     <Content Include="Content\bootstrap\bootstrap-red.less" />
