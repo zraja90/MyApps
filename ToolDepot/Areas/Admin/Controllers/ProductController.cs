@@ -26,14 +26,16 @@ namespace ToolDepot.Areas.Admin.Controllers
         private readonly IProductSpecsService _productSpecsService;
         private readonly IProductFeaturesService _productFeaturesService;
         private readonly IBrochureService _brochureService;
+        private readonly IProductReviewService _reviewService;
 
-        public ProductController(IProductCategoryService productCategoryService, IProductService productService, IProductSpecsService productSpecsService, IProductFeaturesService productFeaturesService, IBrochureService brochureService)
+        public ProductController(IProductCategoryService productCategoryService, IProductService productService, IProductSpecsService productSpecsService, IProductFeaturesService productFeaturesService, IBrochureService brochureService,IProductReviewService reviewService)
         {
             _productCategoryService = productCategoryService;
             _productService = productService;
             _productSpecsService = productSpecsService;
             _productFeaturesService = productFeaturesService;
             _brochureService = brochureService;
+            _reviewService = reviewService;
         }
 
         public ActionResult Index()
@@ -239,6 +241,17 @@ namespace ToolDepot.Areas.Admin.Controllers
                                 Brochures = _brochureService.GetAll().ToList(),
                                 Photo = new UploadImageModel()
                             };
+            return View(model);
+        }
+
+        public ActionResult ApproveReviews()
+        {
+            var model = new ApproveReviewModel { Reviews = _reviewService.GetAll().ToList() };
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult ApproveReviews(ApproveReviewModel model)
+        {
             return View(model);
         }
     }

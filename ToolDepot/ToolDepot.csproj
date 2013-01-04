@@ -197,6 +197,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Models\AllProductsListModel.cs" />
+    <Compile Include="Areas\Admin\Models\Products\ApproveReviewModel.cs" />
     <Compile Include="Areas\Admin\Models\Products\BrochureModel\ManageBrochureModel.cs" />
     <Compile Include="Areas\Admin\Models\Products\CreateCategoryModel.cs" />
     <Compile Include="Areas\Admin\Models\Products\CreateProductModel.cs" />
@@ -648,6 +649,7 @@
     <Content Include="Areas\Admin\Views\Product\ManageBrochure.cshtml" />
     <Content Include="Areas\Admin\Views\UploadFiles\Index.cshtml" />
     <Content Include="Areas\Admin\Views\UploadFiles\AllPictures.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ApproveReviews.cshtml" />
     <None Include="Properties\PublishProfiles\tooldepot - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepot - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\tooldepotinc.com - FTP.pubxml" />
