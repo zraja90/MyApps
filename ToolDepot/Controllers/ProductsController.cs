@@ -91,8 +91,7 @@ namespace ToolDepot.Controllers
             double count = 0;
             int totalCount = 0;
             var recommendCount = 0;
-            var recommendPercentage = "0";
-            
+
             if (model.Product.ProductReviews.Count > 0)
             {
                 foreach (var review in model.Product.ProductReviews)
@@ -109,7 +108,7 @@ namespace ToolDepot.Controllers
                 }
             }
             model.TotalReviews = totalCount;
-            recommendPercentage = string.Format("{0:P0}", recommendCount / totalCount);
+            var recommendPercentage = string.Format("{0:P0}", recommendCount / totalCount);
             
             model.OverallRecommend = recommendCount;
             model.OverallRating = count / model.Product.ProductReviews.Count(x => x.IsApproved);;
