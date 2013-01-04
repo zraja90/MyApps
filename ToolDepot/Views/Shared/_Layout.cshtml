@@ -40,17 +40,19 @@
     <div id="contentWrap">
         @Html.Action("Header", "Common")
         <div id="mainContainer" class="container-fluid">
+
             <section class="row-fluid">
                 <div class="span12">
+                    <div class="modal hide" id="myRepairApptModal" data-backdrop="static">
+                        @Html.Action("RepairAppt", "Products")
+                    </div>
                     @Html.Partial("_Notifications")
                     @RenderBody()
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>
             </section>
-            <div class="modal hide" id="myRepairApptModal" data-backdrop="static">
-                @Html.Action("RepairAppt", "Products")
-            </div>
+
             <div id="contentPush"></div>
             @Html.Action("Footer", "Common")
         </div>

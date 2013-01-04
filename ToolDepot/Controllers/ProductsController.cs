@@ -49,8 +49,6 @@ namespace ToolDepot.Controllers
         public ActionResult Category(int id = 0)
         {
             var model = new CategoryWithProductsModel { Category = _productCategoryService.GetById(id) };
-
-
             return View(model);
         }
 
@@ -108,7 +106,12 @@ namespace ToolDepot.Controllers
                 }
             }
             model.TotalReviews = totalCount;
-            var recommendPercentage = string.Format("{0:P0}", recommendCount / totalCount);
+
+            var recommendPercentage = string.Empty;
+            if (totalCount > 0)
+            {
+                recommendPercentage = string.Format("{0:P0}", recommendCount / totalCount);
+            }
             
             model.OverallRecommend = recommendCount;
             model.OverallRating = count / model.Product.ProductReviews.Count(x => x.IsApproved);;
