@@ -88,18 +88,26 @@
             
             foreach (var review in Model.Product.ProductReviews)
             {
-                <div style="border-top: 2px solid #ccc; padding: 10px">
-                    @review.UserName
-                    <div class="individual-rating"></div>
+            <div style="border-top: 2px solid #ccc; padding: 10px">
+                <div class="margin-bottom">
+                    <div class="individual-rating pull-left margin-right-10" data-rating="@review.Rating"></div>
+                    <div class="pull-left">@review.ReviewTitle</div>
+                    <div class="pull-right">@review.CreatedDate.ToString("MMMM dd,yyyy")</div>
+                    <div class="clearfix"></div>
                 </div>
-             <script>
-                 $('.individual-rating').raty({
-                     readOnly: true,
-                     half: true,
-                     score: "@review.Rating",
-                size: 24,
-                });
-            </script>
+                <div>
+                    @review.UserName from @review.Location
+                </div>
+                <div class="margin-top">
+                    @review.Review
+                </div>
+                <div class="margin-top">
+                    @review.Recommend
+                </div>
+
+
+            </div>
+             
             }
         }
     </div>
@@ -148,15 +156,23 @@
             half: true,
             score: "@Model.OverallRating",
             size: 24,
-
         });
         $('#staticRating').raty({
             readOnly: true,
             half: true,
             score: "@Model.OverallRating",
             size: 24,
-
         });
+        debugger;
+        var rating = $('.individual-rating').attr('data-rating');
+        $('.individual-rating').each((this).raty({
+            readOnly: true,
+            half: true,
+            score: $(this).attr('data-rating'),
+            size: 24,
+        })
+    );
+
 
     });
 </script>
