@@ -515,6 +515,7 @@
     <Content Include="Content\css\site.min.css">
       <DependentUpon>site.less</DependentUpon>
     </Content>
+    <Content Include="Content\images\recommended.png" />
     <Content Include="Scripts\FileUpload\bootstrap-image-gallery.min.js" />
     <Content Include="Scripts\FileUpload\canvas-to-blob.min.js" />
     <Content Include="Scripts\FileUpload\jquery.fileupload-ip.js" />
