@@ -1,9 +1,11 @@
-﻿@using ToolDepot.Helpers.Extensions
-@model ToolDepot.Models.Products.CategoryWithProductsModel
+﻿@model ToolDepot.Models.Products.CategoryWithProductsModel
 
 @{
     ViewBag.Title = Model.Category.CategoryName;
 }
+<div class="margin-bottom-10">
+    @Html.ActionLink("Back to All Categories", "AllCategories")
+</div>
 <h1>Viewing Products in @Model.Category.CategoryName</h1>
 
 @foreach (var item in Model.Category.Products)

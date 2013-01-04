@@ -4,6 +4,9 @@
     ViewBag.Title = Model.Product.Name + " | " + Model.Product.Category.CategoryName;
 }
 <link rel="stylesheet" href="/Content/css/jRating.jquery.css" />
+<div class="margin-bottom-10">
+    @Html.ActionLink("Back to " + Model.Product.Category.CategoryName, "Category", new { id = Model.Product.CategoryId })
+</div>
 <div class="span10 no-margin">
     <section class="margin-bottom">
         <div class="span2">
@@ -172,7 +175,7 @@
             score: "@Model.OverallRating",
             size: 24,
         });
-        
+
         var rating = $('.individual-rating').attr('data-rating');
         $('.individual-rating').each(function () {
             $(this).raty(
