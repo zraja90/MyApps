@@ -28,7 +28,7 @@ namespace ToolDepot.Areas.Admin.Controllers
         private readonly IBrochureService _brochureService;
         private readonly IProductReviewService _reviewService;
 
-        public ProductController(IProductCategoryService productCategoryService, IProductService productService, IProductSpecsService productSpecsService, IProductFeaturesService productFeaturesService, IBrochureService brochureService,IProductReviewService reviewService)
+        public ProductController(IProductCategoryService productCategoryService, IProductService productService, IProductSpecsService productSpecsService, IProductFeaturesService productFeaturesService, IBrochureService brochureService, IProductReviewService reviewService)
         {
             _productCategoryService = productCategoryService;
             _productService = productService;
@@ -232,7 +232,7 @@ namespace ToolDepot.Areas.Admin.Controllers
             return View(model);
         }
 
-     #endregion
+        #endregion
 
         public ActionResult ManageBrochure()
         {
@@ -249,11 +249,25 @@ namespace ToolDepot.Areas.Admin.Controllers
             var model = new ApproveReviewModel { Reviews = _reviewService.GetAll().ToList() };
             return View(model);
         }
-        [HttpPost]
-        public ActionResult ApproveReviews(ApproveReviewModel model)
+
+        public ActionResult ViewSingleReview(int id=0)
         {
+            var model = new ViewReviewModel {Reviews = _reviewService.GetById(id)};
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult ViewSingleReview(ViewReviewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var entity = _reviewService.GetById(model.Reviews.Id);
+                entity.IsApproved = true;
+                _reviewService.Update(entity);
+            }
+            return RedirectToAction("ApproveReviews");
+        }
+        
     }
 
 
